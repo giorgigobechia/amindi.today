@@ -1,7 +1,8 @@
-import "../../app/globals.css";
+import "../../../src/common/styles/globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { useLocale } from "next-intl";
+import Sidebar from "@/common/components/__organisms/Sidebar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,8 +17,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang={locale}>
       <body className={inter.className}>
-        <div>
-          <div className="w-6 h-screen bg-red-600"></div>
+        <div className="w-screen h-screen p-6 flex">
+          <Sidebar />
           {children}
         </div>
       </body>
