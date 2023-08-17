@@ -7,13 +7,16 @@ import ZodiacIcon from "@/common/icons/zodiacIcon";
 import MobileIcon from "@/common/icons/mobileIcon";
 import BellIcon from "@/common/icons/bellIcon";
 import SettingIcon from "@/common/icons/settingIcon";
+import GrayGradient from "@/common/icons/grayGradient";
 
 const Sidebar = () => {
   const [activePage, setActivePage] = useState<string>("main");
   return (
-    <aside className="w-[120px] h-full flex flex-col items-center justify-between bg-[#0000000D] rounded-[34px] p-[80px_0_40px]">
+    <aside className="w-[120px] h-full flex flex-col items-center justify-between bg-[#cea9a927] rounded-[34px] p-[80px_0_40px] relative overflow-hidden">
       <div className="w-full flex flex-col gap-[25px]">
-        <p className="w-full border-b border-b-[#0000004D] text-center pb-[10px]">amindi.today</p>
+        <p className="w-full border-b border-b-[#0000004D] text-center pb-[10px]">
+          amindi
+        </p>
         <div className="w-full flex flex-col gap-2">
           <SidebarItem
             Icon={<MainIcon width={32} height={32} />}
@@ -42,7 +45,21 @@ const Sidebar = () => {
           />
         </div>
       </div>
-      <SettingIcon width={32} height={32} />
+      <SettingIcon width={32} height={32} className="cursor-pointer" />
+      <div
+        className="absolute w-full h-full -z-10 "
+        style={{ backdropFilter: "blur(14px)" }}
+      ></div>
+      <div
+        className="absolute w-full h-full -z-20"
+        style={{ backdropFilter: "blur(14px)" }}
+      >
+        <GrayGradient
+          height={600}
+          width={500}
+          className="absolute bottom-[-100px] left-[-60px] "
+        />
+      </div>
     </aside>
   );
 };
