@@ -1,7 +1,7 @@
 import React from "react";
 import { IconProps } from "./IconTypes";
 
-const SunIcon = ({ width, height }: IconProps) => {
+const SunIcon = ({ width, height, className }: IconProps) => {
   return (
     <svg
       width={width}
@@ -9,6 +9,7 @@ const SunIcon = ({ width, height }: IconProps) => {
       viewBox="0 0 195 195"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <path
         fill-rule="evenodd"

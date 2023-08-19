@@ -35,7 +35,7 @@ const WeatherToday = () => {
         </button>
       </div>
       <div className=" py-[3vh] flex w-full items-center border-b-2 border-b-gray-400 gap-[4%]">
-        <SunIcon width={195} height={195} />
+        <SunIcon width={0} height={0} className="w-[40%] h-[20vh]" />
         <div className="w-[40%]">
           <h3 className="text-[54px] leading-tight">
             +18<sup>o</sup>

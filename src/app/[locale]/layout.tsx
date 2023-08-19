@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang={locale}>
       <body className={`${inter.className} bg-[#F6F6F6]`}>
-        <div className="w-screen h-screen p-6 flex gap-[2vw]">
+        <div className="w-screen h-screen p-6 flex gap-[1.5vw]">
           <Sidebar />
           {children}
         </div>
