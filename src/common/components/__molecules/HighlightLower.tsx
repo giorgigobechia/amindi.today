@@ -16,30 +16,30 @@ interface Props {
 
 const HighlightLower = ({ props, type }: Props) => {
   return (
-    <article className="rounded-[18px] bg-[#ffffff4d] p-5 flex justify-between">
-      <div className="flex flex-col gap-5">
+    <article className="rounded-[18px] bg-[#ffffff4d] sm:p-4 md:p-3  xxl:p-5 flex justify-between">
+      <div className="flex flex-col md:gap-2 xxl:gap-5">
         <h6 className="text-[#000000CC] text-sm">{props.dataType}</h6>
         <div
           className={`${type === "feelsLike" ? "flex items-center gap-1" : ""}`}
         >
           {type === "feelsLike" ? <TempIcon width={15} height={29} /> : ""}
           <p
-            className={`text-[40px] font-medium flex ${
+            className={`sm:text-[32px] md:text-[26px] lg:text-[26px] xl:text-[28px] xxl:text-[40px] font-medium flex ${
               type === "feelsLike" ? "" : "items-end"
             } leading-10`}
           >
             {props.number}{" "}
             {type === "humidity" ? (
-              <span className="text-base">%</span>
+              <span className="text-sm ">%</span>
             ) : type === "visibility" ? (
-              <span className="text-base">km</span>
+              <span className="text-sm">km</span>
             ) : (
-              <span className="text-sm">o</span>
+              <span className="md:text-sm">o</span>
             )}
           </p>
         </div>
       </div>
-      <div className="w-[38%] pt-5 flex flex-col justify-between">
+      <div className="md:w-[50%] lg:w-[50%] xxl:w-[38%]  md:pt-2  xxl:pt-4 flex flex-col justify-between">
         {type === "humidity" ? (
           <DropIcon width={27} height={27} />
         ) : type === "visibility" ? (

@@ -31,9 +31,9 @@ const Sunrise = {
 
 const TodaysHiglights = () => {
   return (
-    <section className="px-7 py-5 rounded-[34px] bg-[#cea9a927] w-[70%] relative overflow-hidden flex flex-col gap-2">
+    <section className="md:px-4 md:py-4 xxl:px-7 xxl:py-5 xxl:rounded-[34px] md:rounded-[26px] bg-[#cea9a927] w-[70%] relative overflow-hidden flex flex-col gap-2">
       <div
-        className="absolute w-full h-full -z-10 "
+        className="absolute w-full h-full -z-10"
         style={{ backdropFilter: "blur(14px)" }}
       ></div>
       <div className="absolute w-full h-full -z-20">
@@ -43,20 +43,17 @@ const TodaysHiglights = () => {
           className="absolute left-[-300px] bottom-[-350px] rotate-45"
         />
       </div>
-      <h5 className="text-lg font-medium">Today’s Highlight</h5>
-      <div className="flex gap-7 flex-1">
-        <div className="flex flex-col gap-4 flex-1">
-          <HighlightUpper props={windStatus} type="windStatus" />
-          <HighlightLower props={humidity} type="humidity" />
-        </div>
-        <div className="flex flex-col gap-4 flex-1">
-          <HighlightUpper props={uvIndex} type="uvIndex" />
-          <HighlightLower props={visibility} type="visibility" />
-        </div>
-        <div className="flex flex-col gap-4 flex-1">
-          <HighlightUpper props={Sunrise} type="Sunrise" />
-          <HighlightLower props={feelsLike} type="feelsLike" />
-        </div>
+      <h5 className=" md:text-base xxl:text-lg font-medium">
+        Today’s Highlight
+      </h5>
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 xxl:grid-cols-3">
+        <HighlightUpper props={windStatus} type="windStatus" />
+        <HighlightUpper props={uvIndex} type="uvIndex" />
+        <HighlightUpper props={Sunrise} type="Sunrise" />
+
+        <HighlightLower props={humidity} type="humidity" />
+        <HighlightLower props={visibility} type="visibility" />
+        <HighlightLower props={feelsLike} type="feelsLike" />
       </div>
     </section>
   );

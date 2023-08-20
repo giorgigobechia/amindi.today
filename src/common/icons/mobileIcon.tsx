@@ -1,7 +1,7 @@
 import React from "react";
 import { IconProps } from "./IconTypes";
 
-const MobileIcon = ({ width, height }: IconProps) => {
+const MobileIcon = ({ width, height, className }: IconProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -9,6 +9,7 @@ const MobileIcon = ({ width, height }: IconProps) => {
       height={height}
       viewBox="0 0 27 35"
       fill="none"
+      className={className}
     >
       <path
         d="M26 9.25V25.75C26 32.35 24.4375 34 18.1875 34H8.8125C2.5625 34 1 32.35 1 25.75V9.25C1 2.65 2.5625 1 8.8125 1H18.1875C24.4375 1 26 2.65 26 9.25Z"

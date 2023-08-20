@@ -1,7 +1,7 @@
 import React from "react";
 import { IconProps } from "./IconTypes";
 
-const ZodiacIcon = ({ width, height }: IconProps) => {
+const ZodiacIcon = ({ width, height, className }: IconProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -9,6 +9,7 @@ const ZodiacIcon = ({ width, height }: IconProps) => {
       height={height}
       viewBox="0 0 32 32"
       fill="none"
+      className={className}
     >
       <path
         d="M16 4H28V16"

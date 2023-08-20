@@ -1,7 +1,7 @@
 import React from "react";
 import { IconProps } from "./IconTypes";
 
-const SearchIcon = ({ width, height }: IconProps) => {
+const SearchIcon = ({ width, height, className }: IconProps) => {
   return (
     <svg
       width={width}
@@ -9,6 +9,7 @@ const SearchIcon = ({ width, height }: IconProps) => {
       viewBox="0 0 36 36"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <path
         d="M32.031 30.969L26.0174 24.9555C28.0214 22.7025 29.2514 19.746 29.2514 16.5C29.2514 9.4695 23.5319 3.75 16.5014 3.75C9.47093 3.75 3.75143 9.4695 3.75143 16.5C3.75143 23.5305 9.47093 29.25 16.5014 29.25C19.7474 29.25 22.704 28.02 24.957 26.016L30.9704 32.0295C31.1174 32.1765 31.3094 32.2485 31.5014 32.2485C31.6934 32.2485 31.8854 32.175 32.0324 32.0295C32.3234 31.737 32.3235 31.263 32.031 30.969ZM5.24997 16.5C5.24997 10.2975 10.296 5.25 16.5 5.25C22.704 5.25 27.75 10.2975 27.75 16.5C27.75 22.7025 22.704 27.75 16.5 27.75C10.296 27.75 5.24997 22.7025 5.24997 16.5Z"

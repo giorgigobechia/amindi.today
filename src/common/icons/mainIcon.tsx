@@ -1,7 +1,7 @@
 import React from "react";
 import { IconProps } from "./IconTypes";
 
-const MainIcon = ({ width, height }: IconProps) => {
+const MainIcon = ({ width, height, className }: IconProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -9,6 +9,7 @@ const MainIcon = ({ width, height }: IconProps) => {
       height={height}
       viewBox="0 0 32 32"
       fill="none"
+      className={className}
     >
       <path
         d="M29.3333 11.36V5.30669C29.3333 3.42669 28.48 2.66669 26.36 2.66669H20.9733C18.8533 2.66669 18 3.42669 18 5.30669V11.3467C18 13.24 18.8533 13.9867 20.9733 13.9867H26.36C28.48 14 29.3333 13.24 29.3333 11.36Z"
