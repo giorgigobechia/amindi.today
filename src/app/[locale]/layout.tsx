@@ -3,8 +3,38 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { useLocale } from "next-intl";
 import Sidebar from "@/common/components/__organisms/Sidebar";
+import localFont from "@next/font/local";
 
 const inter = Inter({ subsets: ["latin"] });
+const FiraGO = localFont({
+  src: [
+    {
+      path: "../../../public/fonts/FiraGO-UltraLight.ttf",
+      weight: "200",
+    },
+    {
+      path: "../../../public/fonts/FiraGO-Light.ttf",
+      weight: "300",
+    },
+    {
+      path: "../../../public/fonts/FiraGO-Regular.ttf",
+      weight: "400",
+    },
+    {
+      path: "../../../public/fonts/FiraGO-Medium.ttf",
+      weight: "500",
+    },
+    {
+      path: "../../../public/fonts/FiraGO-SemiBold.ttf",
+      weight: "600",
+    },
+    {
+      path: "../../../public/fonts/FiraGO-Bold.ttf",
+      weight: "700",
+    },
+  ],
+  variable: "--font-firago",
+});
 
 export const metadata: Metadata = {
   title: "Amindi",
@@ -20,7 +50,7 @@ export default function RootLayout({
 
   return (
     <html lang={locale}>
-      <body className={`${inter.className} bg-[#F6F6F6]`}>
+      <body className={`${FiraGO.variable} bg-[#F6F6F6]`}>
         <div className="w-screen h-screen md:p-3 xxl:p-6 flex md:gap-3 xxl:gap-6">
           <Sidebar />
           {children}
