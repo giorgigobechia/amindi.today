@@ -1,11 +1,11 @@
 import "../../../src/common/styles/globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { useLocale } from "next-intl";
+// import { NextIntlClientProvider, useLocale } from "next-intl";
 import Sidebar from "@/common/components/__organisms/Sidebar";
 import localFont from "@next/font/local";
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
 const FiraGO = localFont({
   src: [
     {
@@ -46,15 +46,15 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const locale = useLocale();
+  // const locale = useLocale();
 
   return (
-    <html lang={locale}>
+    <html>
       <body className={`${FiraGO.variable} bg-[#F6F6F6]`}>
-        <div className="w-screen h-screen md:p-3 xxl:p-6 flex md:gap-3 xxl:gap-6">
-          <Sidebar />
-          {children}
-        </div>
+          <div className="w-screen h-screen md:p-3 xxl:p-6 flex md:gap-3 xxl:gap-6">
+            <Sidebar />
+            {children}
+          </div>
       </body>
     </html>
   );

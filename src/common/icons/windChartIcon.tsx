@@ -14,7 +14,7 @@ const WindChartIcon = ({ width, height, className }: IconProps) => {
       <path
         d="M1 54.6865C3.29834 53.9494 9.61878 49.7109 16.5138 38.6541C20.7274 31.0985 33.4066 19.3045 50.4144 32.5728L64.779 43.6297C67.4604 45.841 74.0873 48.937 79.1436 43.6297C82.0166 39.5755 91.4398 31.5777 106.149 32.0199C109.022 31.8357 116.147 29.0346 121.663 19.3045C127.217 7.87911 142.003 -9.44333 156.713 12.6704L165.331 25.3859C167.821 29.0715 175.444 34.5631 186.017 27.0444L200.956 19.3045C206.702 15.6189 219.917 11.3436 226.812 23.7273L236.58 44.1825C239.07 47.131 245.659 51.5906 252.094 45.8411L268.757 29.8086C273.162 27.5972 283.466 25.1647 289.442 33.1257L302.083 52.4752C303.615 54.318 307.944 57.4508 313 55.2394"
         stroke="url(#paint0_linear_63_3620)"
-        stroke-width="4"
+        strokeWidth="4"
       />
       <rect
         x="1"
@@ -22,7 +22,7 @@ const WindChartIcon = ({ width, height, className }: IconProps) => {
         width="6"
         height="4"
         fill="black"
-        fill-opacity="0.46"
+        fillOpacity="0.46"
       />
       <rect
         x="18"
@@ -30,7 +30,7 @@ const WindChartIcon = ({ width, height, className }: IconProps) => {
         width="6"
         height="14"
         fill="black"
-        fill-opacity="0.46"
+        fillOpacity="0.46"
       />
       <rect
         x="35"
@@ -38,7 +38,7 @@ const WindChartIcon = ({ width, height, className }: IconProps) => {
         width="6"
         height="6"
         fill="black"
-        fill-opacity="0.46"
+        fillOpacity="0.46"
       />
       <rect
         x="52"
@@ -46,7 +46,7 @@ const WindChartIcon = ({ width, height, className }: IconProps) => {
         width="6"
         height="20"
         fill="black"
-        fill-opacity="0.46"
+        fillOpacity="0.46"
       />
       <rect
         x="69"
@@ -54,7 +54,7 @@ const WindChartIcon = ({ width, height, className }: IconProps) => {
         width="6"
         height="8"
         fill="black"
-        fill-opacity="0.46"
+        fillOpacity="0.46"
       />
       <rect
         x="86"
@@ -62,7 +62,7 @@ const WindChartIcon = ({ width, height, className }: IconProps) => {
         width="6"
         height="11"
         fill="black"
-        fill-opacity="0.46"
+        fillOpacity="0.46"
       />
       <rect
         x="103"
@@ -70,7 +70,7 @@ const WindChartIcon = ({ width, height, className }: IconProps) => {
         width="6"
         height="8"
         fill="black"
-        fill-opacity="0.46"
+        fillOpacity="0.46"
       />
       <rect
         x="120"
@@ -113,7 +113,7 @@ const WindChartIcon = ({ width, height, className }: IconProps) => {
         width="6"
         height="13"
         fill="black"
-        fill-opacity="0.46"
+        fillOpacity="0.46"
       />
       <rect
         x="222"
@@ -121,7 +121,7 @@ const WindChartIcon = ({ width, height, className }: IconProps) => {
         width="6"
         height="19"
         fill="black"
-        fill-opacity="0.46"
+        fillOpacity="0.46"
       />
       <rect
         x="239"
@@ -129,7 +129,7 @@ const WindChartIcon = ({ width, height, className }: IconProps) => {
         width="6"
         height="14"
         fill="black"
-        fill-opacity="0.46"
+        fillOpacity="0.46"
       />
       <rect
         x="256"
@@ -137,7 +137,7 @@ const WindChartIcon = ({ width, height, className }: IconProps) => {
         width="6"
         height="8"
         fill="black"
-        fill-opacity="0.46"
+        fillOpacity="0.46"
       />
       <rect
         x="273"
@@ -145,7 +145,7 @@ const WindChartIcon = ({ width, height, className }: IconProps) => {
         width="6"
         height="14"
         fill="black"
-        fill-opacity="0.46"
+        fillOpacity="0.46"
       />
       <rect
         x="290"
@@ -153,7 +153,7 @@ const WindChartIcon = ({ width, height, className }: IconProps) => {
         width="6"
         height="19"
         fill="black"
-        fill-opacity="0.46"
+        fillOpacity="0.46"
       />
       <rect
         x="307"
@@ -161,7 +161,7 @@ const WindChartIcon = ({ width, height, className }: IconProps) => {
         width="6"
         height="8"
         fill="black"
-        fill-opacity="0.46"
+        fillOpacity="0.46"
       />
       <defs>
         <linearGradient
@@ -172,8 +172,8 @@ const WindChartIcon = ({ width, height, className }: IconProps) => {
           y2="56"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#A7E6F4" />
-          <stop offset="1" stop-color="#262626" stop-opacity="0" />
+          <stop stopColor="#A7E6F4" />
+          <stop offset="1" stopColor="#262626" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_63_3620"
@@ -183,9 +183,9 @@ const WindChartIcon = ({ width, height, className }: IconProps) => {
           y2="117"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.192708" stop-color="#A8E7F5" />
-          <stop offset="0.5625" stop-color="#D9D5D6" />
-          <stop offset="0.921875" stop-color="#A2A2A2" />
+          <stop offset="0.192708" stopColor="#A8E7F5" />
+          <stop offset="0.5625" stopColor="#D9D5D6" />
+          <stop offset="0.921875" stopColor="#A2A2A2" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_63_3620"
@@ -195,9 +195,9 @@ const WindChartIcon = ({ width, height, className }: IconProps) => {
           y2="117"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.192708" stop-color="#A8E7F5" />
-          <stop offset="0.5625" stop-color="#D9D5D6" />
-          <stop offset="0.921875" stop-color="#A2A2A2" />
+          <stop offset="0.192708" stopColor="#A8E7F5" />
+          <stop offset="0.5625" stopColor="#D9D5D6" />
+          <stop offset="0.921875" stopColor="#A2A2A2" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_63_3620"
@@ -207,9 +207,9 @@ const WindChartIcon = ({ width, height, className }: IconProps) => {
           y2="117"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.192708" stop-color="#A8E7F5" />
-          <stop offset="0.5625" stop-color="#D9D5D6" />
-          <stop offset="0.921875" stop-color="#A2A2A2" />
+          <stop offset="0.192708" stopColor="#A8E7F5" />
+          <stop offset="0.5625" stopColor="#D9D5D6" />
+          <stop offset="0.921875" stopColor="#A2A2A2" />
         </linearGradient>
         <linearGradient
           id="paint4_linear_63_3620"
@@ -219,9 +219,9 @@ const WindChartIcon = ({ width, height, className }: IconProps) => {
           y2="117"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.192708" stop-color="#A8E7F5" />
-          <stop offset="0.5625" stop-color="#D9D5D6" />
-          <stop offset="0.921875" stop-color="#A2A2A2" />
+          <stop offset="0.192708" stopColor="#A8E7F5" />
+          <stop offset="0.5625" stopColor="#D9D5D6" />
+          <stop offset="0.921875" stopColor="#A2A2A2" />
         </linearGradient>
         <linearGradient
           id="paint5_linear_63_3620"
@@ -231,9 +231,9 @@ const WindChartIcon = ({ width, height, className }: IconProps) => {
           y2="117"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.192708" stop-color="#A8E7F5" />
-          <stop offset="0.5625" stop-color="#D9D5D6" />
-          <stop offset="0.921875" stop-color="#A2A2A2" />
+          <stop offset="0.192708" stopColor="#A8E7F5" />
+          <stop offset="0.5625" stopColor="#D9D5D6" />
+          <stop offset="0.921875" stopColor="#A2A2A2" />
         </linearGradient>
       </defs>
     </svg>
