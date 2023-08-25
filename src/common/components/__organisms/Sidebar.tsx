@@ -19,6 +19,7 @@ const Sidebar = () => {
         </p>
         <div className="w-full flex flex-col gap-2">
           <SidebarItem
+            href=""
             Icon={
               <MainIcon
                 width={0}
@@ -30,6 +31,7 @@ const Sidebar = () => {
             isClicked={activePage === "main"}
           />
           <SidebarItem
+            href="horoskop"
             Icon={
               <ZodiacIcon
                 width={0}
@@ -41,6 +43,7 @@ const Sidebar = () => {
             isClicked={activePage === "zodiac"}
           />
           <SidebarItem
+            href="notification"
             Icon={
               <MobileIcon
                 width={0}

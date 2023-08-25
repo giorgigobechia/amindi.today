@@ -1,35 +1,35 @@
-import "../../../src/common/styles/globals.css";
+import "../../src/common/styles/globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { useLocale } from "next-intl";
+// import { NextIntlClientProvider, useLocale } from "next-intl";
 import Sidebar from "@/common/components/__organisms/Sidebar";
 import localFont from "@next/font/local";
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
 const FiraGO = localFont({
   src: [
     {
-      path: "../../../public/fonts/FiraGO-UltraLight.ttf",
+      path: "../../public/fonts/FiraGO-UltraLight.ttf",
       weight: "200",
     },
     {
-      path: "../../../public/fonts/FiraGO-Light.ttf",
+      path: "../../public/fonts/FiraGO-Light.ttf",
       weight: "300",
     },
     {
-      path: "../../../public/fonts/FiraGO-Regular.ttf",
+      path: "../../public/fonts/FiraGO-Regular.ttf",
       weight: "400",
     },
     {
-      path: "../../../public/fonts/FiraGO-Medium.ttf",
+      path: "../../public/fonts/FiraGO-Medium.ttf",
       weight: "500",
     },
     {
-      path: "../../../public/fonts/FiraGO-SemiBold.ttf",
+      path: "../../public/fonts/FiraGO-SemiBold.ttf",
       weight: "600",
     },
     {
-      path: "../../../public/fonts/FiraGO-Bold.ttf",
+      path: "../../public/fonts/FiraGO-Bold.ttf",
       weight: "700",
     },
   ],
@@ -46,10 +46,10 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const locale = useLocale();
+  // const locale = useLocale();
 
   return (
-    <html lang={locale}>
+    <html>
       <body className={`${FiraGO.variable} bg-[#F6F6F6]`}>
         <div className="w-screen h-screen md:p-3 xxl:p-6 flex md:gap-3 xxl:gap-6">
           <Sidebar />

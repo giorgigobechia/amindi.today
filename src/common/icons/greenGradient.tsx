@@ -18,7 +18,7 @@ const GreenGradient = ({ width, height, className }: IconProps) => {
         ry="146.908"
         transform="rotate(-30.0301 220.79 175)"
         fill="url(#paint0_radial_21_193)"
-        fill-opacity="0.4"
+        fillOpacity="0.4"
       />
       <defs>
         <radialGradient
@@ -29,8 +29,8 @@ const GreenGradient = ({ width, height, className }: IconProps) => {
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(220.79 175) rotate(90) scale(146.908 239.407)"
         >
-          <stop stop-color="#399EB3" />
-          <stop offset="1" stop-color="#399EB3" stop-opacity="0" />
+          <stop stopColor="#399EB3" />
+          <stop offset="1" stopColor="#399EB3" stopOpacity="0" />
         </radialGradient>
       </defs>
     </svg>
