@@ -1,4 +1,4 @@
-import { useLocale } from "next-intl";
+// import { useLocale } from "next-intl";
 import Link from "next/link";
 import React, { ReactNode } from "react";
 
@@ -10,10 +10,10 @@ interface SidebarItemProps {
 }
 
 const SingelZodiac = ({ Icon, onClick, title, href }: SidebarItemProps) => {
-  const locale = useLocale();
+  // const locale = useLocale();
   return (
     <Link
-      href={`${locale}/${href}`}
+      href={`/${href}`}
       className="flex flex-col md:gap-6 justify-center items-center transition-transform transform-gpu hover:scale-105"
     >
       {Icon}
