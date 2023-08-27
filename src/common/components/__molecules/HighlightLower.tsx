@@ -12,16 +12,19 @@ interface HighlightLowerProps {
 interface Props {
   props: HighlightLowerProps;
   type: string;
+  className: string;
 }
 
-const HighlightLower = ({ props, type }: Props) => {
+const HighlightLower = ({ props, type, className }: Props) => {
   return (
-    <article className="rounded-[18px] bg-[#ffffff4d] sm:p-4 md:p-3  xxl:p-5 flex justify-between">
+    <article
+      className={
+        "rounded-[18px] bg-[#ffffff4d] sm:p-4 md:p-3  xxl:p-5 flex justify-between " + className
+      }
+    >
       <div className="flex flex-col md:gap-2 xxl:gap-5">
         <h6 className="text-[#000000CC] text-sm">{props.dataType}</h6>
-        <div
-          className={`${type === "feelsLike" ? "flex items-center gap-1" : ""}`}
-        >
+        <div className={`${type === "feelsLike" ? "flex items-center gap-1" : ""}`}>
           {type === "feelsLike" ? <TempIcon width={15} height={29} /> : ""}
           <p
             className={`sm:text-[32px] md:text-[26px] lg:text-[26px] xl:text-[28px] xxl:text-[40px] font-medium flex ${

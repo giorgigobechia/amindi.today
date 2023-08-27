@@ -9,11 +9,17 @@ interface HighlightUpperProps {
 interface Props {
   props: HighlightUpperProps;
   type: string;
+  className: string;
 }
 
-const HighlightUpper = ({ props, type }: Props) => {
+const HighlightUpper = ({ props, type, className }: Props) => {
   return (
-    <article className="rounded-[18px] bg-[#ffffff4d] flex-1 flex flex-col justify-between sm:p-4 md:3 xxl:p-5">
+    <article
+      className={
+        "rounded-[18px] bg-[#ffffff4d] flex-1 flex flex-col justify-between sm:p-4 md:3 xxl:p-5 " +
+        className
+      }
+    >
       <h3 className="text-[#000000CC] text-base sm:text-lg md:text-[14px] lg:text-[14px]  xl:text-[16px] xxl:text-[18px]">
         {props.dataType}
       </h3>
@@ -46,27 +52,15 @@ const HighlightUpper = ({ props, type }: Props) => {
         </>
       ) : (
         <>
-          <SunriseIcon
-            width={0}
-            height={0}
-            className="w-full sm:h-[105px] xxl:h-[135px]"
-          />
+          <SunriseIcon width={0} height={0} className="w-full sm:h-[105px] xxl:h-[135px]" />
           <div className="w-full flex items-center justify-between">
             <div className="flex flex-col justify-center">
-              <p className="text-[#FAC32D] text-xs sm:text-[12px] xxl:text-lg">
-                Sunrise
-              </p>
-              <p className=" sm:text-sm xxl:text-base text-[#00000099]">
-                5:30 AM
-              </p>
+              <p className="text-[#FAC32D] text-xs sm:text-[12px] xxl:text-lg">Sunrise</p>
+              <p className=" sm:text-sm xxl:text-base text-[#00000099]">5:30 AM</p>
             </div>
             <div className="flex flex-col justify-center">
-              <p className="text-[#FAC32D] text-xs sm:text-[12px]  xxl:text-lg">
-                Sunset
-              </p>
-              <p className="sm:text-sm xxl:text-base text-[#00000099]">
-                6:40 AM
-              </p>
+              <p className="text-[#FAC32D] text-xs sm:text-[12px]  xxl:text-lg">Sunset</p>
+              <p className="sm:text-sm xxl:text-base text-[#00000099]">6:40 AM</p>
             </div>
           </div>
         </>

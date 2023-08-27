@@ -1,0 +1,16 @@
+WEATHER (ALL ROUTES ARE GET METHOD)
+
+prefix(weather): for example: api/weather/city/hourly -- city should send from front;
+1) api/weather/city/hourly -- 24 hour weather data
+2) api/weather/city/25-days -- 25 days weather data
+3)api/weather/city -- details of current weather
+
+
+prefix(horoskopi): for example: api/horoskopi/horoscope name/love -- horoskopi should send from front;
+current horoscope names are :(/verdzi,/kuro,/tyupebi,/kirchxibi,/lomi,/qalwuli,/saswori,/morieli,/mshvildosani,/txis-rqa,/merwyuli,/tevzebi)
+1) api/horoskopi/[name] -- daily info of selected horoscope
+2) api/horoskopi/[name]/love
+3) api/horoskopi/[name]/finance
+4) api/horoskopi/[name]/general
+5) api/horoskopi/[name]/sexual
+

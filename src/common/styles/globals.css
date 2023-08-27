@@ -11,3 +11,20 @@
 .custom-placeholder::placeholder {
   color: #000;
 }
+.scroll {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.scroll::-webkit-scrollbar {
+  width: 3px;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 8px;
+}
+
+.scroll::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
