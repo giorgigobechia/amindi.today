@@ -5,6 +5,7 @@ import { useTheme } from "next-themes";
 const ThemeSwitcher = () => {
   const [mounted, setMounted] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
+  const currentTheme = resolvedTheme === 'system' ? 'light' : resolvedTheme;
 
   useEffect(() => {
     setMounted(true);
