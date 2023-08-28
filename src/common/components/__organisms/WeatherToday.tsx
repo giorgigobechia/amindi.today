@@ -10,7 +10,7 @@ import React from "react";
 
 const WeatherToday = () => {
   return (
-    <section className="md:p-4 xxl:p-7 flex flex-col justify-between  xxl:rounded-[34px] md:rounded-[26px] bg-[#cea9a927] w-[30%] relative overflow-hidden">
+    <section className="md:p-4 xxl:p-7 flex flex-col justify-between  xxl:rounded-[34px] md:rounded-[26px] bg-[#cea9a927] dark:bg-[#355a716b] w-[30%] relative overflow-hidden">
       <div
         className="absolute w-full h-full -z-10 "
         style={{ backdropFilter: "blur(14px)" }}
