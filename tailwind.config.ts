@@ -2,7 +2,7 @@ import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
-
+  darkMode : 'class',
   theme: {
     screens: {
       'sm': '640px',

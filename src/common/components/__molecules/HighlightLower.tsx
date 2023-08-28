@@ -19,12 +19,17 @@ const HighlightLower = ({ props, type, className }: Props) => {
   return (
     <article
       className={
-        "rounded-[18px] bg-[#ffffff4d] sm:p-4 md:p-3  xxl:p-5 flex justify-between " + className
+        "rounded-[18px] bg-[#ffffff4d] dark:bg-[#0000004D] sm:p-4 md:p-3  xxl:p-5 flex justify-between " +
+        className
       }
     >
       <div className="flex flex-col md:gap-2 xxl:gap-5">
-        <h6 className="text-[#000000CC] text-sm">{props.dataType}</h6>
-        <div className={`${type === "feelsLike" ? "flex items-center gap-1" : ""}`}>
+        <h6 className="text-[#000000CC] text-sm dark:text-[#FFFFFF99]">
+          {props.dataType}
+        </h6>
+        <div
+          className={`${type === "feelsLike" ? "flex items-center gap-1" : ""}`}
+        >
           {type === "feelsLike" ? <TempIcon width={15} height={29} /> : ""}
           <p
             className={`sm:text-[32px] md:text-[26px] lg:text-[26px] xl:text-[28px] xxl:text-[40px] font-medium flex ${
@@ -33,11 +38,11 @@ const HighlightLower = ({ props, type, className }: Props) => {
           >
             {props.number}{" "}
             {type === "humidity" ? (
-              <span className="text-sm ">%</span>
+              <span className="text-sm dark:text-[#FFFFFF99]">%</span>
             ) : type === "visibility" ? (
-              <span className="text-sm">km</span>
+              <span className="text-sm dark:text-[#FFFFFF99]">km</span>
             ) : (
-              <span className="md:text-sm">o</span>
+              <span className="md:text-sm dark:text-[#FFFFFF99]">o</span>
             )}
           </p>
         </div>
@@ -51,7 +56,9 @@ const HighlightLower = ({ props, type, className }: Props) => {
           <div className="w-[27px] h-[27px]"></div>
         )}
 
-        <p className="text-xs text-[#00000099]">{props.title}</p>
+        <p className="text-xs text-[#00000099] dark:text-[#FFFFFF99]">
+          {props.title}
+        </p>
       </div>
     </article>
   );

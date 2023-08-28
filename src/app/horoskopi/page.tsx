@@ -8,7 +8,7 @@ import React from "react";
 
 const Zodiaco = () => {
   return (
-    <section className="md:px-4 md:py-4 xxl:px-7 xxl:py-5 xxl:rounded-[34px] md:rounded-[26px] bg-[#a7aec727] w-full relative overflow-hidden flex flex-col xxl:gap-24 md:gap-16">
+    <section className="md:px-4 md:py-4 xxl:px-7 xxl:py-5 xxl:rounded-[34px] md:rounded-[26px] bg-[#a7aec727] dark:bg-[#355a716b] w-full relative overflow-hidden flex flex-col xxl:gap-24 md:gap-16">
       <div
         className="absolute w-full h-full -z-10 "
         style={{ backdropFilter: "blur(14px)" }}
