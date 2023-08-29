@@ -1,3 +1,4 @@
+"use client";
 import CalendarIcon from "@/common/icons/calendarIcon";
 import EmptyCalendarIcon from "@/common/icons/emptyCalendarIcon";
 import GrayGradient from "@/common/icons/grayGradient";
@@ -6,9 +7,12 @@ import LocationIcon from "@/common/icons/locationIcon";
 import PinkGradient from "@/common/icons/pinkGradient";
 import SearchIcon from "@/common/icons/searchIcon";
 import SunIcon from "@/common/icons/sunIcon";
+import { useTheme } from "next-themes";
 import React from "react";
 
 const WeatherToday = () => {
+  const { resolvedTheme } = useTheme();
+
   return (
     <section className="md:p-4 xxl:p-7 flex flex-col justify-between  xxl:rounded-[34px] md:rounded-[26px] bg-[#cea9a927] dark:bg-[#355a716b] w-[30%] relative overflow-hidden">
       <div
@@ -39,6 +43,7 @@ const WeatherToday = () => {
             width={0}
             height={0}
             className="md:w-[28px] md:h-[28px] xxl:w-[36px] xxl:h-[36px]"
+            stroke={resolvedTheme === "light" ? "black" : "white"}
           />
         </button>
       </div>
@@ -55,10 +60,20 @@ const WeatherToday = () => {
       </div>
       <div className="py-[2vh] flex flex-col gap-2 border-t-2 border-t-gray-400">
         <p className="flex items-center gap-1 xxl:text-base md:text-sm">
-          <LocationIcon width={21} height={21} /> Tbilisi , Georgia
+          <LocationIcon
+            width={21}
+            height={21}
+            stroke={resolvedTheme === "light" ? "black" : "white"}
+          />{" "}
+          Tbilisi , Georgia
         </p>
         <p className="flex items-center gap-1 xxl:text-base md:text-sm">
-          <EmptyCalendarIcon width={21} height={21} /> Monday, September 11
+          <EmptyCalendarIcon
+            width={21}
+            height={21}
+            stroke={resolvedTheme === "light" ? "black" : "white"}
+          />{" "}
+          Monday, September 11
           <span className="pl-2">
             {" "}
             <b className="xxl:text-base md:text-sm">6:30AM</b>

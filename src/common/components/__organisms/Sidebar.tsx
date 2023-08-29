@@ -9,9 +9,11 @@ import BellIcon from "@/common/icons/bellIcon";
 import SettingIcon from "@/common/icons/settingIcon";
 import GrayGradient from "@/common/icons/grayGradient";
 import ThemeSwitcher from "../__atoms/ThemeSwitcher";
+import { useTheme } from "next-themes";
 
 const Sidebar = () => {
   const [activePage, setActivePage] = useState<string>("main");
+  const { resolvedTheme } = useTheme();
   return (
     <aside className="md:w-[80px] xxl:w-[120px] h-full flex flex-col items-center justify-between  bg-[#cea9a927] dark:bg-[#355a716b] xxl:rounded-[34px] md:rounded-[26px] p-[80px_0_40px] relative overflow-hidden">
       <div className="w-full flex flex-col xxl:gap-[25px] md:gap-[20px]">
@@ -26,6 +28,7 @@ const Sidebar = () => {
                 width={0}
                 height={0}
                 className="xxl:w-8 xxl:h-8 md:w-6 md:h-6"
+                stroke={resolvedTheme === "light" ? "black" : "white"}
               />
             }
             onClick={() => setActivePage("main")}
@@ -38,6 +41,7 @@ const Sidebar = () => {
                 width={0}
                 height={0}
                 className="xxl:w-8 xxl:h-8 md:w-6 md:h-6"
+                stroke={resolvedTheme === "light" ? "black" : "white"}
               />
             }
             onClick={() => setActivePage("zodiac")}
@@ -50,6 +54,7 @@ const Sidebar = () => {
                 width={0}
                 height={0}
                 className="xxl:w-[27px] xxl:h-[35px] md:w-[19px] md:h-[27px]"
+                stroke={resolvedTheme === "light" ? "black" : "white"}
               />
             }
             onClick={() => setActivePage("mobile")}
@@ -57,12 +62,15 @@ const Sidebar = () => {
           />
         </div>
       </div>
-      <ThemeSwitcher />
-      <SettingIcon
-        width={0}
-        height={0}
-        className="cursor-pointer xxl:w-8 xxl:h-8 md:w-6 md:h-6"
-      />
+      <div className="flex flex-col gap-3 items-center justify-center">
+        <ThemeSwitcher />
+        <SettingIcon
+          width={0}
+          height={0}
+          className="cursor-pointer xxl:w-8 xxl:h-8 md:w-6 md:h-6"
+          stroke={resolvedTheme === "light" ? "black" : "white"}
+        />
+      </div>
       <div
         className="absolute w-full h-full -z-10 "
         style={{ backdropFilter: "blur(14px)" }}
