@@ -1,6 +1,8 @@
+"use client";
 import DropIcon from "@/common/icons/dropIcon";
 import EyeIcon from "@/common/icons/eyeIcon";
 import TempIcon from "@/common/icons/tempIcon";
+import { useTheme } from "next-themes";
 import React from "react";
 
 interface HighlightLowerProps {
@@ -16,6 +18,8 @@ interface Props {
 }
 
 const HighlightLower = ({ props, type, className }: Props) => {
+  const { resolvedTheme } = useTheme();
+
   return (
     <article
       className={
@@ -30,7 +34,15 @@ const HighlightLower = ({ props, type, className }: Props) => {
         <div
           className={`${type === "feelsLike" ? "flex items-center gap-1" : ""}`}
         >
-          {type === "feelsLike" ? <TempIcon width={15} height={29} /> : ""}
+          {type === "feelsLike" ? (
+            <TempIcon
+              width={15}
+              height={29}
+              stroke={resolvedTheme === "light" ? "black" : "white"}
+            />
+          ) : (
+            ""
+          )}
           <p
             className={`sm:text-[32px] md:text-[26px] lg:text-[26px] xl:text-[28px] xxl:text-[40px] font-medium flex ${
               type === "feelsLike" ? "" : "items-end"
@@ -49,9 +61,17 @@ const HighlightLower = ({ props, type, className }: Props) => {
       </div>
       <div className="md:w-[50%] lg:w-[50%] xxl:w-[38%]  md:pt-2  xxl:pt-4 flex flex-col justify-between">
         {type === "humidity" ? (
-          <DropIcon width={27} height={27} />
+          <DropIcon
+            width={27}
+            height={27}
+            stroke={resolvedTheme === "light" ? "black" : "white"}
+          />
         ) : type === "visibility" ? (
-          <EyeIcon width={27} height={27} />
+          <EyeIcon
+            width={27}
+            height={27}
+            stroke={resolvedTheme === "light" ? "black" : "white"}
+          />
         ) : (
           <div className="w-[27px] h-[27px]"></div>
         )}
