@@ -38,7 +38,7 @@ const WeatherToday = () => {
       </div>
       <div className="flex w-full justify-between mt-4 ">
         <h1 className="xxl:text-[40px] md:text-[30px]">Today</h1>
-        <button className="rounded-full xxl:p-2 md:p-2 bg-[#ffffff4d] cursor-pointer">
+        <button className="rounded-full xxl:py-2 xxl:px-3 md:p-2 bg-[#ffffff4d] dark:bg-[#0000004D] cursor-pointer">
           <SearchIcon
             width={0}
             height={0}

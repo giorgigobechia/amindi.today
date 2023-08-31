@@ -1,4 +1,5 @@
 import SunriseIcon from "@/common/icons/sunriseIcon";
+import UvIndexIcon from "@/common/icons/uvIndexIcon";
 import WindChartIcon from "@/common/icons/windChartIcon";
 import React from "react";
 
@@ -25,7 +26,7 @@ const HighlightUpper = ({ props, type, className }: Props) => {
       </h3>
       {type === "windStatus" ? (
         <>
-          <WindChartIcon width={0} height={117} className="w-full" />
+          <WindChartIcon width={0} height={117} className="w-full flex-1" />
           <div className="w-full flex justify-between items-end">
             <h3
               className={`text-[24px] font-medium flex items-end gap-1
@@ -43,7 +44,7 @@ const HighlightUpper = ({ props, type, className }: Props) => {
         </>
       ) : type === "uvIndex" ? (
         <>
-          <WindChartIcon width={0} height={117} className="w-full" />
+          <UvIndexIcon width={0} height={117} className="w-full flex-1" />
           <div className="w-full flex items-center justify-center">
             <h3
               className={`text-[24px] font-medium flex items-end gap-1
@@ -58,11 +59,7 @@ const HighlightUpper = ({ props, type, className }: Props) => {
         </>
       ) : (
         <>
-          <SunriseIcon
-            width={0}
-            height={0}
-            className="w-full sm:h-[105px] xxl:h-[135px]"
-          />
+          <SunriseIcon width={0} height={0} className="w-full flex-1" />
           <div className="w-full flex items-center justify-between">
             <div className="flex flex-col justify-center">
               <p className="text-[#FAC32D] text-xs sm:text-[12px] xxl:text-lg ">

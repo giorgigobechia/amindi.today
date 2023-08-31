@@ -4,14 +4,16 @@ import NotificationInput from "../__atoms/NotificationInput";
 import NotificationSelect from "../__atoms/NotificationSelect";
 import CustomCheckbox from "../__atoms/CustomCheckbox";
 import NotificationButton from "../__atoms/NotificationButton";
+import { useTheme } from "next-themes";
 
 const NotificationForm = () => {
+  const { resolvedTheme } = useTheme();
   return (
     <form className="flex flex-col md:gap-5 xxl:gap-8">
       <h1
         className=" md:text-5xl xxl:text-[50px] font-light text-[#2E386B] flex flex-col md:gap-4 xxl:gap-6 mb-2"
         style={{
-          background: "linear-gradient(180deg, #2E386B 30%, #A7A7A7 100%)",
+          background: 'linear-gradient(180deg, "#2E386B" 30%, #A7A7A7 100%)',
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
         }}

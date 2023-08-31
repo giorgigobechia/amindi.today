@@ -10,6 +10,7 @@ import SettingIcon from "@/common/icons/settingIcon";
 import GrayGradient from "@/common/icons/grayGradient";
 import ThemeSwitcher from "../__atoms/ThemeSwitcher";
 import { useTheme } from "next-themes";
+import CurrencyIcon from "@/common/icons/currencyIcon";
 
 const Sidebar = () => {
   const [activePage, setActivePage] = useState<string>("main");
@@ -59,6 +60,19 @@ const Sidebar = () => {
             }
             onClick={() => setActivePage("mobile")}
             isClicked={activePage === "mobile"}
+          />
+          <SidebarItem
+            href="currency"
+            Icon={
+              <CurrencyIcon
+                width={0}
+                height={0}
+                className="xxl:w-8 xxl:h-8 md:w-6 md:h-6"
+                stroke={resolvedTheme === "light" ? "black" : "white"}
+              />
+            }
+            onClick={() => setActivePage("currency")}
+            isClicked={activePage === "currency"}
           />
         </div>
       </div>

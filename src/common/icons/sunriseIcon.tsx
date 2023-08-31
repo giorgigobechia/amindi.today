@@ -1,7 +1,10 @@
+"use client";
 import React from "react";
 import { IconProps } from "./IconTypes";
+import { useTheme } from "next-themes";
 
 const SunriseIcon = ({ width, height, className }: IconProps) => {
+  const { resolvedTheme } = useTheme();
   return (
     <svg
       width={width}
@@ -15,13 +18,13 @@ const SunriseIcon = ({ width, height, className }: IconProps) => {
         y1="134"
         x2="352"
         y2="134"
-        stroke="black"
+        stroke={resolvedTheme === "light" ? "black" : "white"}
         strokeOpacity="0.2"
         strokeWidth="2"
       />
       <path
         d="M50 135C51.9343 93 79.9422 9 176.5 9C273.058 9 301.066 93 303 135"
-        stroke="black"
+        stroke={resolvedTheme === "light" ? "black" : "white"}
         strokeOpacity="0.2"
         strokeWidth="2"
         strokeDasharray="5 5"
