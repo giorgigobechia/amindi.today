@@ -31,7 +31,7 @@ const CloudySun = ({ width, height }: IconProps) => {
           y2="33.2914"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#EFC977" />
+          <stop stopColor="#EFC977" />
           <stop offset="1" stopColor="#E07256" />
         </linearGradient>
         <linearGradient
@@ -42,7 +42,7 @@ const CloudySun = ({ width, height }: IconProps) => {
           y2="42.492"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#B2D4F7" />
+          <stop stopColor="#B2D4F7" />
           <stop offset="1" stopColor="#D9E2F3" />
         </linearGradient>
       </defs>

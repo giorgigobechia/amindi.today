@@ -37,8 +37,8 @@ const LightningIcon = ({ width, height }: IconProps) => {
           y2="42.4923"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F5BD52" />
-          <stop offset="1" stop-color="#F5DA79" />
+          <stop stopColor="#F5BD52" />
+          <stop offset="1" stopColor="#F5DA79" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_63_3687"
@@ -48,8 +48,8 @@ const LightningIcon = ({ width, height }: IconProps) => {
           y2="17.5613"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#EFC977" />
-          <stop offset="1" stop-color="#E07256" />
+          <stop stopColor="#EFC977" />
+          <stop offset="1" stopColor="#E07256" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_63_3687"
@@ -59,8 +59,8 @@ const LightningIcon = ({ width, height }: IconProps) => {
           y2="33.988"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#95B6F6" />
-          <stop offset="1" stop-color="#5193DE" />
+          <stop stopColor="#95B6F6" />
+          <stop offset="1" stopColor="#5193DE" />
         </linearGradient>
       </defs>
     </svg>

@@ -11,9 +11,12 @@ const NotificationForm = () => {
   return (
     <form className="flex flex-col md:gap-5 xxl:gap-8">
       <h1
-        className=" md:text-5xl xxl:text-[50px] font-light text-[#2E386B] flex flex-col md:gap-4 xxl:gap-6 mb-2"
+        className=" md:text-5xl xxl:text-[50px] font-light  flex flex-col md:gap-4 xxl:gap-6 mb-2"
         style={{
-          background: 'linear-gradient(180deg, "#2E386B" 30%, #A7A7A7 100%)',
+          background:
+            resolvedTheme === "light"
+              ? "linear-gradient(180deg, #2E386B 33.82%, #FFF 110.05%)"
+              : "linear-gradient(180deg, #72A4EA 0%, #FFF 110.05%)",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
         }}

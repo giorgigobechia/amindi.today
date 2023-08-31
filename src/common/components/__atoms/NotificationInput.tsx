@@ -1,3 +1,4 @@
+import { useTheme } from "next-themes";
 import "../../styles/globals.css";
 
 interface InputProps {
@@ -27,6 +28,7 @@ const NotificationInput = ({
   min,
   max,
 }: InputProps) => {
+  const { resolvedTheme } = useTheme();
   return (
     <input
       type={type}
@@ -39,7 +41,7 @@ const NotificationInput = ({
       id={id}
       min={min}
       max={max}
-      className={`${className} border-black border-[1px] bg-transparent xxl:rounded-xl md:rounded-[10px] md:py-2 w-1/2 outline-none  md:pl-2 custom-placeholder`}
+      className={`${className} placeholder-black dark:placeholder-white border-black dark:border-white border-[1px] bg-transparent xxl:rounded-xl md:rounded-[10px] md:py-2 w-1/2 outline-none  md:pl-2 `}
     />
   );
 };

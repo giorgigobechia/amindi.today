@@ -15,7 +15,7 @@ const DaysForecast = () => {
         </div>
       </div>
       <div className="w-full bg-[#cea9a927] dark:bg-[#355a7145] rounded-[34px] p-[20px_15px_15px] relative h-[92%] flex flex-col justify-between">
-        <div className="flex flex-col gap-2 scroll pr-1 h-[80px] xl:h-[170px]">
+        <div className="flex flex-col gap-2 scroll pr-1 h-[110px] xxl:h-[170px]">
           <SingleDayForecast
             Icon={<CloudySun width={38} height={38} />}
             degree={"+24"}

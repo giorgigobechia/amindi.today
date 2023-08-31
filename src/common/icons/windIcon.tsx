@@ -25,8 +25,8 @@ const WindIcon = ({ width, height }: IconProps) => {
           y2="35.4922"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#CED3EA" />
-          <stop offset="1" stop-color="#7E83A9" />
+          <stop stopColor="#CED3EA" />
+          <stop offset="1" stopColor="#7E83A9" />
         </linearGradient>
       </defs>
     </svg>

@@ -12,7 +12,7 @@ export default function Home() {
           <WeatherToday />
           <TodaysHiglights />
         </div>
-        <div className="flex gap-3 h-[45%]">
+        <div className="flex gap-3 xxl:h-[45%] md:h-[43%]">
           <DaysForecast />
           <Advertising />
         </div>

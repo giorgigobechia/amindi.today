@@ -256,15 +256,15 @@ export default WindChartIcon;
   <path
     d="M1 54.6865C3.29834 53.9494 9.61878 49.7109 16.5138 38.6541C20.7274 31.0985 33.4066 19.3045 50.4144 32.5728L64.779 43.6297C67.4604 45.841 74.0873 48.937 79.1436 43.6297C82.0166 39.5755 91.4398 31.5777 106.149 32.0199C109.022 31.8357 116.147 29.0346 121.663 19.3045C127.217 7.87911 142.003 -9.44333 156.713 12.6704L165.331 25.3859C167.821 29.0715 175.444 34.5631 186.017 27.0444L200.956 19.3045C206.702 15.6189 219.917 11.3436 226.812 23.7273L236.58 44.1825C239.07 47.131 245.659 51.5906 252.094 45.8411L268.757 29.8086C273.162 27.5972 283.466 25.1647 289.442 33.1257L302.083 52.4752C303.615 54.318 307.944 57.4508 313 55.2394"
     stroke="url(#paint0_linear_59_2602)"
-    stroke-width="4"
+    strokeWidth="4"
   />
-  <rect x="1" y="113" width="6" height="4" fill="white" fill-opacity="0.46" />
-  <rect x="18" y="103" width="6" height="14" fill="white" fill-opacity="0.46" />
-  <rect x="35" y="111" width="6" height="6" fill="white" fill-opacity="0.46" />
-  <rect x="52" y="97" width="6" height="20" fill="white" fill-opacity="0.46" />
-  <rect x="69" y="109" width="6" height="8" fill="white" fill-opacity="0.46" />
-  <rect x="86" y="106" width="6" height="11" fill="white" fill-opacity="0.46" />
-  <rect x="103" y="109" width="6" height="8" fill="white" fill-opacity="0.46" />
+  <rect x="1" y="113" width="6" height="4" fill="white" fillOpacity="0.46" />
+  <rect x="18" y="103" width="6" height="14" fill="white" fillOpacity="0.46" />
+  <rect x="35" y="111" width="6" height="6" fill="white" fillOpacity="0.46" />
+  <rect x="52" y="97" width="6" height="20" fill="white" fillOpacity="0.46" />
+  <rect x="69" y="109" width="6" height="8" fill="white" fillOpacity="0.46" />
+  <rect x="86" y="106" width="6" height="11" fill="white" fillOpacity="0.46" />
+  <rect x="103" y="109" width="6" height="8" fill="white" fillOpacity="0.46" />
   <rect
     x="120"
     y="100"
@@ -300,34 +300,13 @@ export default WindChartIcon;
     height="21"
     fill="url(#paint5_linear_59_2602)"
   />
-  <rect
-    x="205"
-    y="104"
-    width="6"
-    height="13"
-    fill="white"
-    fill-opacity="0.46"
-  />
-  <rect x="222" y="98" width="6" height="19" fill="white" fill-opacity="0.46" />
-  <rect
-    x="239"
-    y="103"
-    width="6"
-    height="14"
-    fill="white"
-    fill-opacity="0.46"
-  />
-  <rect x="256" y="109" width="6" height="8" fill="white" fill-opacity="0.46" />
-  <rect
-    x="273"
-    y="103"
-    width="6"
-    height="14"
-    fill="white"
-    fill-opacity="0.46"
-  />
-  <rect x="290" y="98" width="6" height="19" fill="white" fill-opacity="0.46" />
-  <rect x="307" y="109" width="6" height="8" fill="white" fill-opacity="0.46" />
+  <rect x="205" y="104" width="6" height="13" fill="white" fillOpacity="0.46" />
+  <rect x="222" y="98" width="6" height="19" fill="white" fillOpacity="0.46" />
+  <rect x="239" y="103" width="6" height="14" fill="white" fillOpacity="0.46" />
+  <rect x="256" y="109" width="6" height="8" fill="white" fillOpacity="0.46" />
+  <rect x="273" y="103" width="6" height="14" fill="white" fillOpacity="0.46" />
+  <rect x="290" y="98" width="6" height="19" fill="white" fillOpacity="0.46" />
+  <rect x="307" y="109" width="6" height="8" fill="white" fillOpacity="0.46" />
   <defs>
     <linearGradient
       id="paint0_linear_59_2602"
@@ -337,8 +316,8 @@ export default WindChartIcon;
       y2="56"
       gradientUnits="userSpaceOnUse"
     >
-      <stop stop-color="#A7E6F4" />
-      <stop offset="1" stop-color="white" stop-opacity="0" />
+      <stop stopColor="#A7E6F4" />
+      <stop offset="1" stopColor="white" stopOpacity="0" />
     </linearGradient>
     <linearGradient
       id="paint1_linear_59_2602"
@@ -348,9 +327,9 @@ export default WindChartIcon;
       y2="117"
       gradientUnits="userSpaceOnUse"
     >
-      <stop offset="0.192708" stop-color="#30F6FF" />
-      <stop offset="0.5625" stop-color="#5AC4DE" stop-opacity="0.49" />
-      <stop offset="0.921875" stop-color="#2062A1" stop-opacity="0.5" />
+      <stop offset="0.192708" stopColor="#30F6FF" />
+      <stop offset="0.5625" stopColor="#5AC4DE" stopOpacity="0.49" />
+      <stop offset="0.921875" stopColor="#2062A1" stopOpacity="0.5" />
     </linearGradient>
     <linearGradient
       id="paint2_linear_59_2602"
@@ -360,9 +339,9 @@ export default WindChartIcon;
       y2="117"
       gradientUnits="userSpaceOnUse"
     >
-      <stop offset="0.192708" stop-color="#30F6FF" />
-      <stop offset="0.5625" stop-color="#5AC4DE" stop-opacity="0.49" />
-      <stop offset="0.921875" stop-color="#2062A1" stop-opacity="0.5" />
+      <stop offset="0.192708" stopColor="#30F6FF" />
+      <stop offset="0.5625" stopColor="#5AC4DE" stopOpacity="0.49" />
+      <stop offset="0.921875" stopColor="#2062A1" stopOpacity="0.5" />
     </linearGradient>
     <linearGradient
       id="paint3_linear_59_2602"
@@ -372,9 +351,9 @@ export default WindChartIcon;
       y2="117"
       gradientUnits="userSpaceOnUse"
     >
-      <stop offset="0.192708" stop-color="#30F6FF" />
-      <stop offset="0.5625" stop-color="#5AC4DE" stop-opacity="0.49" />
-      <stop offset="0.921875" stop-color="#2062A1" stop-opacity="0.5" />
+      <stop offset="0.192708" stopColor="#30F6FF" />
+      <stop offset="0.5625" stopColor="#5AC4DE" stopOpacity="0.49" />
+      <stop offset="0.921875" stopColor="#2062A1" stopOpacity="0.5" />
     </linearGradient>
     <linearGradient
       id="paint4_linear_59_2602"
@@ -384,9 +363,9 @@ export default WindChartIcon;
       y2="117"
       gradientUnits="userSpaceOnUse"
     >
-      <stop offset="0.192708" stop-color="#30F6FF" />
-      <stop offset="0.5625" stop-color="#5AC4DE" stop-opacity="0.49" />
-      <stop offset="0.921875" stop-color="#2062A1" stop-opacity="0.5" />
+      <stop offset="0.192708" stopColor="#30F6FF" />
+      <stop offset="0.5625" stopColor="#5AC4DE" stopOpacity="0.49" />
+      <stop offset="0.921875" stopColor="#2062A1" stopOpacity="0.5" />
     </linearGradient>
     <linearGradient
       id="paint5_linear_59_2602"
@@ -396,9 +375,9 @@ export default WindChartIcon;
       y2="117"
       gradientUnits="userSpaceOnUse"
     >
-      <stop offset="0.192708" stop-color="#30F6FF" />
-      <stop offset="0.5625" stop-color="#5AC4DE" stop-opacity="0.49" />
-      <stop offset="0.921875" stop-color="#2062A1" stop-opacity="0.5" />
+      <stop offset="0.192708" stopColor="#30F6FF" />
+      <stop offset="0.5625" stopColor="#5AC4DE" stopOpacity="0.49" />
+      <stop offset="0.921875" stopColor="#2062A1" stopOpacity="0.5" />
     </linearGradient>
   </defs>
 </svg>;

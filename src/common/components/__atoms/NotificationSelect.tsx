@@ -47,7 +47,7 @@ const NotificationSelect: React.FC<NotificationSelectProps> = ({
       >
         <div
           className={
-            "flex justify-between items-center cursor-pointer border-black border-[1px] xxl:rounded-xl md:rounded-[10px] md:py-2 md:pl-2 w-1/2" +
+            "flex justify-between items-center cursor-pointer border-black dark:border-white border-[1px] xxl:rounded-xl md:rounded-[10px] md:py-2 md:pl-2 w-1/2" +
             className
           }
           onClick={() => setSelect(!select)}
