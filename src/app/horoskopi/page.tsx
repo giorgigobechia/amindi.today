@@ -1,5 +1,7 @@
+"use client";
 import SingelZodiac from "@/common/components/__molecules/SingleZodiac";
 import Horoskops from "@/common/components/__organisms/Horoskops";
+import { useGlobalContext } from "@/common/context/store";
 import GrayGradient from "@/common/icons/grayGradient";
 import GreenGradient from "@/common/icons/greenGradient";
 import PinkGradient from "@/common/icons/pinkGradient";
@@ -9,16 +11,9 @@ import React from "react";
 const Zodiaco = () => {
   return (
     <section className="md:px-4 md:py-4 xxl:px-7 xxl:py-5 xxl:rounded-[34px] md:rounded-[26px] bg-[#a7aec727] dark:bg-[#355a716b] w-full relative overflow-hidden flex flex-col xxl:gap-24 md:gap-16">
-      <div
-        className="absolute w-full h-full -z-10 "
-        style={{ backdropFilter: "blur(14px)" }}
-      ></div>
+      <div className="absolute w-full h-full -z-10 " style={{ backdropFilter: "blur(14px)" }}></div>
       <div className="absolute w-full h-full -z-20">
-        <PinkGradient
-          width={700}
-          height={683}
-          className="absolute md:right-24 xxl:left-[500px] "
-        />
+        <PinkGradient width={700} height={683} className="absolute md:right-24 xxl:left-[500px] " />
         <GrayGradient
           width={508}
           height={400}
@@ -38,11 +33,7 @@ const Zodiaco = () => {
             Celestial Identity
           </span>
         </h1>
-        <StarIcon
-          width={0}
-          height={0}
-          className="md:w-[40px] md:h-[40px] relative bottom-16"
-        />
+        <StarIcon width={0} height={0} className="md:w-[40px] md:h-[40px] relative bottom-16" />
         <StarIcon width={0} height={0} className="md:w-[85px] md:h-[85px]" />
       </div>
       <Horoskops />

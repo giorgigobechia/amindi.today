@@ -9,22 +9,26 @@ import React from "react";
 
 const Notification = () => {
   return (
+    <>
+    <head>
+      <title>notifikacia</title>
+    </head>
     <section className="md:px-4 md:py-4 xxl:px-7 xxl:py-5 xxl:rounded-[34px] md:rounded-[26px] bg-[#a7aec727] dark:bg-[#355a716b] w-full relative overflow-hidden flex flex-col xxl:gap-24 md:gap-16">
       <div
         className="absolute w-full h-full -z-10 "
         style={{ backdropFilter: "blur(14px)" }}
-      ></div>
+        ></div>
       <div className="absolute w-full h-full -z-20">
         <PinkGradient
           width={700}
           height={683}
           className="absolute md:right-24 xxl:left-[700px] md:left-[500px] "
-        />
+          />
         <GrayGradient
           width={508}
           height={400}
           className="absolute xxl:right-[600px] xxl:bottom-[80px] md:right-[400px] md:bottom-[80px]"
-        />
+          />
       </div>
       <article className="flex w-full h-full items-center justify-between md:px-16 xxl:px-20">
         <NotificationForm />
@@ -35,6 +39,7 @@ const Notification = () => {
         />
       </article>
     </section>
+          </>
   );
 };
 
