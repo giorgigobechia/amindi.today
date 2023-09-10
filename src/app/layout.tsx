@@ -1,3 +1,4 @@
+"use client";
 import "../../src/common/styles/globals.css";
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
@@ -5,6 +6,8 @@ import { Inter, Poppins } from "next/font/google";
 import Sidebar from "@/common/components/__organisms/Sidebar";
 import localFont from "@next/font/local";
 import Providers from "./providers";
+import { useGlobalContext } from "@/common/context/store";
+import { useEffect } from "react";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400"] });
 const FiraGO = localFont({
@@ -37,15 +40,23 @@ const FiraGO = localFont({
   variable: "--font-firago",
 });
 
-
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const { language, setLanguage } = useGlobalContext();
   return (
-    <html lang="en" className="light" style={{ colorScheme: "light" }}>
-      <body className={`${poppins.className} bg-[#F6F6F6] dark:bg-[#121212]`}>
+    <html lang={language} className="light" style={{ colorScheme: "light" }}>
+      <body
+        className={` ${
+          language === "en"
+            ? poppins.className
+            : language === "ka"
+            ? FiraGO.className
+            : ""
+        } bg-[#F6F6F6] dark:bg-[#121212]`}
+      >
         <Providers>
           <div className="w-screen h-screen md:p-3 xxl:p-6 flex md:gap-3 xxl:gap-6 overflow-hidden">
             <Sidebar />

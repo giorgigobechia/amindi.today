@@ -1,11 +1,14 @@
 "use client";
+import { useGlobalContext } from "@/common/context/store";
 import CloudySun from "@/common/icons/cloudySun";
 import DetailedDayForecastIcon from "@/common/icons/deatiledDayForecastIcon";
+import TEXTS from "@/languages/Languages";
 import { useTheme } from "next-themes";
 import React from "react";
 
 const DetailedDayForecast = () => {
   const { resolvedTheme } = useTheme();
+  const { language } = useGlobalContext();
   return (
     <article
       className="w-full md:h-[40%] xxl:h-[30%] flex items-center justify-between"
@@ -21,7 +24,7 @@ const DetailedDayForecast = () => {
       <div className="flex items-center gap-3">
         <CloudySun width={52} height={53} />
         <div className="h-full text-[14px] flex flex-col justify-center text-[#000000b2]">
-          <p className="dark:text-[#FFFFFF99]">Tomorrow</p>
+          <p className="dark:text-[#FFFFFF99]"> {TEXTS[language]?.tomorrow}</p>
           <h2 className="text-[28px] leading-6 font-medium dark:text-white">
             15&deg;
           </h2>

@@ -1,7 +1,9 @@
 "use client";
+import { useGlobalContext } from "@/common/context/store";
 import DropIcon from "@/common/icons/dropIcon";
 import EyeIcon from "@/common/icons/eyeIcon";
 import TempIcon from "@/common/icons/tempIcon";
+import TEXTS from "@/languages/Languages";
 import { useTheme } from "next-themes";
 import React from "react";
 
@@ -14,11 +16,13 @@ interface HighlightLowerProps {
 interface Props {
   props: HighlightLowerProps;
   type: string;
+  dataType: string;
   className: string;
 }
 
-const HighlightLower = ({ props, type, className }: Props) => {
+const HighlightLower = ({ props, type, className, dataType }: Props) => {
   const { resolvedTheme } = useTheme();
+  const { language } = useGlobalContext();
 
   return (
     <article
@@ -29,7 +33,7 @@ const HighlightLower = ({ props, type, className }: Props) => {
     >
       <div className="flex flex-col md:gap-2 xxl:gap-5">
         <h6 className="text-[#000000CC] text-sm dark:text-[#FFFFFF99]">
-          {props.dataType}
+          {dataType}
         </h6>
         <div
           className={`${type === "feelsLike" ? "flex items-center gap-1" : ""}`}
@@ -52,7 +56,9 @@ const HighlightLower = ({ props, type, className }: Props) => {
             {type === "humidity" ? (
               <span className="text-sm dark:text-[#FFFFFF99]">%</span>
             ) : type === "visibility" ? (
-              <span className="text-sm dark:text-[#FFFFFF99]">km</span>
+              <span className="text-sm dark:text-[#FFFFFF99]">
+                {TEXTS[language]?.km}
+              </span>
             ) : (
               <span className="md:text-sm dark:text-[#FFFFFF99]">o</span>
             )}

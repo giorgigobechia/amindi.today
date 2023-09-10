@@ -1,4 +1,5 @@
 "use client";
+import { useGlobalContext } from "@/common/context/store";
 import CalendarIcon from "@/common/icons/calendarIcon";
 import EmptyCalendarIcon from "@/common/icons/emptyCalendarIcon";
 import GrayGradient from "@/common/icons/grayGradient";
@@ -7,11 +8,13 @@ import LocationIcon from "@/common/icons/locationIcon";
 import PinkGradient from "@/common/icons/pinkGradient";
 import SearchIcon from "@/common/icons/searchIcon";
 import SunIcon from "@/common/icons/sunIcon";
+import TEXTS from "@/languages/Languages";
 import { useTheme } from "next-themes";
 import React from "react";
 
 const WeatherToday = () => {
   const { resolvedTheme } = useTheme();
+  const { language } = useGlobalContext();
 
   return (
     <section className="md:p-4 xxl:p-7 flex flex-col justify-between  xxl:rounded-[34px] md:rounded-[26px] bg-[#cea9a927] dark:bg-[#355a716b] w-[30%] relative overflow-hidden">
@@ -37,7 +40,10 @@ const WeatherToday = () => {
         />
       </div>
       <div className="flex w-full justify-between mt-4 ">
-        <h1 className="xxl:text-[40px] md:text-[30px]">Today</h1>
+        <h1 className="xxl:text-[40px] md:text-[30px]">
+          {" "}
+          {TEXTS[language]?.today}
+        </h1>
         <button className="rounded-full xxl:py-2 xxl:px-3 md:p-2 bg-[#ffffff4d] dark:bg-[#0000004D] cursor-pointer">
           <SearchIcon
             width={0}

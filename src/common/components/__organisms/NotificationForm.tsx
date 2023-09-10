@@ -5,51 +5,55 @@ import NotificationSelect from "../__atoms/NotificationSelect";
 import CustomCheckbox from "../__atoms/CustomCheckbox";
 import NotificationButton from "../__atoms/NotificationButton";
 import { useTheme } from "next-themes";
+import TEXTS from "@/languages/Languages";
+import { useGlobalContext } from "@/common/context/store";
 
 const NotificationForm = () => {
-  const { resolvedTheme } = useTheme();
+  const { language } = useGlobalContext();
   return (
     <form className="flex flex-col md:gap-5 xxl:gap-8">
-      <h1
-        className=" md:text-5xl xxl:text-[50px] font-light  flex flex-col md:gap-4 xxl:gap-6 mb-2"
-        style={{
-          background:
-            resolvedTheme === "light"
-              ? "linear-gradient(180deg, #2E386B 33.82%, #FFF 110.05%)"
-              : "linear-gradient(180deg, #72A4EA 0%, #FFF 110.05%)",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-        }}
-      >
+      <h1 className="md:text-5xl xxl:text-[50px] bg-gradient-to-b dark:from-blue-400  from-[#2E386B] dark:to-white bg-clip-text text-transparent text-7xl font-$font">
         Stay Ahead of the Sky!
       </h1>
+
       <p className="w-[80%] md:text-base xxl:text-lg">
-        Enter your number and get real-time weather updates for your location,
-        right on your phone.{" "}
+        {TEXTS[language].weatherUpdates}
       </p>
       <NotificationInput
         // onChange={(e) => console.log(e)}
         type="text"
-        placeholder="Enter phone number"
+        placeholder={TEXTS[language].enterPhone}
         min={9}
         max={9}
       />
       <NotificationSelect
-        defaultValue="City"
+        defaultValue={TEXTS[language].city}
         type="city"
         options={["tbilisi", "sokhumi"]}
         className=""
       />
       <p className="md:text-base xxl:text-lg w-[60%]">
-        Choose the types of weather updates you’d like to receive:
+        {TEXTS[language].chooseTheTypes}
       </p>
       <div className="grid grid-cols-2 grid-rows-2 w-[60%] md:gap-2">
-        <CustomCheckbox id="rain" label="Rain alerts" />
-        <CustomCheckbox id="storm" label="Storm alerts" />
-        <CustomCheckbox id="snow" label="Snow alerts" />
-        <CustomCheckbox id="wind" label="Wind alerts" />
+        <CustomCheckbox
+          id="rain"
+          label={`${TEXTS[language].rain} ${TEXTS[language].alert}`}
+        />
+        <CustomCheckbox
+          id="storm"
+          label={`${TEXTS[language].storm} ${TEXTS[language].alert}`}
+        />
+        <CustomCheckbox
+          id="snow"
+          label={`${TEXTS[language].snow} ${TEXTS[language].alert}`}
+        />
+        <CustomCheckbox
+          id="wind"
+          label={`${TEXTS[language].wind} ${TEXTS[language].alert}`}
+        />
       </div>
-      <NotificationButton type="submit" title="Get Started" />
+      <NotificationButton type="submit" title={TEXTS[language].submit} />
     </form>
   );
 };
