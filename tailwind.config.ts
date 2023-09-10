@@ -21,6 +21,8 @@ const config: Config = {
     extend: {
       backgroundImage: {
         "custom-gradient": "linear-gradient(96deg, #00000013 0%, rgba(255, 255, 255, 0.1) 50%)",
+        "custom-gradient-opposite": "linear-gradient(90deg, rgba(255, 255, 255, 0.10) 5.39%, rgba(255, 255, 255, 0.00) 80.08%)",
+
       },
     },
   },

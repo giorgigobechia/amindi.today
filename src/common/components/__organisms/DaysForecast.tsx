@@ -1,15 +1,22 @@
+"use client";
 import React from "react";
 import SingleDayForecast from "../__molecules/SingleDayForecast";
 import CloudySun from "@/common/icons/cloudySun";
 import DetailedDayForecast from "../__molecules/DetailedDayForecast";
 import LightningIcon from "@/common/icons/lightningIcon";
 import WindIcon from "@/common/icons/windIcon";
+import TEXTS from "@/languages/Languages";
+import { useGlobalContext } from "@/common/context/store";
 
 const DaysForecast = () => {
+  const { language } = useGlobalContext();
   return (
     <section className="flex flex-col gap-3 xxl:rounded-[34px] md:rounded-[26px] w-[30%] h-full relative">
       <div className="w-full flex justify-between items-center h-[8%]">
-        <h2 className="xxl:text-[20px] md:text-lg">7 days Forecast</h2>
+        <h2 className="xxl:text-[20px] md:text-lg">
+          {" "}
+          {TEXTS[language]?.sevenDayForecast}
+        </h2>
         <div className="w-[80px] bg-[#70707033] dark:bg-[#355a7145] flex items-center rounded-[17px] h-full px-[14px]">
           <p className="md:text-sm">7 day</p>
         </div>

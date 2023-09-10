@@ -1,6 +1,8 @@
+import { useGlobalContext } from "@/common/context/store";
 import SunriseIcon from "@/common/icons/sunriseIcon";
 import UvIndexIcon from "@/common/icons/uvIndexIcon";
 import WindChartIcon from "@/common/icons/windChartIcon";
+import TEXTS from "@/languages/Languages";
 import React from "react";
 
 interface HighlightUpperProps {
@@ -10,10 +12,13 @@ interface HighlightUpperProps {
 interface Props {
   props: HighlightUpperProps;
   type: string;
+  dataType: string;
   className: string;
 }
 
-const HighlightUpper = ({ props, type, className }: Props) => {
+const HighlightUpper = ({ props, type, className, dataType }: Props) => {
+  const { language } = useGlobalContext();
+
   return (
     <article
       className={
@@ -22,7 +27,7 @@ const HighlightUpper = ({ props, type, className }: Props) => {
       }
     >
       <h3 className="text-[#000000CC] text-base sm:text-lg md:text-[14px] lg:text-[14px]  xl:text-[16px] xxl:text-[18px] dark:text-[#FFFFFF99]">
-        {props.dataType}
+        {dataType}
       </h3>
       {type === "windStatus" ? (
         <>
@@ -34,7 +39,7 @@ const HighlightUpper = ({ props, type, className }: Props) => {
             >
               5.10
               <span className="text-sm text-[#00000099] dark:text-[#FFFFFF99]">
-                km/h
+                {TEXTS[language]?.kmh}
               </span>
             </h3>
             <p className="text-sm text-[#00000099] dark:text-[#FFFFFF99]">
@@ -63,7 +68,7 @@ const HighlightUpper = ({ props, type, className }: Props) => {
           <div className="w-full flex items-center justify-between">
             <div className="flex flex-col justify-center">
               <p className="text-[#FAC32D] text-xs sm:text-[12px] xxl:text-lg ">
-                Sunrise
+                {TEXTS[language]?.sunrise}
               </p>
               <p className=" sm:text-sm xxl:text-base text-[#00000099] dark:text-[#FFFFFF99]">
                 5:30 AM
@@ -71,7 +76,7 @@ const HighlightUpper = ({ props, type, className }: Props) => {
             </div>
             <div className="flex flex-col justify-center">
               <p className="text-[#FAC32D] text-xs sm:text-[12px]  xxl:text-lg ">
-                Sunset
+                {TEXTS[language]?.sunset}
               </p>
               <p className="sm:text-sm xxl:text-base text-[#00000099] dark:text-[#FFFFFF99]">
                 6:40 AM

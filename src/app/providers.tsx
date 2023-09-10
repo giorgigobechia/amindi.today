@@ -1,4 +1,5 @@
 "use client";
+import { GlobalContextProvider } from "@/common/context/store";
 import { ThemeProvider } from "next-themes";
 import { useState, useEffect } from "react";
 
@@ -13,5 +14,9 @@ export default function Providers({ children }: any) {
     return <>{children}</>;
   }
 
-  return <ThemeProvider attribute="class">{children}</ThemeProvider>;
+  return (
+    <GlobalContextProvider>
+      <ThemeProvider attribute="class">{children}</ThemeProvider>{" "}
+    </GlobalContextProvider>
+  );
 }

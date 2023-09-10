@@ -106,7 +106,11 @@ const page = ({ params }: props) => {
     },
   };
   const getZodiacDetail = async (detail: string) => {
-    const data = await Api.sendRequest(`${zodiacName}/${detail}`, "GET", detail);
+    const data = await Api.sendRequest(
+      `${zodiacName}/${detail}`,
+      "GET",
+      detail
+    );
     setZodiac((prev: any) => ({ ...prev, [detail]: data.response }));
   };
 
@@ -117,7 +121,8 @@ const page = ({ params }: props) => {
   }, []);
   console.log(zodiac);
 
-  if (zodiacs.filter((el) => el === zodiacName).length === 0) return <div>Wrong Page</div>;
+  if (zodiacs.filter((el) => el === zodiacName).length === 0)
+    return <div>Wrong Page</div>;
   return (
     <>
       <head>
