@@ -3,6 +3,7 @@ import { useGlobalContext } from "@/common/context/store";
 import GreenGradient from "@/common/icons/greenGradient";
 import TEXTS from "@/languages/Languages";
 import React from "react";
+import LineChart from "./LineChart";
 
 const Advertising = () => {
   const { language } = useGlobalContext();
@@ -21,7 +22,10 @@ const Advertising = () => {
           height={500}
           className="absolute left-[-90px] top-[-60px] rotate-45 -z-20"
         />
-        <div className="h-full flex-1 bg-[#6f575727] rounded-[18px]"></div>
+        <div className="h-full flex-1 bg-[#6f575727] rounded-[18px]">
+      <LineChart/>
+
+        </div>
         <div className="h-full flex-1 bg-[#6f575727] rounded-[18px]"></div>
         <div className="h-full flex-1 bg-[#6f575727] rounded-[18px]"></div>
         <div className="h-full flex-1 bg-[#6f575727] rounded-[18px]"></div>
