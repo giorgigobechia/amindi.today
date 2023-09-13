@@ -41,7 +41,7 @@ const zodiacs = [
 ];
 
 const page = ({ params }: props) => {
-  const [zodiac, setZodiac] = useState<any>({});
+  const [zodiac, setZodiac] = useState<any>({ love: "" });
   const zodiacName: string = params.zodiac;
   const zodiacDetails: any = {
     verdzi: {
@@ -106,23 +106,17 @@ const page = ({ params }: props) => {
     },
   };
   const getZodiacDetail = async (detail: string) => {
-    const data = await Api.sendRequest(
-      `${zodiacName}/${detail}`,
-      "GET",
-      detail
-    );
+    const data = await Api.sendRequest(`${zodiacName}/${detail}`, "GET", detail);
     setZodiac((prev: any) => ({ ...prev, [detail]: data.response }));
   };
 
-  useEffect(() => {
-    getZodiacDetail("love");
-    getZodiacDetail("finance");
-    getZodiacDetail("sexual");
-  }, []);
-  console.log(zodiac);
+  // useEffect(() => {
+  //   getZodiacDetail("love");
+  //   getZodiacDetail("finance");
+  //   getZodiacDetail("sexual");
+  // }, []);
 
-  if (zodiacs.filter((el) => el === zodiacName).length === 0)
-    return <div>Wrong Page</div>;
+  if (zodiacs.filter((el) => el === zodiacName).length === 0) return <div>Wrong Page</div>;
   return (
     <>
       <head>
