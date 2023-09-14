@@ -1,4 +1,3 @@
-import { useGlobalContext } from "../context/store"
 import Api from "./api"
 
 interface TwentyFiveDays {

@@ -26,6 +26,8 @@ const TwentyFiveDays = () => {
               icon={day.icon}
               tempMin={day.tempMin}
               tempMax={day.tempMax}
+              weather={day.weather}
+              index={index}
             />
           </React.Fragment>
         ))}
