@@ -10,6 +10,7 @@ import SearchIcon from "@/common/icons/searchIcon";
 import SunIcon from "@/common/icons/sunIcon";
 import TEXTS from "@/languages/Languages";
 import { useTheme } from "next-themes";
+import Link from "next/link";
 import React from "react";
 
 const WeatherToday = () => {
@@ -73,17 +74,20 @@ const WeatherToday = () => {
           />{" "}
           Tbilisi , Georgia
         </p>
-        <p className="flex items-center gap-1 xxl:text-base md:text-sm">
-          <EmptyCalendarIcon
-            width={21}
-            height={21}
-            stroke={resolvedTheme === "light" ? "black" : "white"}
-          />{" "}
-          Monday, September 11
-          <span className="pl-2">
-            {" "}
-            <b className="xxl:text-base md:text-sm">6:30AM</b>
-          </span>
+        <p className="flex items-center gap-1 xxl:text-base md:text-sm justify-between ">
+          <div className="flex">
+            <EmptyCalendarIcon
+              width={21}
+              height={21}
+              stroke={resolvedTheme === "light" ? "black" : "white"}
+            />{" "}
+            Monday, September 11
+            <span className="pl-2">
+              {" "}
+              <b className="xxl:text-base md:text-sm">6:30AM</b>
+            </span>
+          </div>
+          <Link href={"/twentyFiveDays"}>see more</Link>
         </p>
       </div>
     </section>

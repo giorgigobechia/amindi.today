@@ -5,11 +5,12 @@ export interface apiResponse {
   response: { message: string; data: string | object };
 }
 const Api = {
-  sendRequest: async (endpoint: string, method: string, dataType: string) => {
+  sendRequest: async (endpoint: string, method: string, dataType?: string) => {
     const response: apiResponse = {
       error: false,
       response: { message: "", data: "" },
     };
+    console.log(response);
     try {
       const apiResponse = await axios({
         method: method,
@@ -17,7 +18,7 @@ const Api = {
       });
 
       response.error = false;
-      response.response = apiResponse.data[dataType];
+      response.response = dataType ?  apiResponse.data[dataType] : apiResponse.data;
     } catch (e: any) {
       response.error = true;
       response.response = { message: "error", data: "" };
