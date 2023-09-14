@@ -30,7 +30,7 @@ const Notification = () => {
           className="absolute xxl:right-[600px] xxl:bottom-[80px] md:right-[400px] md:bottom-[80px]"
           />
       </div>
-      <article className="flex w-full h-full items-center justify-between md:px-16 xxl:px-20">
+      <article className="flex w-full h-full items-center justify-between md:px- xxl:px-20">
         <NotificationForm />
         <RainingIcon
           width={0}

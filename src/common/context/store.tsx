@@ -13,17 +13,22 @@ interface ContextProps {
   setActivePage: Dispatch<SetStateAction<string>>;
   language: string;
   setLanguage: (language: string) => void;
+  twentyFiveDays: any;
+  setTwentyFiveDays: Dispatch<SetStateAction<any>>;
 }
 const GlobalContext = createContext<ContextProps>({
   activePage: "home",
   setActivePage: () => {},
   language: "ka",
   setLanguage: (language: string) => {},
+  twentyFiveDays: [],
+  setTwentyFiveDays: () => {},
 });
 
 export const GlobalContextProvider = ({ children }: any) => {
   const [activePage, setActivePage] = useState<string>("home");
   const [language, setLanguage] = useState<string>("ka");
+  const [twentyFiveDays, setTwentyFiveDays] = useState();
 
   return (
     <GlobalContext.Provider
@@ -32,6 +37,8 @@ export const GlobalContextProvider = ({ children }: any) => {
         setActivePage,
         language,
         setLanguage,
+        twentyFiveDays,
+        setTwentyFiveDays,
       }}
     >
       {children}
