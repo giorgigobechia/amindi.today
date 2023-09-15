@@ -8,15 +8,47 @@ import LocationIcon from "@/common/icons/locationIcon";
 import PinkGradient from "@/common/icons/pinkGradient";
 import SearchIcon from "@/common/icons/searchIcon";
 import SunIcon from "@/common/icons/sunIcon";
+import { WeatherIcons } from "@/common/icons/weatherIcons/WeatherIcons";
+import { DayCases } from "@/common/languageCases/DayCases";
+import { MonthCases } from "@/common/languageCases/MonthCases";
+import { todaysWeatherProps } from "@/common/types/weatherTypes";
 import TEXTS from "@/languages/Languages";
 import { useTheme } from "next-themes";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-const WeatherToday = () => {
+interface PropsTypes {
+  currentTemp: number;
+  currentWeatherDesc: string;
+  month: string;
+  day: string;
+}
+
+const WeatherToday = ({
+  currentTemp,
+  currentWeatherDesc,
+  month,
+  day,
+}: PropsTypes) => {
   const { resolvedTheme } = useTheme();
   const { language } = useGlobalContext();
+  const [currentTime, setCurrentTime] = useState(new Date());
+  const dayNum = currentTime.getDate();
+  console.log(day);
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 60000);
 
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []);
+
+  const formattedTime = currentTime.toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
   return (
     <section className="md:p-4 xxl:p-7 flex flex-col justify-between  xxl:rounded-[34px] md:rounded-[26px] bg-[#cea9a927] dark:bg-[#355a716b] w-[30%] relative overflow-hidden">
       <div
@@ -55,14 +87,14 @@ const WeatherToday = () => {
         </button>
       </div>
       <div className=" xxl:py-[3vh] flex w-full items-center  gap-[4%]">
-        <SunIcon width={0} height={0} className="w-[40%] h-[18vh]" />
+        <WeatherIcons iconName={currentWeatherDesc} IconSize={175} />
+
         <div className="w-[40%]">
           <h3 className="xxl:text-[54px] md:text-[50px]  leading-tight">
-            +18<sup>o</sup>
+            {currentTemp}
+            <sup>o</sup>
           </h3>
-          <p className="xxl:text-base md:text-sm">
-            Sunny, clear skies, swirling winds{" "}
-          </p>
+          <p className="xxl:text-base md:text-sm">{currentWeatherDesc}</p>
         </div>
       </div>
       <div className="py-[2vh] flex flex-col gap-2 border-t-2 border-t-gray-400">
@@ -81,13 +113,17 @@ const WeatherToday = () => {
               height={21}
               stroke={resolvedTheme === "light" ? "black" : "white"}
             />{" "}
-            Monday, September 11
+            <DayCases dayResponse={day} />
+            , <MonthCases monthResponse={month} />
+            <span className="pl-2">{dayNum}</span>
             <span className="pl-2">
               {" "}
-              <b className="xxl:text-base md:text-sm">6:30AM</b>
+              <b className="xxl:text-base md:text-sm">{formattedTime}</b>
             </span>
           </div>
-          <Link href={"/twentyFiveDays"}>see more</Link>
+          <Link className="underline" href={"/twentyFiveDays"}>
+            25 დღის
+          </Link>
         </p>
       </div>
     </section>

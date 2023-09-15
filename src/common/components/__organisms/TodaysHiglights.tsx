@@ -47,7 +47,12 @@ const TodaysHiglights = () => {
           className="absolute left-[-300px] bottom-[-350px] rotate-45"
         />
       </div>
-      <h5 className="md:text-base xxl:text-lg font-medium h-[7%] dark:text-white">
+      <h5
+        className="md:text-base xxl:text-lg font-medium h-[7%] dark:text-white"
+        style={{
+          fontWeight: 300,
+        }}
+      >
         {TEXTS[language]?.todaysHighlights}
       </h5>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-6 md:grid-rows-3 h-[93%]">

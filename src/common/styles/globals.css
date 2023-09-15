@@ -31,3 +31,6 @@
 .twenty-fives{
   overflow-x: hidden;
 }
+.no-padding-bottom{
+  padding-bottom: 0px;
+}

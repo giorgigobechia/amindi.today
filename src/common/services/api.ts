@@ -10,7 +10,6 @@ const Api = {
       error: false,
       response: { message: "", data: "" },
     };
-    console.log(response);
     try {
       const apiResponse = await axios({
         method: method,
