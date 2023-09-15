@@ -20,7 +20,7 @@ const Sidebar = () => {
     <aside className="hidden md:w-[80px] xxl:w-[120px] h-full md:flex flex-col items-center justify-between  bg-[#cea9a927] dark:bg-[#355a716b] xxl:rounded-[34px] md:rounded-[26px] p-[80px_0_40px] relative overflow-visible">
       <div className="w-full flex flex-col xxl:gap-[25px] md:gap-[20px]">
         <p className="w-full border-b border-b-[#0000004D] text-center pb-[10px] md:text-sm">
-          Weather
+          AMINDI.TODAY
         </p>
         <div className="w-full flex flex-col gap-2">
           <SidebarItem

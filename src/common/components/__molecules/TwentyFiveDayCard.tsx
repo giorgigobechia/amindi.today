@@ -31,7 +31,7 @@ const TwentyFiveDayCard = ({
           {date.split("\n")[0]}
           <span>{date.split("\n")[1]}</span>
         </p>
-        <WeatherIcons iconName={weather} />
+        <WeatherIcons iconName={weather} IconSize={50} />
 
         <div className="xxl:text-[22px] md:text-[18px] flex gap-[15px] text-[22px]">
           <p>

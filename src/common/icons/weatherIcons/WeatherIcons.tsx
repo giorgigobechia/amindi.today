@@ -51,74 +51,120 @@ type Props = {
   fill?: string;
   className?: string;
   style?: React.CSSProperties;
+  IconSize?: number;
 };
 
-export function WeatherIcons({ iconName, fill, className, style }: Props) {
+export function WeatherIcons({
+  iconName,
+  IconSize,
+  fill,
+  className,
+  style,
+}: Props) {
   let IconComponent = null;
 
   switch (iconName) {
     case "წვიმა":
-      IconComponent = <Rainy width={50} height={50} />;
+    case "rainy":
+      IconComponent = <Rainy width={IconSize} height={IconSize} />;
       break;
     case "მზიანი":
     case "მოწმენდილი":
-      IconComponent = <Sunny width={50} height={50} />;
+    case "sunny":
+    case "clear":
+      IconComponent = <Sunny width={IconSize} height={IconSize} />;
       break;
     case "ნაწილობრივ მზიანი":
     case "ნაწილობრივ ღრუბლიანი":
     case "ძლიერი მოღრუბლულობა":
     case "პერიოდულად ღრუბლიანი":
     case "უმეტესად ღრუბლიანი":
-      IconComponent = <PartlySunny width={50} height={50} />;
+    case "partly sunny":
+    case "heavy cloudiness":
+    case "intermittently cloudy":
+    case "mostly cloudy":
+      IconComponent = <PartlySunny width={IconSize} height={IconSize} />;
       break;
     case "უმეტესად მზიანი":
-      IconComponent = <MostlySunny width={50} height={50} />;
+    case "mostly sunny":
+      IconComponent = <MostlySunny width={IconSize} height={IconSize} />;
       break;
     case "უმეტესად ღრუბლიანი":
-      IconComponent = <MostlyCloudy width={50} height={50} />;
+    case "mostly cloudy":
+      IconComponent = <MostlyCloudy width={IconSize} height={IconSize} />;
       break;
     case "ნაწილობრივ მზიანი, სუსტი თოვლი":
     case "სუსტი თოვლი":
     case "უმეტესად ღრუბლიანი, სუსტი თოვლი":
     case "უმეტესად ღრუბლიანი, თოვლი":
     case "თოვლი":
-      IconComponent = <LightSnow width={50} height={50} />;
+    case "partly sunny, light snow":
+    case "light snow":
+    case "mostly cloudy, light snow":
+    case "mostly cloudy, snowy":
+    case "snow":
+      IconComponent = <LightSnow width={IconSize} height={IconSize} />;
       break;
     case "კოკისპირული წვიმა":
-      IconComponent = <PouringRain width={50} height={50} />;
+    case "pouring rain":
+      IconComponent = <PouringRain width={IconSize} height={IconSize} />;
       break;
     case "კოკისპირული წვიმა, უმეტესად ღრუბლიანი":
-      IconComponent = <PouringRainMostlyCloudy width={50} height={50} />;
+    case "pouring rain, mostly cloudy":
+      IconComponent = (
+        <PouringRainMostlyCloudy width={IconSize} height={IconSize} />
+      );
       break;
     case "ღრუბლიანი":
     case "ცვალებადი მოღრუბლულობა":
-      IconComponent = <Cloudy width={50} height={50} />;
+    case "cloudy":
+    case "changeable cloudyw":
+      IconComponent = <Cloudy width={IconSize} height={IconSize} />;
       break;
     case "ბურუსი":
-      IconComponent = <Mist width={50} height={50} />;
+    case "mist":
+      IconComponent = <Mist width={IconSize} height={IconSize} />;
       break;
     case "ნაწილობრივ მზიანი კოკისპირული წვიმით":
-      IconComponent = <PartlySunnyPouringRain width={50} height={50} />;
+    case "partly sunny, pouring rain":
+      IconComponent = (
+        <PartlySunnyPouringRain width={IconSize} height={IconSize} />
+      );
       break;
     case "ნაწილობრივ ღრუბლიანი, კოკისპირული წვიმა":
-      IconComponent = <PartlyCloudyPouringRain width={50} height={50} />;
+    case "partly cloudy, pouring rain":
+      IconComponent = (
+        <PartlyCloudyPouringRain width={IconSize} height={IconSize} />
+      );
       break;
     case "უმეტესად ღრუბლიანი, კოკისპირული წვიმა":
-      IconComponent = <MostlyCloudyPouringRain width={50} height={50} />;
+    case "mostly cloudy, pouring rain":
+      IconComponent = (
+        <MostlyCloudyPouringRain width={IconSize} height={IconSize} />
+      );
       break;
     case "ჭექა-ქუხილი":
-      IconComponent = <Thunderstorm width={50} height={50} />;
+    case "thunderstorm":
+      IconComponent = <Thunderstorm width={IconSize} height={IconSize} />;
       break;
     case "უმეტესად მზიანი, ნაწილობრივ წვიმა":
     case "ნაწილობრივ მზიანი, უმეტესად წვიმა":
-      IconComponent = <MostlySunnyPartlyRainy width={50} height={50} />;
+    case "mostly sunny, partly rain":
+    case "partly sunny, mostly rain":
+      IconComponent = (
+        <MostlySunnyPartlyRainy width={IconSize} height={IconSize} />
+      );
       break;
     case "ყინვა":
-      IconComponent = <Frost width={50} height={50} />;
+    case "frost":
+      IconComponent = <Frost width={IconSize} height={IconSize} />;
       break;
     case "ნაწილობრივ ღრუბლიანი, ჯექა-ქუხილი":
     case "ნაწილობრივ ღრუბლიანი, ჭექა-ქუხილი":
-      IconComponent = <PartlyCloudyThunderstorm width={50} height={50} />;
+    case "partly cloudy, thunderstorm":
+      IconComponent = (
+        <PartlyCloudyThunderstorm width={IconSize} height={IconSize} />
+      );
       break;
     default:
       break;
