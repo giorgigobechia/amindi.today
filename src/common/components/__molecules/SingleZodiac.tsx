@@ -3,23 +3,23 @@ import Link from "next/link";
 import React, { ReactNode } from "react";
 
 interface SidebarItemProps {
-  Icon: ReactNode;
-  onClick: () => void;
-  title: string;
-  href: string;
+    Icon: ReactNode;
+    onClick: () => void;
+    title: string;
+    href: string;
 }
 
 const SingelZodiac = ({ Icon, onClick, title, href }: SidebarItemProps) => {
-  // const locale = useLocale();
-  return (
-    <Link
-      href={`/horoskopi/${href}`}
-      className="flex flex-col md:gap-6 justify-center items-center transition-transform transform-gpu hover:scale-105"
-    >
-      {Icon}
-      <p className="md:text-xl">{title}</p>
-    </Link>
-  );
+    // const locale = useLocale();
+    return (
+        <Link
+            href={`/horoskopi/${href}`}
+            className="flex flex-col md:gap-6 sm:gap-6 gap-7 justify-center items-center transition-transform transform-gpu hover:scale-105"
+        >
+            {Icon}
+            <p className="md:text-xl">{title}</p>
+        </Link>
+    );
 };
 
 export default SingelZodiac;
