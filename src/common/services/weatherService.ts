@@ -14,7 +14,6 @@ interface weatherProps {
   getTodayWeather: async (setFunction : any, city : any) => {
     const response = await Api.sendRequest(`weather/${city}`, 'get') as weatherProps
     setFunction(response?.response)
-    // console.log(response);
     return response
   },
 }
