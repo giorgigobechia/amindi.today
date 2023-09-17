@@ -1,9 +1,13 @@
 import React, { ReactNode, useEffect, useRef, useState } from "react";
 import TextModal from "../__molecules/showMoreTextModal";
+import { useGlobalContext } from "@/common/context/store";
+import TEXTS from "@/languages/Languages";
+import { MonthCases } from "@/common/languageCases/MonthCases";
 
 interface ZoidacDetailProps {
     logo: ReactNode;
     title: string;
+    date: string;
     overview: string;
     matching: string;
     career: string;
@@ -15,6 +19,7 @@ interface ZoidacDetailProps {
 const ZodiacDetails = ({
     logo,
     title,
+    date,
     overview,
     matching,
     career,
@@ -25,6 +30,9 @@ const ZodiacDetails = ({
     const [isShowingMoreText, setIsShowingMoreText] = useState<boolean>(false);
     const [textToShow, setTextToShow] = useState<string>("");
     const outsideClickRef = useRef<null | HTMLDivElement>(null);
+
+    const { language } = useGlobalContext();
+    const [startDate, startMonth, , endDate, endMonth] = date.split(" ");
 
     const showFullText = (text: string) => {
         setTextToShow(text);
@@ -54,62 +62,77 @@ const ZodiacDetails = ({
                     {logo}
                 </div>
                 <div className="flex flex-col gap-6 h-full md:items-start md:text-left items-center text-center">
-                    <h1 className="text-[34px]">{title}</h1>
-                    <p>Overview: {overview}</p>
+                    <h1 className="text-[34px]">
+                        {title} ({startDate}{" "}
+                        <MonthCases monthResponse={startMonth} />
+                        {" - "}
+                        {endDate} <MonthCases monthResponse={endMonth} />)
+                    </h1>
+                    <p>
+                        {TEXTS[language].overview}: {overview}
+                    </p>
                     <div className="w-full flex flex-col md:flex-row items-center md:gap-[35px] lg:gap-[58px] gap-[30px]">
                         <div
                             className="lg:w-[50%] md:w-[170%] w-[80%] grid md:grid-cols-2 grid-cols-1 md:grid-rows-2 gap-6"
                             ref={outsideClickRef}
                         >
                             <div className="w-full flex flex-col text-[14px] overflow-hidden">
-                                <p className="text-[16px]">Matching Zodiac</p>
+                                <p className="text-[16px]">
+                                    {TEXTS[language].matchingZodiac}
+                                </p>
                                 <p className={"textEndThreeDot"}>{matching}</p>
                                 <span
                                     onClick={() => showFullText("matching")}
                                     className="cursor-pointer underline dark:hover:text-[#ffffffcd] hover:text-[#000000b5] duration-200 "
                                 >
-                                    See More
+                                    {TEXTS[language].seeMore}
                                 </span>
                                 {isShowingMoreText &&
                                     textToShow === "matching" && (
                                         <TextModal
-                                            title="Matching Zodiac"
+                                            title={
+                                                TEXTS[language].matchingZodiac
+                                            }
                                             text={matching}
                                             hideFullText={hideFullText}
                                         />
                                     )}
                             </div>
                             <div className="w-full flex flex-col text-[14px] overflow-ellipsis overflow-hidden">
-                                <p className="text-[16px]">Career</p>
+                                <p className="text-[16px]">
+                                    {TEXTS[language].career}
+                                </p>
                                 <p className={"textEndThreeDot"}>{career}</p>
                                 <span
                                     onClick={() => showFullText("career")}
                                     className="cursor-pointer underline dark:hover:text-[#ffffffcd] hover:text-[#000000b5] duration-200 "
                                 >
-                                    See More
+                                    {TEXTS[language].seeMore}
                                 </span>
                                 {isShowingMoreText &&
                                     textToShow === "career" && (
                                         <TextModal
-                                            title="Career"
+                                            title={TEXTS[language].career}
                                             text={career}
                                             hideFullText={hideFullText}
                                         />
                                     )}
                             </div>
                             <div className="w-full flex flex-col text-[14px] overflow-ellipsis overflow-hidden ">
-                                <p className="text-[16px]">Health</p>
+                                <p className="text-[16px]">
+                                    {TEXTS[language].health}
+                                </p>
                                 <p className={"textEndThreeDot"}>{health}</p>
                                 <span
                                     onClick={() => showFullText("health")}
                                     className="cursor-pointer underline dark:hover:text-[#ffffffcd] hover:text-[#000000b5] duration-200 "
                                 >
-                                    See More
+                                    {TEXTS[language].seeMore}
                                 </span>
                                 {isShowingMoreText &&
                                     textToShow === "health" && (
                                         <TextModal
-                                            title="Health"
+                                            title={TEXTS[language].health}
                                             text={health}
                                             hideFullText={hideFullText}
                                         />
@@ -117,18 +140,18 @@ const ZodiacDetails = ({
                             </div>
                             <div className="w-full flex flex-col text-[14px] overflow-ellipsis overflow-hidden">
                                 <p className="text-[16px] overflow-ellipsis">
-                                    Love
+                                    {TEXTS[language].love}
                                 </p>
                                 <p className={"textEndThreeDot"}>{love}</p>
                                 <span
                                     onClick={() => showFullText("love")}
                                     className="cursor-pointer underline dark:hover:text-[#ffffffcd] hover:text-[#000000b5] duration-200"
                                 >
-                                    See More
+                                    {TEXTS[language].seeMore}
                                 </span>
                                 {isShowingMoreText && textToShow === "love" && (
                                     <TextModal
-                                        title="Love"
+                                        title={TEXTS[language].love}
                                         text={love}
                                         hideFullText={hideFullText}
                                     />
