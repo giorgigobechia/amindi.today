@@ -30,13 +30,14 @@ const ZodiacDetails = ({
     const [isShowingMoreText, setIsShowingMoreText] = useState<boolean>(false);
     const [textToShow, setTextToShow] = useState<string>("");
     const outsideClickRef = useRef<null | HTMLDivElement>(null);
-
+    const [isOverlayVisible, setOverlayVisible] = useState<boolean>(false);
     const { language } = useGlobalContext();
     const [startDate, startMonth, , endDate, endMonth] = date.split(" ");
 
     const showFullText = (text: string) => {
         setTextToShow(text);
         setIsShowingMoreText(true);
+        setOverlayVisible(true);
     };
 
     const hideFullText = () => {
@@ -48,15 +49,19 @@ const ZodiacDetails = ({
         if (!outsideClickRef?.current?.contains(e.target)) {
             setTextToShow("");
             setIsShowingMoreText(false);
+        setOverlayVisible(false);
+
         }
     };
 
     useEffect(() => {
         document.addEventListener("click", handleOutsideClick);
+        setOverlayVisible(false);
     }, []);
 
     return (
         <section className="md:p-[2%] xxl:px-7 xxl:py-5 xxl:rounded-[34px] md:rounded-[26px] bg-[#a7aec727] dark:bg-[#355a716b] w-full relative overflow-hidden flex flex-col xxl:gap-24 md:gap-16">
+                                {isOverlayVisible && <div className="overlay" id="overlay"></div>}
             <div className="w-full h-full md:flex md:flex-row flex flex-col lg:gap-[120px] md:gap-[80px] gap-[40px] items-center md:p-[35px_10px_35px_10%] p-[35px_25px_35px_25px] relative">
                 <div className="md:scale-[1.8] lg:scale-[2.2] scale-[1.1]">
                     {logo}

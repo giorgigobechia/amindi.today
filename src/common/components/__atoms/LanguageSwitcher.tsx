@@ -5,17 +5,22 @@ import { useGlobalContext } from "@/common/context/store";
 const LanguageSwitcher = () => {
     const { language, setLanguage } = useGlobalContext();
     const [modalOpen, setModalOpen] = useState<boolean>(false);
-
+    const [isOverlayVisible, setOverlayVisible] = useState<boolean>(false);
     const handleLanguageChange = (newLanguage: string) => {
         setLanguage(newLanguage);
         setModalOpen(false);
+        setOverlayVisible(false);
     };
 
     return (
         <div className=" relative flex">
+             {isOverlayVisible && <div className="overlay" id="overlay"></div>}
             <div
                 className="w-6 h-6 rounded-full overflow-hidden position relative"
-                onClick={() => setModalOpen(true)}
+                onClick={() => {
+                    setModalOpen(true);
+                    setOverlayVisible(true);
+                  }}
             >
                 <Image
                     width={30}
