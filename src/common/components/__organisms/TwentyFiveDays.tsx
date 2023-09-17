@@ -18,7 +18,7 @@ const TwentyFiveDays = () => {
       <h1 className=" hidden md:flex md:text-[28px] text-[30px] xxl:text-[40px] bg-gradient-to-b dark:from-blue-400  xxl:flex-col from-[#2E386B] dark:to-white bg-clip-text text-transparent  font-$font">
         25 Days<span> Forecast</span>
       </h1>
-      <div className="grid grid-cols-2 md:grid-cols-7 xxl:grid-cols-5 gap-4 md:w-full xxl:w-auto ">
+      <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 xxl:grid-cols-5 gap-4 md:w-full xxl:w-auto ">
         {twentyFiveDays?.map((day: any, index: any) => (
           <React.Fragment key={index}>
             <TwentyFiveDayCard

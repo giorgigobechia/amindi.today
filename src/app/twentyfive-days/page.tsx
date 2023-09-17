@@ -11,7 +11,7 @@ const page = () => {
       </head>
       <section
         id="twenty-fives"
-        className="overflow-y-scroll md:px-4 md:py-4 xxl:px-7 xxl:py-5 xxl:rounded-[34px] md:rounded-[26px] bg-[#cea9a927] dark:bg-[#355a716b] w-full relative  md:overflow-hidden flex flex-col xxl:gap-24 md:gap-16 "
+        className=" md:px-4 md:py-4 xxl:px-7 xxl:py-5 xxl:rounded-[34px] md:rounded-[26px] bg-[#cea9a927] dark:bg-[#355a716b] w-full relative  md:overflow-hidden flex flex-col xxl:gap-24 md:gap-16 "
       >
         <div
           className=" w-full h-full -z-10 hidden md:visible"

@@ -117,8 +117,10 @@ export function WeatherIcons({
       break;
     case "ღრუბლიანი":
     case "ცვალებადი მოღრუბლულობა":
+    case "ნაწილობრივ ღრუბლიანი":
     case "cloudy":
     case "changeable cloudyw":
+    case "partly cloudy":
       IconComponent = <Cloudy width={IconSize} height={IconSize} />;
       break;
     case "ბურუსი":

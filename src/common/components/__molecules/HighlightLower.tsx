@@ -7,20 +7,21 @@ import TEXTS from "@/languages/Languages";
 import { useTheme } from "next-themes";
 import React from "react";
 
-interface HighlightLowerProps {
-  dataType: string;
-  number: number;
-  title: string;
-}
-
 interface Props {
-  props: HighlightLowerProps;
   type: string;
   dataType: string;
   className: string;
+  number: string;
+  title: string;
 }
 
-const HighlightLower = ({ props, type, className, dataType }: Props) => {
+const HighlightLower = ({
+  type,
+  className,
+  dataType,
+  number,
+  title,
+}: Props) => {
   const { resolvedTheme } = useTheme();
   const { language } = useGlobalContext();
 
@@ -52,7 +53,7 @@ const HighlightLower = ({ props, type, className, dataType }: Props) => {
               type === "feelsLike" ? "" : "items-end"
             } leading-10`}
           >
-            {props.number}{" "}
+            {number}{" "}
             {type === "humidity" ? (
               <span className="text-sm dark:text-[#FFFFFF99]">%</span>
             ) : type === "visibility" ? (
@@ -83,7 +84,7 @@ const HighlightLower = ({ props, type, className, dataType }: Props) => {
         )}
 
         <p className="text-xs text-[#00000099] dark:text-[#FFFFFF99]">
-          {props.title}
+          {title}
         </p>
       </div>
     </article>

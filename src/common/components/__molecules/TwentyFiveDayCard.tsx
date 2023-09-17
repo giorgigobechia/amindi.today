@@ -1,4 +1,6 @@
 import { WeatherIcons } from "@/common/icons/weatherIcons/WeatherIcons";
+import { DayCases } from "@/common/languageCases/DayCases";
+import { MonthCases } from "@/common/languageCases/MonthCases";
 import { title } from "process";
 import React from "react";
 import { Tooltip } from "react-tooltip";
@@ -28,8 +30,12 @@ const TwentyFiveDayCard = ({
         className="cursor-pointer justify-between flex flex-col items-center dark:bg-[#0000004D] bg-[#FFFFFF4D] rounded-[18px] w-[164px] h-[154px] md:h-[144px] md:w-[135px] px-[20px] py-[20px] xxl:px-[20px] xxl:py-[13px] xxl:w-[174px] xxl:h-[158px] md:px-2 md:py-3 "
       >
         <p className="dark:text-[#FFFFFFB2] text-[#000000B2] text-xs flex flex-col  text-center">
-          {date.split("\n")[0]}
-          <span>{date.split("\n")[1]}</span>
+          {date.split("\n")[0].split(" ")[0]} {"   "}
+          <MonthCases monthResponse={date.split("\n")[0].split(" ")[1]} />
+          <span>
+            {" "}
+            <DayCases dayResponse={date.split("\n")[1]} />
+          </span>
         </p>
         <WeatherIcons iconName={weather} IconSize={50} />
 

@@ -34,7 +34,6 @@ const WeatherToday = ({
   const { language } = useGlobalContext();
   const [currentTime, setCurrentTime] = useState(new Date());
   const dayNum = currentTime.getDate();
-  console.log(day);
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentTime(new Date());
@@ -121,7 +120,7 @@ const WeatherToday = ({
               <b className="xxl:text-base md:text-sm">{formattedTime}</b>
             </span>
           </div>
-          <Link className="underline" href={"/twentyFiveDays"}>
+          <Link className="underline" href={"/twentyfive-days"}>
             25 დღის
           </Link>
         </p>

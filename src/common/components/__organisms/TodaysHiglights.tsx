@@ -6,22 +6,6 @@ import HighlightUpper from "../__molecules/HighlightUpper";
 import { useGlobalContext } from "@/common/context/store";
 import TEXTS from "@/languages/Languages";
 
-const humidity = {
-  dataType: "Humidity",
-  number: 30,
-  title: "The dew point is 17 right now",
-};
-const visibility = {
-  dataType: "Visibility",
-  number: 10,
-  title: "Haze is affecting visibility",
-};
-const feelsLike = {
-  dataType: "Feels Like",
-  number: 25,
-  title: "Humidity is making it feel hotter.",
-};
-
 const windStatus = {
   dataType: "Wind Status",
 };
@@ -32,7 +16,14 @@ const Sunrise = {
   dataType: "Sunrise & Sunset",
 };
 
-const TodaysHiglights = () => {
+const TodaysHiglights = ({
+  windSpeed,
+  visibility,
+  humidity,
+  feelsLike,
+  sunRise,
+  sunSet,
+}: any) => {
   const { language } = useGlobalContext();
   return (
     <section className="md:px-4 md:py-4 xxl:px-7 xxl:py-5 xxl:rounded-[34px] md:rounded-[26px] bg-[#cea9a927] dark:bg-[#355a7145] w-[70%] h-full relative overflow-hidden flex flex-col gap-2">
@@ -57,38 +48,41 @@ const TodaysHiglights = () => {
       </h5>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-6 md:grid-rows-3 h-[93%]">
         <HighlightUpper
-          props={windStatus}
           type="windStatus"
           className="col-start-1 col-end-3 row-start-1 row-end-3"
           dataType={TEXTS[language]?.windStatus}
+          windSpeed={windSpeed}
         />
         <HighlightUpper
-          props={uvIndex}
           type="uvIndex"
           className="col-start-3 col-end-5 row-start-1 row-end-3"
           dataType={TEXTS[language]?.uvIndex}
         />
         <HighlightUpper
-          props={Sunrise}
+          sunRise={sunRise}
+          sunSet={sunSet}
           type="Sunrise"
           className="col-start-5 col-end-7 row-start-1 row-end-3"
           dataType={TEXTS[language]?.sunriseSunset}
         />
 
         <HighlightLower
-          props={humidity}
+          number={humidity}
+          title="The dew point is 17 right now"
           type="humidity"
           className="col-start-1 col-end-3"
           dataType={TEXTS[language]?.humidity}
         />
         <HighlightLower
-          props={visibility}
+          title="Haze is affecting visibility"
+          number={visibility}
           type="visibility"
           className="col-start-3 col-end-5"
           dataType={TEXTS[language]?.visibility}
         />
         <HighlightLower
-          props={feelsLike}
+          title="Humidity is making it feel hotter."
+          number={feelsLike}
           type="feelsLike"
           className="col-start-5 col-end-7"
           dataType={TEXTS[language]?.feelsLike}
