@@ -16,6 +16,7 @@ import TEXTS from "@/languages/Languages";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import SearchBar from "../__molecules/SearchBar";
 
 interface PropsTypes {
   currentTemp: number;
@@ -34,6 +35,7 @@ const WeatherToday = ({
   const { language } = useGlobalContext();
   const [currentTime, setCurrentTime] = useState(new Date());
   const dayNum = currentTime.getDate();
+  const [searchActive, setSearchActive] = useState(false);
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentTime(new Date());
@@ -48,8 +50,12 @@ const WeatherToday = ({
     hour: "2-digit",
     minute: "2-digit",
   });
+  const handleSearchClose = () => {
+    setSearchActive(false);
+  };
   return (
     <section className="md:p-4 xxl:p-7 flex flex-col justify-between  xxl:rounded-[34px] md:rounded-[26px] bg-[#cea9a927] dark:bg-[#355a716b] w-[30%] relative overflow-hidden">
+      {searchActive && <SearchBar handleSearchClose={handleSearchClose} />}
       <div
         className="absolute w-full h-full -z-10 "
         style={{ backdropFilter: "blur(14px)" }}
@@ -76,7 +82,12 @@ const WeatherToday = ({
           {" "}
           {TEXTS[language]?.today}
         </h1>
-        <button className="rounded-full xxl:py-2 xxl:px-3 md:p-2 bg-[#ffffff4d] dark:bg-[#0000004D] cursor-pointer">
+        <button
+          className={`rounded-full xxl:py-2 xxl:px-3 md:p-2 bg-[#ffffff4d] dark:bg-[#0000004D] cursor-pointer ${
+            searchActive && "hidden"
+          }`}
+          onClick={() => setSearchActive(true)}
+        >
           <SearchIcon
             width={0}
             height={0}
