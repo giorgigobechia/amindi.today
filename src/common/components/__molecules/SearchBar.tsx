@@ -96,7 +96,7 @@ const SearchBar = ({ handleSearchClose }: SearchProps) => {
           />
         </div>
         <div className="w-full h-[70vh] bg-[#000] rounded-[34.5px] search-scroll">
-          <ul className="pt-[30px]">
+          <ul className="pt-[30px] cursor-pointer">
             {citiesArray
               .filter((city) => {
                 return search.toLowerCase() === ""
