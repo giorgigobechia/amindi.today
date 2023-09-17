@@ -12,7 +12,6 @@ import { todaysWeatherProps } from "@/common/types/weatherTypes";
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
   const [todayWeather, setTodayWeather] = useState<any>([]);
-  console.log(todayWeather);
   const getTodayWeather = async () => {
     await weatherServices.getTodayWeather(setTodayWeather, "tbilisi");
   };
@@ -36,7 +35,7 @@ export default function Home() {
   }, []);
 
   if (isMobile) {
-    return <p>MOBILE GOES HERE</p>;
+    return <div>MOBILE GOES HERE</div>;
   }
 
   return (
@@ -49,7 +48,14 @@ export default function Home() {
             month={todayWeather?.month}
             day={todayWeather?.day}
           />
-          <TodaysHiglights />
+          <TodaysHiglights
+            windSpeed={todayWeather?.windSpeed}
+            visibility={todayWeather?.visibility}
+            humidity={todayWeather?.humidity}
+            feelsLike={todayWeather?.feelsLike}
+            sunRise={todayWeather?.sunRise}
+            sunSet={todayWeather?.sunSet}
+          />
         </div>
         <div className="flex gap-3 xxl:h-[45%] md:h-[43%]">
           <DaysForecast />

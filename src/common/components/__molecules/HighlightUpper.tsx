@@ -10,13 +10,22 @@ interface HighlightUpperProps {
 }
 
 interface Props {
-  props: HighlightUpperProps;
   type: string;
   dataType: string;
   className: string;
+  windSpeed?: number;
+  sunRise?: string;
+  sunSet?: string;
 }
 
-const HighlightUpper = ({ props, type, className, dataType }: Props) => {
+const HighlightUpper = ({
+  type,
+  className,
+  dataType,
+  windSpeed,
+  sunRise,
+  sunSet,
+}: Props) => {
   const { language } = useGlobalContext();
 
   return (
@@ -37,7 +46,7 @@ const HighlightUpper = ({ props, type, className, dataType }: Props) => {
               className={`text-[24px] font-medium flex items-end gap-1
               leading-8 sm:text-[32px] md:text-[26px] lg:text-[26px] xl:text-[28px] xxl:text-[40px] `}
             >
-              5.10
+              {windSpeed}
               <span className="text-sm text-[#00000099] dark:text-[#FFFFFF99]">
                 {TEXTS[language]?.kmh}
               </span>
@@ -71,7 +80,7 @@ const HighlightUpper = ({ props, type, className, dataType }: Props) => {
                 {TEXTS[language]?.sunrise}
               </p>
               <p className=" sm:text-sm xxl:text-base text-[#00000099] dark:text-[#FFFFFF99]">
-                5:30 AM
+                {sunRise}
               </p>
             </div>
             <div className="flex flex-col justify-center">
@@ -79,7 +88,7 @@ const HighlightUpper = ({ props, type, className, dataType }: Props) => {
                 {TEXTS[language]?.sunset}
               </p>
               <p className="sm:text-sm xxl:text-base text-[#00000099] dark:text-[#FFFFFF99]">
-                6:40 AM
+                {sunSet}
               </p>
             </div>
           </div>

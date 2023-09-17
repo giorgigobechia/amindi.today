@@ -5,7 +5,7 @@ const config: Config = {
   darkMode : 'class',
   theme: {
     screens: {
-      'sm': '640px',
+      'sm': '680px',
       // => @media (min-width: 640px) { ... }
 
       'md': '1024px',
