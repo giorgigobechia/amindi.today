@@ -58,7 +58,7 @@ export default function RootLayout({
         } bg-[#F6F6F6] dark:bg-[#121212]`}
       >
         <Providers>
-          <div className="w-screen h-screen md:p-3 xxl:p-6 flex md:gap-3 xxl:gap-6 overflow-hidden">
+          <div className="md:w-screen md:h-screen md:p-3 xxl:p-6 flex md:gap-3 xxl:gap-6 overflow-hidden">
             <Sidebar />
             {children}
           </div>

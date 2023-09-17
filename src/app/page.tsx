@@ -1,11 +1,14 @@
-'use client'
-import { useState, useEffect } from 'react';
-
+"use client";
+import { useState, useEffect } from "react";
 import Advertising from "@/common/components/__organisms/Advertising";
 import DaysForecast from "@/common/components/__organisms/DaysForecast";
 import TodaysHiglights from "@/common/components/__organisms/TodaysHiglights";
 import WeatherToday from "@/common/components/__organisms/WeatherToday";
 import Image from "next/image";
+import WeatherTodayMobile from "@/common/components/__organisms/WeatherTodayMobile";
+import HoursForecastMobile from "@/common/components/__organisms/HoursForecastMobile";
+import DaysForeCastMobile from "@/common/components/__organisms/DaysForeCastMobile";
+import TodaysHiglightsMobile from "@/common/components/__organisms/TodaysHighlightMobile";
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
@@ -17,15 +20,28 @@ export default function Home() {
 
     handleResize();
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
   if (isMobile) {
-    return <p>MOBILE GOES HERE</p>;
+    return (
+      <>
+        <main className="w-full bg-[#355a716b] px-[25px]">
+          <article className="">
+            <div className="flex flex-col justify-center items-center gap-[10px]">
+              <WeatherTodayMobile />
+              <HoursForecastMobile />
+              <DaysForeCastMobile />
+              <TodaysHiglightsMobile />
+            </div>
+          </article>
+        </main>
+      </>
+    );
   }
 
   return (
