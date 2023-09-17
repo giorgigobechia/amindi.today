@@ -42,7 +42,7 @@ const TEXTS: any = {
         Capricorn: "თხის რქა",
         Aquarius: "მერწყული",
         Pisces: "თევზები",
-        seeMore: "იხილეთ მეტი",
+        seeMore: "იხილეთ ვრცლად",
         overview: "მიმოხილვა",
         matchingZodiac: "შესატყვისი ზოდიაქო",
         career: "კარიერა",

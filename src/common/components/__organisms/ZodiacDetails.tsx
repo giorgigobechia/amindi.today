@@ -68,8 +68,8 @@ const ZodiacDetails = ({
                         {" - "}
                         {endDate} <MonthCases monthResponse={endMonth} />)
                     </h1>
-                    <p>
-                        {TEXTS[language].overview}: {overview}
+                    <p className="">
+                        <span className="font-medium">{TEXTS[language].overview}</span>: {overview}
                     </p>
                     <div className="w-full flex flex-col md:flex-row items-center md:gap-[35px] lg:gap-[58px] gap-[30px]">
                         <div
@@ -77,8 +77,8 @@ const ZodiacDetails = ({
                             ref={outsideClickRef}
                         >
                             <div className="w-full flex flex-col text-[14px] overflow-hidden">
-                                <p className="text-[16px]">
-                                    {TEXTS[language].matchingZodiac}
+                                <p className="text-[16px] font-medium">
+                                    {TEXTS[language].matchingZodiac}:
                                 </p>
                                 <p className={"textEndThreeDot"}>{matching}</p>
                                 <span
@@ -99,8 +99,8 @@ const ZodiacDetails = ({
                                     )}
                             </div>
                             <div className="w-full flex flex-col text-[14px] overflow-ellipsis overflow-hidden">
-                                <p className="text-[16px]">
-                                    {TEXTS[language].career}
+                                <p className="text-[16px] font-medium">
+                                    {TEXTS[language].career}:
                                 </p>
                                 <p className={"textEndThreeDot"}>{career}</p>
                                 <span
@@ -119,8 +119,8 @@ const ZodiacDetails = ({
                                     )}
                             </div>
                             <div className="w-full flex flex-col text-[14px] overflow-ellipsis overflow-hidden ">
-                                <p className="text-[16px]">
-                                    {TEXTS[language].health}
+                                <p className="text-[16px] font-medium">
+                                    {TEXTS[language].health}:
                                 </p>
                                 <p className={"textEndThreeDot"}>{health}</p>
                                 <span
@@ -139,8 +139,8 @@ const ZodiacDetails = ({
                                     )}
                             </div>
                             <div className="w-full flex flex-col text-[14px] overflow-ellipsis overflow-hidden">
-                                <p className="text-[16px] overflow-ellipsis">
-                                    {TEXTS[language].love}
+                                <p className="text-[16px] overflow-ellipsis font-medium">
+                                    {TEXTS[language].love}:
                                 </p>
                                 <p className={"textEndThreeDot"}>{love}</p>
                                 <span
