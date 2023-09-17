@@ -118,6 +118,8 @@ export function WeatherIcons({
     case "ღრუბლიანი":
     case "ცვალებადი მოღრუბლულობა":
     case "ნაწილობრივ ღრუბლიანი":
+    case 'ერიოდულად ღრუბლიანი':
+    case 'პერიოდულად ღრუბლიანი':
     case "cloudy":
     case "changeable cloudyw":
     case "partly cloudy":

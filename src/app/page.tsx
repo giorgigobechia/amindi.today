@@ -47,6 +47,8 @@ export default function Home() {
             currentWeatherDesc={todayWeather?.currentWeatherDesc}
             month={todayWeather?.month}
             day={todayWeather?.day}
+            min={todayWeather?.minTemp}
+            max={todayWeather?.maxTemp}
           />
           <TodaysHiglights
             windSpeed={todayWeather?.windSpeed}

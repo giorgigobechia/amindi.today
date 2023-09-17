@@ -22,6 +22,8 @@ interface PropsTypes {
   currentWeatherDesc: string;
   month: string;
   day: string;
+  min: number,
+  max: number,
 }
 
 const WeatherToday = ({
@@ -29,6 +31,8 @@ const WeatherToday = ({
   currentWeatherDesc,
   month,
   day,
+  min,
+  max,
 }: PropsTypes) => {
   const { resolvedTheme } = useTheme();
   const { language } = useGlobalContext();
@@ -92,8 +96,11 @@ const WeatherToday = ({
           <h3 className="xxl:text-[54px] md:text-[50px]  leading-tight">
             {currentTemp}
             <sup>o</sup>
+            C
           </h3>
-          <p className="xxl:text-base md:text-sm">{currentWeatherDesc}</p>
+          <p className="text-sm">მინ:{min}° მაქს:{max}°</p>
+          <br />
+          <p className="xxl:text-base md:text-sm tracking-tight text-justify">{currentWeatherDesc}</p>
         </div>
       </div>
       <div className="py-[2vh] flex flex-col gap-2 border-t-2 border-t-gray-400">
