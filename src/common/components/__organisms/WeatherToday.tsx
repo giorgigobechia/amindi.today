@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import { useGlobalContext } from "@/common/context/store";
 import CalendarIcon from "@/common/icons/calendarIcon";
 import EmptyCalendarIcon from "@/common/icons/emptyCalendarIcon";
@@ -23,8 +23,8 @@ interface PropsTypes {
   currentWeatherDesc: string;
   month: string;
   day: string;
-  min: number,
-  max: number,
+  min: number;
+  max: number;
 }
 
 const WeatherToday = ({
@@ -40,6 +40,7 @@ const WeatherToday = ({
   const [currentTime, setCurrentTime] = useState(new Date());
   const dayNum = currentTime.getDate();
   const [searchActive, setSearchActive] = useState(false);
+  const { activeCity } = useGlobalContext();
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentTime(new Date());
@@ -82,10 +83,7 @@ const WeatherToday = ({
         />
       </div>
       <div className="flex w-full justify-between mt-4 ">
-        <h1 className="xxl:text-[40px] md:text-[30px]">
-          {" "}
-          {TEXTS[language]?.today}
-        </h1>
+        <h1 className="xxl:text-[40px] md:text-[30px]"> {activeCity}</h1>
         <button
           className={`rounded-full xxl:py-2 xxl:px-3 md:p-2 bg-[#ffffff4d] dark:bg-[#0000004D] cursor-pointer ${
             searchActive && "hidden"
@@ -106,12 +104,15 @@ const WeatherToday = ({
         <div className="w-[40%]">
           <h3 className="xxl:text-[54px] md:text-[50px]  leading-tight">
             {currentTemp}
-            <sup>o</sup>
-            C
+            <sup>&deg;</sup>C
           </h3>
-          <p className="text-sm">მინ:{min}° მაქს:{max}°</p>
+          <p className="text-sm">
+            მინ:{min}° მაქს:{max}°
+          </p>
           <br />
-          <p className="xxl:text-base md:text-sm tracking-tight text-justify">{currentWeatherDesc}</p>
+          <p className="xxl:text-base md:text-sm tracking-tight text-justify">
+            {currentWeatherDesc}
+          </p>
         </div>
       </div>
       <div className="py-[2vh] flex flex-col gap-2 border-t-2 border-t-gray-400">

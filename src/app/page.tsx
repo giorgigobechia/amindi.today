@@ -4,21 +4,34 @@ import { useState, useEffect } from "react";
 import Advertising from "@/common/components/__organisms/Advertising";
 import DaysForecast from "@/common/components/__organisms/DaysForecast";
 import TodaysHiglights from "@/common/components/__organisms/TodaysHiglights";
-import WeatherToday from "@/common/components/__organisms/WeatherToday";
 import Image from "next/image";
 import weatherServices from "@/common/services/weatherService";
 import { todaysWeatherProps } from "@/common/types/weatherTypes";
+import { useGlobalContext } from "@/common/context/store";
+import dynamic from "next/dynamic";
+
+const WeatherToday = dynamic(
+  () => import("@/common/components/__organisms/WeatherToday"),
+  { ssr: false }
+);
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
-  const [todayWeather, setTodayWeather] = useState<any>([]);
+  const {
+    setGlobalTwentyFiveDays,
+    setGlobalTodaysWeather,
+    globalTodaysWeather,
+  } = useGlobalContext();
+  const { activeCity } = useGlobalContext();
+
   const getTodayWeather = async () => {
-    await weatherServices.getTodayWeather(setTodayWeather, "tbilisi");
+    weatherServices.getTodayWeather(setGlobalTodaysWeather, activeCity);
+    weatherServices.getTwentyFiveDays(setGlobalTwentyFiveDays, activeCity);
   };
 
   useEffect(() => {
     getTodayWeather();
-  }, []);
+  }, [activeCity]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -43,20 +56,20 @@ export default function Home() {
       <article className="flex flex-col gap-3 w-full h-full">
         <div className="flex gap-3 h-[55%]">
           <WeatherToday
-            currentTemp={todayWeather?.currentTemp}
-            currentWeatherDesc={todayWeather?.currentWeatherDesc}
-            month={todayWeather?.month}
-            day={todayWeather?.day}
-            min={todayWeather?.minTemp}
-            max={todayWeather?.maxTemp}
+            currentTemp={globalTodaysWeather?.currentTemp}
+            currentWeatherDesc={globalTodaysWeather?.currentWeatherDesc}
+            month={globalTodaysWeather?.month}
+            day={globalTodaysWeather?.day}
+            min={globalTodaysWeather?.minTemp}
+            max={globalTodaysWeather?.maxTemp}
           />
           <TodaysHiglights
-            windSpeed={todayWeather?.windSpeed}
-            visibility={todayWeather?.visibility}
-            humidity={todayWeather?.humidity}
-            feelsLike={todayWeather?.feelsLike}
-            sunRise={todayWeather?.sunRise}
-            sunSet={todayWeather?.sunSet}
+            windSpeed={globalTodaysWeather?.windSpeed}
+            visibility={globalTodaysWeather?.visibility}
+            humidity={globalTodaysWeather?.humidity}
+            feelsLike={globalTodaysWeather?.feelsLike}
+            sunRise={globalTodaysWeather?.sunRise}
+            sunSet={globalTodaysWeather?.sunSet}
           />
         </div>
         <div className="flex gap-3 xxl:h-[45%] md:h-[43%]">

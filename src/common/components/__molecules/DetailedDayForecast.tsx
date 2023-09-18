@@ -11,7 +11,7 @@ const DetailedDayForecast = () => {
   const { language } = useGlobalContext();
   return (
     <article
-      className="w-full md:h-[40%] xxl:h-[30%] flex items-center justify-between"
+      className="w-full md:h-[30%] xxl:h-[25%] flex items-center justify-between"
       style={{
         background:
           resolvedTheme === "light"

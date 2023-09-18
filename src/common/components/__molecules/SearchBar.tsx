@@ -67,10 +67,12 @@ const SearchBar = ({ handleSearchClose }: SearchProps) => {
   const { resolvedTheme } = useTheme();
   const { language } = useGlobalContext();
   const [search, setSearch] = useState("");
+  const { setActiveCity } = useGlobalContext();
   const handleOptionClick = (cityEnValue: string) => {
     setSearch(cityEnValue);
     handleSearchClose();
     window.history.pushState({}, "", encodeURIComponent(cityEnValue));
+    setActiveCity(cityEnValue);
   };
 
   return (
@@ -80,7 +82,7 @@ const SearchBar = ({ handleSearchClose }: SearchProps) => {
         style={{ backdropFilter: "blur(2px)" }}
         onClick={handleSearchClose}
       />
-      <div className="flex flex-col gap-[18px] fixed top-[10vh] left-[40%] w-[39.8%] min-h-[200px z-50 overflow-hidden">
+      <div className="flex flex-col gap-[18px] fixed top-[10vh] left-[40%] w-[39.8%] min-h-[200px] z-50 overflow-hidden">
         <div className="w-full h-[69px] bg-[#000] rounded-[34.5px] relative">
           <button className="absolute top-[22px] left-[16.4px]">
             <SearchIcon
