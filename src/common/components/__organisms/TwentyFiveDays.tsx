@@ -2,11 +2,13 @@
 import React, { useEffect, useState } from "react";
 import TwentyFiveDayCard from "../__molecules/TwentyFiveDayCard";
 import weatherServices from "@/common/services/weatherService";
+import { useGlobalContext } from "@/common/context/store";
 
 const TwentyFiveDays = () => {
   const [twentyFiveDays, setTwentyFiveDays] = useState<any>([]);
+  const { activeCity } = useGlobalContext();
   const getTwentyFiveDays = async () => {
-    await weatherServices.getTwentyFiveDays(setTwentyFiveDays, "tbilisi");
+    await weatherServices.getTwentyFiveDays(setTwentyFiveDays, activeCity);
   };
 
   useEffect(() => {

@@ -6,14 +6,19 @@ interface weatherProps {
 }
 
  const weatherServices = {
-  getTwentyFiveDays: async (setFunction : any, city : any) => {
+  getTwentyFiveDays: async (setState : any, city : any) => {
     const response = await Api.sendRequest(`weather/${city}/25-days`, 'get') as weatherProps
-    setFunction(response?.response[0])
+    setState(response?.response[0])
     return response
   },
-  getTodayWeather: async (setFunction : any, city : any) => {
+  getTodayWeather: async (setState : any, city : any) => {
     const response = await Api.sendRequest(`weather/${city}`, 'get') as weatherProps
-    setFunction(response?.response)
+    setState(response?.response)
+    return response
+  },
+  getHourlyWeather: async (setState : any, city : any) => {
+    const response = await Api.sendRequest(`weather/${city}/hourly`, 'get') as weatherProps
+    setState(response?.response[0])
     return response
   },
 }

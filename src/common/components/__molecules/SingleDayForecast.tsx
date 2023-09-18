@@ -1,37 +1,62 @@
 import CloudySun from "@/common/icons/cloudySun";
+import { WeatherIcons } from "@/common/icons/weatherIcons/WeatherIcons";
 import React, { ReactNode } from "react";
-
+import { Tooltip } from "react-tooltip";
+import "react-tooltip/dist/react-tooltip.css";
 interface SingleDayForecastProps {
-  Icon: ReactNode;
-  degree: string;
-  date: string;
-  day: string;
+  temp?: string;
+  time: string;
+  weather: string;
+  type?: string;
+  tempMin?: number;
+  tempMax?: number;
 }
 
 const SingleDayForecast = ({
-  Icon,
-  degree,
-  date,
-  day,
+  temp,
+  tempMin,
+  tempMax,
+  time,
+  weather,
+  type,
 }: SingleDayForecastProps) => {
   return (
-    <article className="w-full flex gap-4 xl:gap-12 items-center">
-      <div className="flex gap-2 items-center">
-        {Icon}
-        <h1 className="text-[24px]">
-          {degree}&deg;
-          <span className="text-[#00000066] dark:text-[#FFFFFF99] md:text-base">
-            /+17
-          </span>
-        </h1>
-      </div>
-      <p className="text-[#00000066]  md:text-sm xxl:text-[14px] dark:text-[#FFFFFF99]">
-        {date}
-      </p>
-      <p className="text-[#00000066] md:text-sm xxl:text-[14px] dark:text-[#FFFFFF99]">
-        {day}
-      </p>
-    </article>
+    <>
+      <article
+        data-tooltip-id="hourlyWeather"
+        data-tooltip-content={weather.length > 18 ? weather : ""}
+        className="w-full flex gap-4 xl:gap-12 items-center justify-between"
+      >
+        {type !== "weekDays" ? (
+          <div className="flex gap-2 items-center">
+            <WeatherIcons iconName={weather} IconSize={25} />
+            <h1 className="text-[24px]">{temp}&deg;</h1>
+          </div>
+        ) : (
+          <div className="flex gap-2 items-center ">
+            <WeatherIcons iconName={weather} IconSize={25} />
+            <div className="flex items-center">
+              <h1 className="text-[20px] xxl:text-[24px]">{tempMax}&deg;</h1>/
+              <h1 className="text-[16px] xxl:text-[20px] text-[#FFFFFF66]">
+                {tempMin}&deg;
+              </h1>
+            </div>
+          </div>
+        )}
+        <p
+          id="weatherContent"
+          className="text-[#00000066] md:text-sm xxl:text-[14px] dark:text-[#FFFFFF99] w-[40%] overflow-hidden whitespace-nowrap overflow-ellipsis"
+        >
+          {weather}
+        </p>
+
+        <p className="text-[#00000066] md:text-sm xxl:text-[14px] dark:text-[#FFFFFF99]">
+          {type !== "weekDays" ? time : time.split("\n")[1]}
+        </p>
+      </article>
+
+      <Tooltip id="hourlyWeather" />
+    </>
   );
 };
 

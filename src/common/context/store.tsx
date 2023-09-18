@@ -11,34 +11,48 @@ import {
 interface ContextProps {
   activePage: string;
   setActivePage: Dispatch<SetStateAction<string>>;
+  activeCity: string;
+  setActiveCity: Dispatch<SetStateAction<string>>;
   language: string;
   setLanguage: (language: string) => void;
-  twentyFiveDays: any;
-  setTwentyFiveDays: Dispatch<SetStateAction<any>>;
+  globalTwentyFiveDays: any;
+  setGlobalTwentyFiveDays: Dispatch<SetStateAction<any>>;
+  globalTodaysWeather: any;
+  setGlobalTodaysWeather: Dispatch<SetStateAction<any>>;
 }
 const GlobalContext = createContext<ContextProps>({
   activePage: "home",
   setActivePage: () => {},
+  activeCity: "tbilisi",
+  setActiveCity: () => {},
   language: "ka",
   setLanguage: (language: string) => {},
-  twentyFiveDays: [],
-  setTwentyFiveDays: () => {},
+  globalTwentyFiveDays: [],
+  setGlobalTwentyFiveDays: () => {},
+  globalTodaysWeather: [],
+  setGlobalTodaysWeather: () => {},
 });
 
 export const GlobalContextProvider = ({ children }: any) => {
   const [activePage, setActivePage] = useState<string>("home");
+  const [activeCity, setActiveCity] = useState<string>("tbilisi");
   const [language, setLanguage] = useState<string>("ka");
-  const [twentyFiveDays, setTwentyFiveDays] = useState();
+  const [globalTwentyFiveDays, setGlobalTwentyFiveDays] = useState([]);
+  const [globalTodaysWeather, setGlobalTodaysWeather] = useState([]);
 
   return (
     <GlobalContext.Provider
       value={{
         activePage,
         setActivePage,
+        activeCity,
+        setActiveCity,
         language,
         setLanguage,
-        twentyFiveDays,
-        setTwentyFiveDays,
+        globalTwentyFiveDays,
+        setGlobalTwentyFiveDays,
+        globalTodaysWeather,
+        setGlobalTodaysWeather,
       }}
     >
       {children}
