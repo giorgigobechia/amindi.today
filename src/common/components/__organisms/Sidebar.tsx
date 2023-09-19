@@ -48,8 +48,9 @@ const Sidebar = () => {
     }, [activePage]);
 
     return (
-        <aside className="md:w-[80px] xxl:w-[120px] h-full md:flex flex-col items-center justify-between md:bg-[#cea9a927] dark:bg-[#355a716b] bg-[#a7aec727] xxl:rounded-[34px] md:rounded-[26px] md:p-[80px_0_40px] pt-[30px] pb-[30px] relative overflow-visible">
+        <aside className="md:w-[80px] xxl:w-[120px] h-full md:flex flex-col items-center justify-between md:bg-[#cea9a927] dark:bg-[#355a718d] bg-[#a7aec7a7] dark:bg-gradient-to-b from-[#1e1e1ead] to-[#2c556f6b] xxl:rounded-[34px] md:rounded-[26px] md:p-[80px_0_40px] pt-[30px] pb-[30px] relative overflow-visible">
             <div className="w-full md:flex flex-col xxl:gap-[25px] md:gap-[20px] h-full">
+                <div className="absolute dark:bg-[#121212] w-[200px] h-[200px] blur-[20px] left-[-170px] top-[-120px]"></div>
                 <p className="w-full border-b border-b-[#0000004D] text-center pb-[10px] md:text-sm md:inline-block hidden">
                     amindi
                 </p>

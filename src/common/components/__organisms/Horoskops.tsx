@@ -94,7 +94,7 @@ const Horoskops = () => {
     ];
 
     return (
-        <article className="grid grid-cols-2 md:gap-x-20 xxl:gap-x-16 xxl:gap-y-20 gap-y-[50px] md:gap-y-15 sm:grid-cols-3 sm:gap-y-[40px] md:grid-cols-4 lg:grid-cols-6 w-[80%] mx-auto ">
+        <article className="grid grid-cols-2 md:gap-x-20 xxl:gap-x-16 xxl:gap-y-20 gap-y-[50px] md:gap-y-20 sm:grid-cols-3 sm:gap-y-[40px] md:grid-cols-4 lg:grid-cols-6 w-[80%] mx-auto ">
             {horoscopes.map((horoscope) => {
                 return (
                     <SingelZodiac
