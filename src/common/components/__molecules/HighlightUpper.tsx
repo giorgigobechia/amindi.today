@@ -1,4 +1,5 @@
 import { useGlobalContext } from "@/common/context/store";
+import { MoonPhasesImg } from "@/common/icons/moonPhases/moonPhases";
 import SunriseIcon from "@/common/icons/sunriseIcon";
 import UvIndexIcon from "@/common/icons/uvIndexIcon";
 import WindChartIcon from "@/common/icons/windChartIcon";
@@ -11,18 +12,19 @@ interface HighlightUpperProps {
 
 interface Props {
   type: string;
-  dataType: string;
+  dataType?: string;
   className: string;
   windSpeed?: number;
   sunRise?: string;
   sunSet?: string;
+  moonPhase?: string;
 }
 
 const HighlightUpper = ({
   type,
   className,
   dataType,
-  windSpeed,
+  moonPhase,
   sunRise,
   sunSet,
 }: Props) => {
@@ -35,25 +37,22 @@ const HighlightUpper = ({
         className
       }
     >
-      <h3 className="text-[#000000CC] text-base sm:text-lg md:text-[14px] lg:text-[14px]  xl:text-[16px] xxl:text-[18px] dark:text-[#FFFFFF99]">
+      <h3 className="text-[#000000CC] flex text-base sm:text-lg md:text-[14px] lg:text-[14px]  xl:text-[16px] xxl:text-[18px] dark:text-[#FFFFFF99]">
         {dataType}
       </h3>
-      {type === "windStatus" ? (
+      {type === "moonPhase" ? (
         <>
-          <WindChartIcon width={0} height={117} className="w-full flex-1" />
-          <div className="w-full flex justify-between items-end">
+          <div className="flex justify-center relative">
+            <div className="absolute w-[165px] h-[165px] top-[-10px] radial-gradient -z-10 rounded-full"></div>
+            <MoonPhasesImg iconName={moonPhase} className="" />
+          </div>
+          <div className="w-full flex justify-center items-end ">
             <h3
-              className={`text-[24px] font-medium flex items-end gap-1
-              leading-8 sm:text-[32px] md:text-[26px] lg:text-[26px] xl:text-[28px] xxl:text-[40px] `}
+              className={` flex items-end gap-1
+              leading-8  text-base xxl:text-[20px] dark:text-[#ffffff99] `}
             >
-              {windSpeed}
-              <span className="text-sm text-[#00000099] dark:text-[#FFFFFF99]">
-                {TEXTS[language]?.kmh}
-              </span>
+              {moonPhase}
             </h3>
-            <p className="text-sm text-[#00000099] dark:text-[#FFFFFF99]">
-              6:30 AM
-            </p>
           </div>
         </>
       ) : type === "uvIndex" ? (
