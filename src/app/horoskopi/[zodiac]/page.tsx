@@ -17,6 +17,7 @@ import zodiacServices from "@/common/services/zodiacService";
 import { useGlobalContext } from "@/common/context/store";
 import TEXTS from "@/languages/Languages";
 import { MonthCases } from "@/common/languageCases/MonthCases";
+import WhiteGradient from "@/common/icons/whiteGradient";
 
 interface props {
   params: { zodiac: string };

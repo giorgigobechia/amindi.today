@@ -1,11 +1,13 @@
 "use client";
 import SingelZodiac from "@/common/components/__molecules/SingleZodiac";
+import BgStars from "@/common/components/__molecules/bgStars";
 import Horoskops from "@/common/components/__organisms/Horoskops";
 import { useGlobalContext } from "@/common/context/store";
 import GrayGradient from "@/common/icons/grayGradient";
 import GreenGradient from "@/common/icons/greenGradient";
 import PinkGradient from "@/common/icons/pinkGradient";
 import StarIcon from "@/common/icons/starIcon";
+import WhiteGradient from "@/common/icons/whiteGradient";
 import TEXTS from "@/languages/Languages";
 import React from "react";
 
@@ -13,6 +15,7 @@ const Zodiaco = () => {
     const { language } = useGlobalContext();
     return (
         <section className="md:px-4 md:py-4 xxl:px-7 xxl:py-5 xxl:rounded-[34px] pb-[100px] lg:pb-0 md:rounded-[26px] bg-[#a7aec727] dark:bg-[#355a716b] w-full h-full relative overflow-hidden flex flex-col xxl:gap-24 md:gap-16">
+            <BgStars />
             <div
                 className="absolute w-full h-full -z-10 "
                 style={{ backdropFilter: "blur(14px)" }}

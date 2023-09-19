@@ -3,6 +3,8 @@ import TextModal from "../__molecules/showMoreTextModal";
 import { useGlobalContext } from "@/common/context/store";
 import TEXTS from "@/languages/Languages";
 import { MonthCases } from "@/common/languageCases/MonthCases";
+import GrayStarIcon from "@/common/icons/grayStarIcon";
+import BgStars from "../__molecules/bgStars";
 
 interface ZoidacDetailProps {
     logo: ReactNode;
@@ -49,8 +51,7 @@ const ZodiacDetails = ({
         if (!outsideClickRef?.current?.contains(e.target)) {
             setTextToShow("");
             setIsShowingMoreText(false);
-        setOverlayVisible(false);
-
+            setOverlayVisible(false);
         }
     };
 
@@ -61,12 +62,18 @@ const ZodiacDetails = ({
 
     return (
         <section className="md:p-[2%] xxl:px-7 xxl:py-5 xxl:rounded-[34px] md:rounded-[26px] bg-[#a7aec727] dark:bg-[#355a716b] w-full relative overflow-hidden flex flex-col xxl:gap-24 md:gap-16">
-                                {isOverlayVisible && <div className="overlay" id="overlay"></div>}
+            <GrayStarIcon
+                width={60}
+                height={60}
+                className="absolute md:top-[70px] md:right-[500px] top-[20px] right-[100px] md:w-[60px] md:h-[60px] w-[40px] h-[40px]"
+            />
+            {isOverlayVisible && <div className="overlay" id="overlay"></div>}
             <div className="w-full h-full md:flex md:flex-row flex flex-col lg:gap-[120px] md:gap-[80px] gap-[40px] items-center md:p-[35px_10px_35px_10%] p-[35px_25px_35px_25px] relative">
                 <div className="md:scale-[1.8] lg:scale-[2.2] scale-[1.1]">
                     {logo}
                 </div>
-                <div className="flex flex-col gap-6 h-full md:items-start md:text-left items-center text-center">
+                <BgStars />
+                <div className="flex flex-col gap-6 h-full md:items-start md:text-left items-center text-center pt-[100px]">
                     <h1 className="text-[34px]">
                         {title} ({startDate}{" "}
                         <MonthCases monthResponse={startMonth} />
@@ -74,8 +81,16 @@ const ZodiacDetails = ({
                         {endDate} <MonthCases monthResponse={endMonth} />)
                     </h1>
                     <p className="">
-                        <span className="font-medium">{TEXTS[language].overview}</span>: {overview}
+                        <span className="font-medium">
+                            {TEXTS[language].overview}
+                        </span>
+                        : {overview}
                     </p>
+                    <GrayStarIcon
+                        width={140}
+                        height={140}
+                        className="md:absolute md:top-[180px] md:right-[80px] md:inline-block hidden"
+                    />
                     <div className="w-full flex flex-col md:flex-row items-center md:gap-[35px] lg:gap-[58px] gap-[30px]">
                         <div
                             className="lg:w-[50%] md:w-[170%] w-[80%] grid md:grid-cols-2 grid-cols-1 md:grid-rows-2 gap-6"
@@ -92,6 +107,7 @@ const ZodiacDetails = ({
                                 >
                                     {TEXTS[language].seeMore}
                                 </span>
+
                                 {isShowingMoreText &&
                                     textToShow === "matching" && (
                                         <TextModal
@@ -123,6 +139,7 @@ const ZodiacDetails = ({
                                         />
                                     )}
                             </div>
+
                             <div className="w-full flex flex-col text-[14px] overflow-ellipsis overflow-hidden ">
                                 <p className="text-[16px] font-medium">
                                     {TEXTS[language].health}:
@@ -163,7 +180,7 @@ const ZodiacDetails = ({
                                 )}
                             </div>
                         </div>
-                        <div className="max-w-[400px] w-full h-[225px] ">
+                        <div className="max-w-[400px] w-full h-[225px]">
                             <iframe
                                 allowFullScreen
                                 src={videoSrc}
