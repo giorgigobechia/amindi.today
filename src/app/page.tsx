@@ -9,6 +9,11 @@ import weatherServices from "@/common/services/weatherService";
 import { todaysWeatherProps } from "@/common/types/weatherTypes";
 import { useGlobalContext } from "@/common/context/store";
 import dynamic from "next/dynamic";
+import HoursForecastMobile from "@/common/components/__organisms/HoursForecastMobile";
+import DaysForeCastMobile from "@/common/components/__organisms/DaysForeCastMobile";
+import TodaysHiglightsMobile from "@/common/components/__organisms/TodaysHighlightMobile";
+import WeatherTodayMobile from "@/common/components/__organisms/WeatherTodayMobile";
+import PinkGradient from "@/common/icons/pinkGradient";
 
 const WeatherToday = dynamic(
   () => import("@/common/components/__organisms/WeatherToday"),
@@ -48,7 +53,20 @@ export default function Home() {
   }, []);
 
   if (isMobile) {
-    return <div>MOBILE GOES HERE</div>;
+    return (
+      <>
+        <main className="w-full bg-[#355a716b] px-[25px] pb-[25px]">
+          <article className="">
+            <div className="flex flex-col justify-center items-center gap-[10px]">
+              <WeatherTodayMobile />
+              <HoursForecastMobile />
+              <DaysForeCastMobile />
+              <TodaysHiglightsMobile />
+            </div>
+          </article>
+        </main>
+      </>
+    );
   }
 
   return (
