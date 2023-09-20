@@ -33,7 +33,7 @@ const Zodiaco = () => {
                 />
             </div>
             <div className="flex items-center justify-center md:pt-10 xxl:pt-16 relative ">
-                <h1 className="text-center mb-[50px] md:mr-[-60px] md:mb-0 text-[30px] md:text-5xl font-light bg-gradient-to-b dark:from-blue-400  from-[#2E386B] dark:to-white bg-clip-text text-transparent flex flex-col md:gap-4 xxl:gap-6 pl-10">
+                <h1 className="text-center mb-[50px] md:mr-[-60px] md:mb-0 text-[30px] md:text-5xl font-light bg-gradient-to-b dark:from-blue-400  from-[#2E386B] dark:to-white bg-clip-text text-transparent flex flex-col md:gap-4 xxl:gap-6 md:pl-10">
                     {TEXTS[language].diveDeep} <br></br>
                     <span>{TEXTS[language].celestialIdentity}</span>
                 </h1>
