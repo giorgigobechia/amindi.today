@@ -1,0 +1,46 @@
+import React from "react";
+import { IconProps } from "../IconTypes";
+
+function Taurus({ className, stroke }: IconProps) {
+    return (
+        <svg
+            width="100"
+            height="113"
+            viewBox="0 0 100 113"
+            fill="none"
+            className={className}
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                d="M10 3C25.5 20.5 64.6 45 97 3"
+                stroke={stroke}
+                stroke-width="5"
+                stroke-linecap="round"
+            />
+            <path
+                d="M85 64C85 83.8822 69.5538 100 50.5 100C31.4462 100 16 83.8822 16 64C16 44.1177 31.4462 28 50.5 28C69.5538 28 85 44.1177 85 64Z"
+                fill={stroke === "black" ? "#41EFCD" : "white"}
+            />
+            <path
+                d="M83.4261 77.4728C90.3332 57.8889 80.0567 36.4137 60.4728 29.5066C40.8889 22.5994 19.4137 32.876 12.5066 52.4599C5.59941 72.0438 15.876 93.519 35.4598 100.426C44.0925 103.471 53.0926 103.176 61.0505 100.218"
+                stroke={stroke}
+                stroke-width="4"
+                stroke-linecap="round"
+            />
+            <path
+                d="M85.4998 68.5C92.9998 24 39.4996 13.4992 17.4995 41.4993"
+                stroke={stroke}
+                stroke-width="4"
+                stroke-linecap="round"
+            />
+            <path
+                d="M17 85.5C26 95 38.5 103 56 101"
+                stroke={stroke}
+                stroke-width="3"
+                stroke-linecap="round"
+            />
+        </svg>
+    );
+}
+
+export default Taurus;

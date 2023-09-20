@@ -46,6 +46,7 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+
 .search-scroll {
   overflow-y: scroll;
   overflow-x: hidden;
@@ -89,7 +90,12 @@
 }
 
 .radial-gradient {
-    background: rgb(255,255,255);
-background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgb(255, 255, 255) 1%, rgb(255, 255, 255) 1%);
-filter: blur(70px);
+    background: rgb(255, 255, 255);
+    background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 1) 0%,
+        rgb(255, 255, 255) 1%,
+        rgb(255, 255, 255) 1%
+    );
+    filter: blur(70px);
 }
