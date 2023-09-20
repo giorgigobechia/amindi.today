@@ -64,23 +64,6 @@
   backdrop-filter: blur(2px);
   z-index: 1 !important;
 }
-.swiper {
-  width: 100%;
-  height: 100%;
-}
-.swiper-slide {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  margin: 0 !important;
-}
-.HoursForecast {
-  max-width: 378px;
-  width: 100%;
-  height: 121px;
-  border-radius: 18px;
-  padding-left: 22px !important;
-  padding-right: 22px !important;
-  display: flex !important;
-  align-items: center !important;
+.splide__slide {
+  width: 30px !important;
 }

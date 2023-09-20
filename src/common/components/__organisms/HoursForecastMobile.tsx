@@ -1,10 +1,7 @@
 import SingleHourForecastMobile from "../__molecules/SingleHourForecastMobile";
-import React, { useRef, useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/free-mode";
-import "swiper/css/pagination";
-import { FreeMode, Autoplay, Mousewheel } from "swiper/modules";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
+import "@splidejs/splide/dist/css/splide.min.css";
 
 interface HourData {
   time: string;
@@ -37,32 +34,33 @@ function HoursForecastMobile() {
     { time: "09", temperature: "+18" },
     { time: "10", temperature: "+18" },
   ];
-
   return (
-    <Swiper
-      loopedSlides={24}
-      slidesPerView={3}
-      spaceBetween={70}
-      freeMode={true}
-      allowTouchMove={true}
-      grabCursor={true}
-      draggable={true}
-      loop={true}
-      modules={[FreeMode, Autoplay]}
-      className="HoursForecast bg-[#FFFFFF4D] dark:bg-[#0000004D]"
-      autoplay={{ delay: 0, disableOnInteraction: false }}
-      speed={2000}
-    >
-      <div className="max-w-[378px] w-full h-[121px] bg-[#0000004D] rounded-[18px] flex items-center px-[22px]">
-        <div className="flex items-center">
-          {hoursData.map((hour, index) => (
-            <SwiperSlide key={index}>
-              <SingleHourForecastMobile {...hour} />
-            </SwiperSlide>
-          ))}
-        </div>
-      </div>
-    </Swiper>
+    <>
+      <Splide
+        className="bg-[#FFFFFF4D] dark:bg-[#0000004d] h-[121px] rounded-[18px] flex justify-center items-center max-w-[378px] w-full"
+        options={{
+          type: "loop",
+          gap: "30px",
+          drag: "free",
+          arrows: false,
+          pagination: false,
+          perPage: 3,
+          autoScroll: {
+            pauseOnHover: false,
+            pauseOnFocus: false,
+            rewind: false,
+            speed: 1,
+          },
+        }}
+        extensions={{ AutoScroll }}
+      >
+        {hoursData.map((hour, index) => (
+          <SplideSlide key={index}>
+            <SingleHourForecastMobile {...hour} />
+          </SplideSlide>
+        ))}
+      </Splide>
+    </>
   );
 }
 

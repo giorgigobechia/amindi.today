@@ -9,7 +9,7 @@ interface HourData {
 function SingleHourForecastMobile({ time, temperature }: HourData) {
   return (
     <>
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center max-w-[20px] w-full">
         <p className="text-[14px] font-normal">{time}</p>
         <SunIcon className="w-[25px] h-[25px]" />
         <h3 className="font-[400] text-[14px] leading-normal">
