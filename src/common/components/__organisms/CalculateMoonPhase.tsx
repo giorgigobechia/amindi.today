@@ -20,7 +20,7 @@ function CalculateMoonPhase() {
     let now = new Date();
     const newMoon = new Date('2023-09-14');
     const phaseLength = 29.53058867; 
-    const daysSinceNewMoon = (now - newMoon) / 1000 / 60 / 60 / 24;
+    const daysSinceNewMoon = (now.getTime() - newMoon.getTime()) / 1000 / 60 / 60 / 24;
     const phaseDays = daysSinceNewMoon % phaseLength;
 
     const phaseName = getMoonPhaseName(phaseDays);
