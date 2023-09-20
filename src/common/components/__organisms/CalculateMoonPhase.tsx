@@ -1,43 +1,30 @@
 import { useState, useEffect } from "react";
 import HighlightUpper from "../__molecules/HighlightUpper";
 
-function getMoonPhaseName(lunarPhase: number) {
+function getMoonPhaseName(phase: number) {
   switch (true) {
-    case lunarPhase < 0.015:
-      return "New Moon";
-    case lunarPhase < 0.07:
-      return "Waxing Crescent";
-    case lunarPhase < 0.15:
-      return "First Quarter Waxing Crescent";
-    case lunarPhase < 0.23:
-      return "First Quarter Half Moon";
-    case lunarPhase < 0.31:
-      return "Waxing Gibbous";
-    case lunarPhase < 0.39:
-      return "Last Quarter Waxing Gibbous";
-    case lunarPhase < 0.47:
-      return "Last Quarter Half Moon";
+    case phase < 1: return "New Moon";
+    case phase < 7.4: return "Waxing Crescent";
+    case phase < 14.8: return "First Quarter Waxing Crescent";
+    case phase < 22.1: return "First Quarter Half Moon";
+    case phase < 29.5:
     default:
       return "Full Moon";
   }
 }
 
 function CalculateMoonPhase() {
-  const [moonPhase, setMoonPhase] = useState<any>();
+  const [moonPhase, setMoonPhase] = useState<string>("");
 
   useEffect(() => {
-    const currentDate = new Date();
-    const year = currentDate.getFullYear();
-    const month = currentDate.getMonth() + 1;
-    const day = currentDate.getDate();
-    const ym = year + (month - 1) / 12.0;
-    const daysSinceNewMoon = (ym - 2000) * 365.25;
-    const newMoons = daysSinceNewMoon / 29.53058867;
-    const lunarPhase = newMoons - Math.floor(newMoons);
+    let now = new Date();
+    const newMoon = new Date('2023-09-14');
+    const phaseLength = 29.53058867; 
+    const daysSinceNewMoon = (now - newMoon) / 1000 / 60 / 60 / 24;
+    const phaseDays = daysSinceNewMoon % phaseLength;
 
-    const phase = getMoonPhaseName(lunarPhase);
-
-    setMoonPhase(phase);
+    const phaseName = getMoonPhaseName(phaseDays);
+    setMoonPhase(phaseName);
   }, []);
 
   return (

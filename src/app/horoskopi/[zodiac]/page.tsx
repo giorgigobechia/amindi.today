@@ -43,7 +43,7 @@ const zodiacs = [
   "tevzebi",
 ];
 
-const page = ({ params }: props) => {
+const ZodiacPage = ({ params }: props) => {
   const [zodiac, setZodiac] = useState<any>({ love: "" });
   const zodiacName: string = params.zodiac;
   const { language } = useGlobalContext();
@@ -146,4 +146,4 @@ const page = ({ params }: props) => {
   );
 };
 
-export default page;
+export default ZodiacPage;
