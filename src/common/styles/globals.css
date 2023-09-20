@@ -40,6 +40,12 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+.overviewTextDots {
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
 .search-scroll {
     overflow-y: scroll;
     overflow-x: hidden;
