@@ -1,7 +1,7 @@
 import React from "react";
 import { IconProps } from "./IconTypes";
 
-const WindIcon = ({ width, height }: IconProps) => {
+const WindIcon = ({ width, height, stroke }: IconProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -25,8 +25,8 @@ const WindIcon = ({ width, height }: IconProps) => {
           y2="35.4922"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#CED3EA" />
-          <stop offset="1" stopColor="#7E83A9" />
+          <stop stopColor={stroke} />
+          <stop offset="1" stopColor={stroke} />
         </linearGradient>
       </defs>
     </svg>

@@ -3,6 +3,7 @@ import DesktopRedGradient from "@/common/icons/desktopRedGradient";
 import WhiteGradient from "@/common/icons/whiteGradient";
 import React from "react";
 import MobileRedGradient from "@/common/icons/mobileRedGradient";
+import BlueIcon from "@/common/icons/24HourBlueIcon";
 
 function BgStars() {
     return (
@@ -10,117 +11,122 @@ function BgStars() {
             <GrayGradient
                 width={40}
                 height={40}
-                className="absolute top-[90px] left-[120px]"
+                className="dark:absolute dark:top-[90px] dark:left-[120px] dark:inline-block hidden"
             />
             <GrayGradient
                 width={60}
                 height={60}
-                className="absolute top-[30px] left-[140px]"
+                className="dark:absolute dark:top-[30px] dark:left-[140px] dark:inline-block hidden"
             />
             <GrayGradient
                 width={40}
                 height={40}
-                className="absolute top-[70px] left-[240px]"
+                className="dark:absolute dark:top-[70px] dark:left-[240px] dark:inline-block hidden"
             />
             <GrayGradient
                 width={60}
                 height={60}
-                className="absolute top-[150px] left-[300px]"
+                className="dark:absolute dark:top-[150px] dark:left-[300px] dark:inline-block hidden"
             />
             <GrayGradient
                 width={40}
                 height={40}
-                className="absolute top-[400px] left-[600px]"
+                className="dark:absolute dark:top-[400px] dark:left-[600px] dark:inline-block hidden"
             />
             <GrayGradient
                 width={60}
                 height={60}
-                className="absolute top-[150px] right-[40px]"
+                className="dark:absolute dark:top-[150px] dark:right-[40px] dark:inline-block hidden"
             />
             <GrayGradient
                 width={70}
                 height={70}
-                className="absolute top-[70px] right-[100px]"
+                className="dark:absolute dark:top-[70px] dark:right-[100px] dark:inline-block hidden"
             />
             <GrayGradient
                 width={80}
                 height={80}
-                className="absolute top-[100px] right-[300px]"
+                className="dark:absolute dark:top-[100px] dark:right-[300px] dark:inline-block hidden"
             />
             <GrayGradient
                 width={60}
                 height={60}
-                className="absolute top-[70px] right-[490px]"
+                className="dark:absolute dark:top-[70px] dark:right-[490px] dark:inline-block hidden"
             />
             <GrayGradient
                 width={70}
                 height={70}
-                className="absolute top-[400px] left-[200px]"
+                className="dark:absolute dark:top-[400px] dark:left-[200px] dark:inline-block hidden"
             />
             <GrayGradient
                 width={60}
                 height={60}
-                className="absolute top-[150px] left-[600px]"
+                className="dark:absolute dark:top-[150px] dark:left-[600px] dark:inline-block hidden"
             />
             <GrayGradient
                 width={50}
                 height={50}
-                className="absolute top-[300px] right-[300px]"
+                className="dark:absolute dark:top-[300px] dark:right-[300px] dark:inline-block hidden"
             />
             <GrayGradient
                 width={70}
                 height={70}
-                className="absolute top-[350px] left-[250px] md:hidden"
+                className="dark:absolute dark:top-[350px] dark:left-[250px] dark:inline-block hidden md:hidden"
             />
             <GrayGradient
                 width={60}
                 height={60}
-                className="absolute top-[300px] right-[50px] md:hidden"
+                className="dark:absolute dark:top-[300px] dark:right-[50px] dark:inline-block hidden md:hidden"
             />
             <GrayGradient
                 width={80}
                 height={80}
-                className="absolute top-[200px] left-[50px] md:hidden"
+                className="dark:absolute dark:top-[200px] dark:left-[50px] dark:inline-block hidden md:hidden"
             />
             <GrayGradient
                 width={70}
                 height={70}
-                className="absolute top-[800px] left-[250px] md:hidden"
+                className="dark:absolute dark:top-[800px] dark:left-[250px] dark:inline-block hidden md:hidden"
             />
             <GrayGradient
                 width={60}
                 height={60}
-                className="absolute top-[870px] right-[50px] md:hidden"
+                className="dark:absolute dark:top-[870px] dark:right-[50px] dark:inline-block hidden md:hidden"
             />
             <GrayGradient
                 width={50}
                 height={50}
-                className="absolute top-[840px] left-[100px] md:hidden"
+                className="dark:absolute dark:top-[840px] dark:left-[100px] dark:inline-block hidden md:hidden"
             />
             <GrayGradient
                 width={60}
                 height={60}
-                className="absolute top-[1070px] right-[50px] md:hidden"
+                className="dark:absolute dark:top-[1070px] dark:right-[50px] dark:inline-block hidden md:hidden"
             />
             <GrayGradient
                 width={80}
                 height={80}
-                className="absolute top-[900px] right-[100px] md:hidden"
+                className="dark:absolute dark:top-[900px] dark:right-[100px] dark:inline-block hidden md:hidden"
             />
             <GrayGradient
                 width={80}
                 height={80}
-                className="absolute bottom-[200px] left-[30px] md:hidden"
+                className="dark:absolute dark:bottom-[200px] dark:left-[30px] dark:inline-block hidden md:hidden"
             />
             <GrayGradient
                 width={50}
                 height={50}
-                className="absolute bottom-[400px] right-[100px] md:hidden"
+                className="dark:absolute dark:bottom-[400px] dark:right-[100px] dark:inline-block hidden md:hidden"
             />
             <GrayGradient
                 width={80}
                 height={80}
-                className="absolute bottom-[450px] left-[30px] md:hidden"
+                className="dark:absolute dark:bottom-[450px] dark:left-[30px] dark:inline-block hidden md:hidden"
+            />
+            <BlueIcon
+                width={700}
+                height={700}
+                className="absolute md:left-[60px] md:bottom-[-150px] bottom-0 z-[-5] dark:hidden"
             />
             <WhiteGradient
                 width={700}

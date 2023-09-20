@@ -19,6 +19,8 @@ interface ContextProps {
   setGlobalTwentyFiveDays: Dispatch<SetStateAction<any>>;
   globalTodaysWeather: any;
   setGlobalTodaysWeather: Dispatch<SetStateAction<any>>;
+  globalTwentyFourHours: any;
+  setGlobalTwentyFourHours: Dispatch<SetStateAction<any>>;
 }
 const GlobalContext = createContext<ContextProps>({
   activePage: "home",
@@ -31,6 +33,8 @@ const GlobalContext = createContext<ContextProps>({
   setGlobalTwentyFiveDays: () => {},
   globalTodaysWeather: [],
   setGlobalTodaysWeather: () => {},
+  globalTwentyFourHours: [],
+  setGlobalTwentyFourHours: () => {},
 });
 
 export const GlobalContextProvider = ({ children }: any) => {
@@ -38,6 +42,7 @@ export const GlobalContextProvider = ({ children }: any) => {
   const [activeCity, setActiveCity] = useState<string>("tbilisi");
   const [language, setLanguage] = useState<string>("ka");
   const [globalTwentyFiveDays, setGlobalTwentyFiveDays] = useState([]);
+  const [globalTwentyFourHours, setGlobalTwentyFourHours] = useState([]);
   const [globalTodaysWeather, setGlobalTodaysWeather] = useState([]);
 
   return (
@@ -53,6 +58,8 @@ export const GlobalContextProvider = ({ children }: any) => {
         setGlobalTwentyFiveDays,
         globalTodaysWeather,
         setGlobalTodaysWeather,
+        globalTwentyFourHours,
+        setGlobalTwentyFourHours,
       }}
     >
       {children}

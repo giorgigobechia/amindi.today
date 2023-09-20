@@ -40,18 +40,38 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+.overviewTextDots {
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
 .search-scroll {
   overflow-y: scroll;
   overflow-x: hidden;
+}
+.search-scroll-dark {
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 .search-scroll::-webkit-scrollbar {
   width: 8px;
   height: 10px;
 }
+.search-scroll-dark::-webkit-scrollbar {
+    width: 8px;
+    height: 10px;
+}
+
 .search-scroll::-webkit-scrollbar-thumb {
   background: #fff;
   border-radius: 5px;
   height: 50px;
+}
+.search-scroll-dark::-webkit-scrollbar-thumb {
+    background: #000;
+    border-radius: 5px;
+    height: 50px;
 }
 .overlay {
   display: flex !important;
@@ -66,4 +86,10 @@
 }
 .splide__slide {
   width: 30px !important;
+}
+
+.radial-gradient {
+    background: rgb(255,255,255);
+background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgb(255, 255, 255) 1%, rgb(255, 255, 255) 1%);
+filter: blur(70px);
 }

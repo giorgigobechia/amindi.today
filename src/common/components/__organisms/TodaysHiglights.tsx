@@ -5,6 +5,7 @@ import GreenGradient from "@/common/icons/greenGradient";
 import HighlightUpper from "../__molecules/HighlightUpper";
 import { useGlobalContext } from "@/common/context/store";
 import TEXTS from "@/languages/Languages";
+import CalculateMoonPhase from "@/common/components/__organisms/CalculateMoonPhase";
 
 const windStatus = {
   dataType: "Wind Status",
@@ -47,12 +48,7 @@ const TodaysHiglights = ({
         {TEXTS[language]?.todaysHighlights}
       </h5>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-6 md:grid-rows-3 h-[93%]">
-        <HighlightUpper
-          type="windStatus"
-          className="col-start-1 col-end-3 row-start-1 row-end-3"
-          dataType={TEXTS[language]?.windStatus}
-          windSpeed={windSpeed}
-        />
+        <CalculateMoonPhase  />
         <HighlightUpper
           type="uvIndex"
           className="col-start-3 col-end-5 row-start-1 row-end-3"

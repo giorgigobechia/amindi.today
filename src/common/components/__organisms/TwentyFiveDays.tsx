@@ -5,10 +5,14 @@ import weatherServices from "@/common/services/weatherService";
 import { useGlobalContext } from "@/common/context/store";
 
 const TwentyFiveDays = () => {
-  const [twentyFiveDays, setTwentyFiveDays] = useState<any>([]);
-  const { activeCity } = useGlobalContext();
+  // const [twentyFiveDays, setTwentyFiveDays] = useState<any>([]);
+  const { activeCity, globalTwentyFiveDays, setGlobalTwentyFiveDays } =
+    useGlobalContext();
   const getTwentyFiveDays = async () => {
-    await weatherServices.getTwentyFiveDays(setTwentyFiveDays, activeCity);
+    await weatherServices.getTwentyFiveDays(
+      setGlobalTwentyFiveDays,
+      activeCity
+    );
   };
 
   useEffect(() => {
@@ -21,7 +25,7 @@ const TwentyFiveDays = () => {
         25 Days<span> Forecast</span>
       </h1>
       <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 xxl:grid-cols-5 gap-4 md:w-full xxl:w-auto ">
-        {twentyFiveDays?.map((day: any, index: any) => (
+        {globalTwentyFiveDays?.map((day: any, index: any) => (
           <React.Fragment key={index}>
             <TwentyFiveDayCard
               date={day.date}

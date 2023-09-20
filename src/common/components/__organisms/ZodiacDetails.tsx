@@ -73,14 +73,14 @@ const ZodiacDetails = ({
                     {logo}
                 </div>
                 <BgStars />
-                <div className="flex flex-col gap-6 h-full md:items-start md:text-left items-center text-center pt-[100px]">
+                <div className="flex flex-col gap-6 h-full md:items-start md:text-left items-center text-center md:pt-[50px] xxl:pt-[100px]">
                     <h1 className="text-[34px]">
                         {title} ({startDate}{" "}
                         <MonthCases monthResponse={startMonth} />
                         {" - "}
                         {endDate} <MonthCases monthResponse={endMonth} />)
                     </h1>
-                    <p className="">
+                    <p className="overflow-scroll">
                         <span className="font-medium">
                             {TEXTS[language].overview}
                         </span>
@@ -89,7 +89,7 @@ const ZodiacDetails = ({
                     <GrayStarIcon
                         width={140}
                         height={140}
-                        className="md:absolute md:top-[180px] md:right-[80px] md:inline-block hidden"
+                        className="md:absolute md:top-[180px] md:right-[80px] md:inline-block z-[-5] hidden"
                     />
                     <div className="w-full flex flex-col md:flex-row items-center md:gap-[35px] lg:gap-[58px] gap-[30px]">
                         <div
@@ -107,7 +107,6 @@ const ZodiacDetails = ({
                                 >
                                     {TEXTS[language].seeMore}
                                 </span>
-
                                 {isShowingMoreText &&
                                     textToShow === "matching" && (
                                         <TextModal

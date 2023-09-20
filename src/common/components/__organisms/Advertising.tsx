@@ -23,8 +23,7 @@ const Advertising = () => {
           className="absolute left-[-90px] top-[-60px] rotate-45 -z-20"
         />
         <div className="h-full flex-1 bg-[#6f575727] rounded-[18px]">
-      <LineChart/>
-
+          {/* <LineChart/> */}
         </div>
         <div className="h-full flex-1 bg-[#6f575727] rounded-[18px]"></div>
         <div className="h-full flex-1 bg-[#6f575727] rounded-[18px]"></div>
