@@ -30,7 +30,7 @@ const SingleDayForecast = ({
         {type !== "weekDays" ? (
           <div className="flex gap-2 items-center">
             <WeatherIcons iconName={weather} IconSize={25} />
-            <h1 className="text-[24px]">{temp}&deg;</h1>
+            <h1 className="text-[24px] max-[385px]:text-[19px]">{temp}&deg;</h1>
           </div>
         ) : (
           <div className="flex gap-2 items-center ">
@@ -46,16 +46,14 @@ const SingleDayForecast = ({
         )}
         <p
           id="weatherContent"
-          className="text-[#00000066] md:text-sm xxl:text-[14px] dark:text-[#FFFFFF99] w-[40%] overflow-hidden whitespace-nowrap overflow-ellipsis"
+          className="text-[#00000066] md:text-sm xxl:text-[14px] dark:text-[#FFFFFF99] w-[40%] overflow-hidden whitespace-nowrap overflow-ellipsis max-[385px]:text-[12px]"
         >
           {weather}
         </p>
-
-        <p className="text-[#00000066] md:text-sm xxl:text-[14px] dark:text-[#FFFFFF99]">
-          {type !== "weekDays" ? time : time.split("\n")[1]}
-        </p>
+        {/* <p className="text-[#00000066] md:text-sm xxl:text-[14px] dark:text-[#FFFFFF99] max-[385px]:text-[12px]">
+          {day}
+        </p> */}
       </article>
-
       <Tooltip id="hourlyWeather" />
     </>
   );

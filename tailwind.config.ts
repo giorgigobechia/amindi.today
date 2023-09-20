@@ -2,20 +2,20 @@ import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
-  darkMode : 'class',
+  darkMode: "class",
   theme: {
     screens: {
-      'sm': '680px',
+      sm: "640px",
       // => @media (min-width: 640px) { ... }
 
-      'md': '1024px',
+      md: "1024px",
       // => @media (min-width: 1024px) { ... }
 
-      'lg': '1280px',
+      lg: "1280px",
       // => @media (min-width: 1280px) { ... }
-      'xl': '1441px',
+      xl: "1441px",
       // => @media (min-width: 1280px) { ... }
-      'xxl': '1640px',
+      xxl: "1640px",
       // => @media (min-width: 1280px) { ... }
     },
     extend: {
