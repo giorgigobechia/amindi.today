@@ -1,5 +1,6 @@
 import { useGlobalContext } from "@/common/context/store";
 import { MoonPhasesImg } from "@/common/icons/moonPhases/moonPhases";
+import MoonWrapper from "@/common/icons/moonWrapper";
 import SunriseIcon from "@/common/icons/sunriseIcon";
 import UvIndexIcon from "@/common/icons/uvIndexIcon";
 import WindChartIcon from "@/common/icons/windChartIcon";
@@ -43,7 +44,12 @@ const HighlightUpper = ({
       {type === "moonPhase" ? (
         <>
           <div className="flex justify-center relative">
-            <div className="absolute w-[165px] h-[165px] top-[-10px] radial-gradient -z-10 rounded-full"></div>
+            <div className="absolute w-[100px] h-[100px] top-[-10px] radial-gradient -z-10 rounded-full"></div>
+            <MoonWrapper
+              width={165}
+              height={165}
+              className="absolute bottom-6"
+            />
             <MoonPhasesImg iconName={moonPhase} className="" />
           </div>
           <div className="w-full flex justify-center items-end ">

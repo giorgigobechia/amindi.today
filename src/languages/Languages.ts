@@ -11,7 +11,7 @@ const TEXTS: any = {
         humidity: "ტენიანობა",
         visibility: "ხილვადობა",
         feelsLike: "მგრძნობელობა",
-        windStatus: "ქარის სტატუსი",
+        windStatus: "ქარის სიჩქარე",
         uvIndex: "UV ინდექსი",
         sunriseSunset: "მზის ამოსვლა & მზის ჩასვლა",
         kmh: "კმ/სთ",

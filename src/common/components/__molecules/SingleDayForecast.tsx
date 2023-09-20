@@ -36,8 +36,9 @@ const SingleDayForecast = ({
           <div className="flex gap-2 items-center ">
             <WeatherIcons iconName={weather} IconSize={25} />
             <div className="flex items-center">
-              <h1 className="text-[20px] xxl:text-[24px]">{tempMax}&deg;</h1>/
-              <h1 className="text-[16px] xxl:text-[20px] text-[#FFFFFF66]">
+              <h1 className="text-[20px] xxl:text-[24px] ">{tempMax}&deg;</h1>
+              <span className="text-[#00000066] dark:text-[#FFFFFF66]">/</span>
+              <h1 className="text-[16px] xxl:text-[20px] text-[#00000066] dark:text-[#FFFFFF66]">
                 {tempMin}&deg;
               </h1>
             </div>
