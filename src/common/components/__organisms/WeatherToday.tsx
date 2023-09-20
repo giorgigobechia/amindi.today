@@ -63,7 +63,11 @@ const WeatherToday = ({
   };
   return (
     <section className="md:p-4 xxl:p-7 flex flex-col justify-between  xxl:rounded-[34px] md:rounded-[26px] bg-[#cea9a927] dark:bg-[#355a716b] w-[30%] relative overflow-hidden">
-      {searchActive && <SearchBar handleSearchClose={handleSearchClose} />}
+      {searchActive && (
+        <div className="absolute inset-0 flex items-center justify-center">
+          <SearchBar handleSearchClose={handleSearchClose} />
+        </div>
+      )}
       <div
         className="absolute w-full h-full -z-10 "
         style={{ backdropFilter: "blur(14px)" }}
