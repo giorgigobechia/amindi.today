@@ -14,11 +14,18 @@ import WhiteIcon from "@/common/icons/24HourWhiteIcon";
 
 const DaysForecast = () => {
   const { language } = useGlobalContext();
-  const [hourlyWeather, setHourlyWeather] = useState<any>([]);
   const [activeData, setActiveData] = useState<string>("24 საათი");
-  const { activeCity, globalTwentyFiveDays } = useGlobalContext();
+  const {
+    activeCity,
+    globalTwentyFiveDays,
+    setGlobalTwentyFourHours,
+    globalTwentyFourHours,
+  } = useGlobalContext();
   const getHourlyWeather = async () => {
-    await weatherServices.getHourlyWeather(setHourlyWeather, activeCity);
+    await weatherServices.getHourlyWeather(
+      setGlobalTwentyFourHours,
+      activeCity
+    );
   };
 
   useEffect(() => {
@@ -49,7 +56,7 @@ const DaysForecast = () => {
       <div className=" w-full bg-[#cea9a927] dark:bg-[#355a7145] rounded-[34px] p-[20px_15px_15px] relative h-[92%] flex flex-col justify-between overflow-hidden">
         <div className="flex flex-col gap-2 scroll pr-1 h-[135px] xxl:h-[280px]">
           {activeData === "24 საათი"
-            ? hourlyWeather?.map((day: any, index: any) => (
+            ? globalTwentyFourHours?.map((day: any, index: any) => (
                 <React.Fragment key={index}>
                   <SingleDayForecast
                     key={index}

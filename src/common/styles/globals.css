@@ -50,12 +50,26 @@
     overflow-y: scroll;
     overflow-x: hidden;
 }
+.search-scroll-dark {
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
 .search-scroll::-webkit-scrollbar {
     width: 8px;
     height: 10px;
 }
+.search-scroll-dark::-webkit-scrollbar {
+    width: 8px;
+    height: 10px;
+}
+
 .search-scroll::-webkit-scrollbar-thumb {
     background: #fff;
+    border-radius: 5px;
+    height: 50px;
+}
+.search-scroll-dark::-webkit-scrollbar-thumb {
+    background: #000;
     border-radius: 5px;
     height: 50px;
 }

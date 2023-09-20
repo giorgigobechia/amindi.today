@@ -72,6 +72,7 @@ export function WeatherIcons({
       break;
     case "მზიანი":
     case "მოწმენდილი":
+    case "უმეტესად მოწმენდილი":
     case "sunny":
     case "clear":
     case "weather.მზიანი":

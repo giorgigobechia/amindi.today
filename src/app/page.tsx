@@ -62,6 +62,7 @@ export default function Home() {
             day={globalTodaysWeather?.day}
             min={globalTodaysWeather?.minTemp}
             max={globalTodaysWeather?.maxTemp}
+            windSpeed={globalTodaysWeather?.windSpeed}
           />
           <TodaysHiglights
             windSpeed={globalTodaysWeather?.windSpeed}

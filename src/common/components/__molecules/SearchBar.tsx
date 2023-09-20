@@ -78,12 +78,12 @@ const SearchBar = ({ handleSearchClose }: SearchProps) => {
   return (
     <div>
       <div
-        className="fixed top-0 left-0 w-[100%] h-full z-10 bg-[#000000b4]"
+        className="fixed top-0 left-0 w-[100%] h-full z-10 bg-[#000000b4] "
         style={{ backdropFilter: "blur(2px)" }}
         onClick={handleSearchClose}
       />
-      <div className="flex flex-col gap-[18px] fixed top-[10vh] left-[40%] w-[39.8%] min-h-[200px] z-50 overflow-hidden">
-        <div className="w-full h-[69px] bg-[#000] rounded-[34.5px] relative">
+      <div className="flex flex-col gap-[18px] fixed top-[10vh] left-[30%] w-[39.8%] min-h-[200px] z-50 overflow-hidden">
+        <div className="w-full h-[69px] bg-white dark:bg-black rounded-[34.5px] relative">
           <button className="absolute top-[22px] left-[16.4px]">
             <SearchIcon
               width={0}
@@ -93,11 +93,15 @@ const SearchBar = ({ handleSearchClose }: SearchProps) => {
             />
           </button>
           <input
-            className="w-[80%] h-[100%] bg-[#000] border-[0px] absolute left-[60px] outline-none"
+            className="w-[80%] h-[100%] bg-white dark:bg-black border-[0px] absolute left-[60px] outline-none"
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
-        <div className="w-full h-[70vh] bg-[#000] rounded-[34.5px] search-scroll">
+        <div
+          className={`w-full h-[70vh] bg-white dark:bg-black rounded-[34.5px]  ${
+            resolvedTheme === "light" ? "search-scroll-dark" : "search-scroll"
+          }  `}
+        >
           <ul className="pt-[30px] cursor-pointer">
             {citiesArray
               .filter((city) => {
@@ -111,10 +115,10 @@ const SearchBar = ({ handleSearchClose }: SearchProps) => {
                 return (
                   <li
                     key={index}
-                    className="flex items-center h-[53px] hover:bg-[#ffffff59]"
+                    className="flex items-center h-[53px] dark:hover:bg-[#ffffff59] hover:bg-[#d7d5d5]"
                     onClick={() => handleOptionClick(city.cityEn)}
                   >
-                    <span className="ml-[77px]">
+                    <span className="ml-[37px] xxl:ml-[77px]">
                       {language === "ka" ? city.cityGe : city.cityEn}
                     </span>
                   </li>
