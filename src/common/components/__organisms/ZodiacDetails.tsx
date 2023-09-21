@@ -80,7 +80,7 @@ const ZodiacDetails = ({
                         {" - "}
                         {endDate} <MonthCases monthResponse={endMonth} />)
                     </h1>
-                    <p className="overflow-scroll">
+                    <p className="overflow-y-scroll customScrollbar">
                         <span className="font-medium">
                             {TEXTS[language].overview}
                         </span>

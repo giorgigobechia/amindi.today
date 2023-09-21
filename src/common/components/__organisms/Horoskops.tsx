@@ -15,9 +15,16 @@ import AquariusIcon from "@/common/icons/horoscopes/aquariusIcon";
 import PiscesIcon from "@/common/icons/horoscopes/piscesIcon";
 import { useGlobalContext } from "@/common/context/store";
 import TEXTS from "@/languages/Languages";
+import Taurus from "@/common/icons/horoscopes/taurus";
+import { useTheme } from "next-themes";
+import Gemini from "@/common/icons/horoscopes/gemini";
+import Cancer from "@/common/icons/horoscopes/cancer";
+import Leo from "@/common/icons/horoscopes/leo";
 
 const Horoskops = () => {
     const { language } = useGlobalContext();
+    const { resolvedTheme } = useTheme();
+
     const horoscopes = [
         {
             logo: <AriesIcon />,
@@ -26,25 +33,31 @@ const Horoskops = () => {
             date: "21 March - 20 April",
         },
         {
-            logo: <TaurusIcon />,
+            logo: (
+                <Taurus stroke={resolvedTheme === "dark" ? "white" : "black"} />
+            ),
             name: TEXTS[language].Taurus,
             path: "kuro",
             date: "21 April - 21 May",
         },
         {
-            logo: <GeminiIcon />,
+            logo: (
+                <Gemini stroke={resolvedTheme === "dark" ? "white" : "black"} />
+            ),
             name: TEXTS[language].Gemini,
             path: "tyupebi",
             date: "22 May - 21 June",
         },
         {
-            logo: <CancerIcon />,
+            logo: (
+                <Cancer stroke={resolvedTheme === "dark" ? "white" : "black"} />
+            ),
             name: TEXTS[language].Cancer,
             path: "kirchxibi",
             date: "22 June - 22 July",
         },
         {
-            logo: <LeoIcon />,
+            logo: <Leo stroke={resolvedTheme === "dark" ? "white" : "black"} />,
             name: TEXTS[language].Leo,
             path: "lomi",
             date: "23 July - 23 August",
