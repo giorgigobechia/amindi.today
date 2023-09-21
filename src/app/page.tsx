@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from "@vercel/analytics/react";
 import Advertising from "@/common/components/__organisms/Advertising";
 import DaysForecast from "@/common/components/__organisms/DaysForecast";
 import TodaysHiglights from "@/common/components/__organisms/TodaysHiglights";
@@ -14,6 +14,7 @@ import DaysForeCastMobile from "@/common/components/__organisms/DaysForeCastMobi
 import TodaysHiglightsMobile from "@/common/components/__organisms/TodaysHighlightMobile";
 import WeatherTodayMobile from "@/common/components/__organisms/WeatherTodayMobile";
 import PinkGradient from "@/common/icons/pinkGradient";
+import BgStars from "@/common/components/__molecules/bgStars";
 
 const WeatherToday = dynamic(
   () => import("@/common/components/__organisms/WeatherToday"),
@@ -55,7 +56,8 @@ export default function Home() {
   if (isMobile) {
     return (
       <>
-        <main className="w-full bg-[#355a716b] px-[25px] pb-[25px]">
+        <main className="w-full bg-[#355a716b] px-[25px] pb-[25px] relative">
+          <BgStars />
           <article className="">
             <div className="flex flex-col justify-center items-center gap-[10px]">
               <WeatherTodayMobile />
@@ -71,7 +73,7 @@ export default function Home() {
 
   return (
     <main className="w-full">
-        <Analytics />
+      <Analytics />
       <article className="flex flex-col gap-3 w-full h-full">
         <div className="flex gap-3 h-[55%]">
           <WeatherToday
