@@ -56,6 +56,14 @@ const TEXTS: any = {
         lastQuarterWaxingGibbous : "Last Quarter Waxing Gibbous",
         lastQuarterHalfMoon : "Last Quarter Half Moon",
         fullMoon : "სავსე მთვარე",
+        min : 'მინ',
+        max : "მაქს",
+        days : "დღის",
+        moonPhase : "მთვარის ფაზა",
+        sevenDays : "7 დღე",
+        twentyfourHours : "24 საათი",
+        hours : "საათი"
+
     },
     en: {
         today: "Today",
@@ -69,7 +77,7 @@ const TEXTS: any = {
         humidity: "Humidity",
         visibility: "Visibility",
         feelsLike: "Feels Like",
-        windStatus: " Wind Status",
+        windStatus: " Wind Speed",
         uvIndex: "UV Index ",
         sunriseSunset: "Sunrise & Sunset",
         kmh: "km/h",
@@ -114,6 +122,13 @@ const TEXTS: any = {
         lastQuarterWaxingGibbous : "Last Quarter Waxing Gibbous",
         lastQuarterHalfMoon : "Last Quarter Half Moon",
         fullMoon : "Full Moon",
+        min : 'min',
+        max : "max",
+        days : "days",
+        moonPhase : "Moon phase",
+        sevenDays : "7 days",
+        twentyfourHours : "24 hours",
+        hours : "hours"
     },
     ru: {
         today: "Сегодня",

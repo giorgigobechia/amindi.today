@@ -16,7 +16,6 @@ import PiscesIcon from "@/common/icons/horoscopes/piscesIcon";
 import zodiacServices from "@/common/services/zodiacService";
 import { useGlobalContext } from "@/common/context/store";
 import TEXTS from "@/languages/Languages";
-import { MonthCases } from "@/common/languageCases/MonthCases";
 import WhiteGradient from "@/common/icons/whiteGradient";
 import Taurus from "@/common/icons/horoscopes/taurus";
 import Gemini from "@/common/icons/horoscopes/gemini";

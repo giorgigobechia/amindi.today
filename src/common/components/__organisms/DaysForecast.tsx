@@ -14,7 +14,9 @@ import WhiteIcon from "@/common/icons/24HourWhiteIcon";
 
 const DaysForecast = () => {
   const { language } = useGlobalContext();
-  const [activeData, setActiveData] = useState<string>("24 საათი");
+  const [activeData, setActiveData] = useState<string>(
+    TEXTS[language].twentyfourHours
+  );
   const {
     activeCity,
     globalTwentyFiveDays,
@@ -29,8 +31,8 @@ const DaysForecast = () => {
   };
   useEffect(() => {
     getHourlyWeather();
-    setActiveData("24 საათი");
-  }, [activeCity]);
+    setActiveData(TEXTS[language].twentyfourHours);
+  }, [activeCity, language]);
   return (
     <section className="flex flex-col gap-3 xxl:rounded-[34px] md:rounded-[26px] w-[30%] h-full relative">
       <WhiteIcon
@@ -46,7 +48,7 @@ const DaysForecast = () => {
       <div className="w-full flex justify-between items-center h-[8%]">
         <h2 className="xxl:text-[20px] md:text-base">
           {" "}
-          {activeData === "24 საათი"
+          {activeData === TEXTS[language].twentyfourHours
             ? TEXTS[language]?.twentyfourDayForecast
             : TEXTS[language]?.sevenDayForecast}
         </h2>
@@ -54,7 +56,7 @@ const DaysForecast = () => {
       </div>
       <div className=" w-full bg-[#cea9a927] dark:bg-[#355a7145] rounded-[34px] p-[20px_15px_15px] relative h-[92%] flex flex-col justify-between overflow-hidden">
         <div className="flex flex-col gap-2 scroll pr-1 h-[135px] xxl:h-[280px]">
-          {activeData === "24 საათი"
+          {activeData === TEXTS[language].twentyfourHours
             ? globalTwentyFourHours?.map((day: any, index: any) => (
                 <React.Fragment key={index}>
                   <SingleDayForecast

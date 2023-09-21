@@ -1,8 +1,10 @@
 "use client";
 import { useGlobalContext } from "@/common/context/store";
+import { translateToLanguage } from "@/common/generalFunctions/functions";
 import CloudySun from "@/common/icons/cloudySun";
 import DetailedDayForecastIcon from "@/common/icons/deatiledDayForecastIcon";
 import { WeatherIcons } from "@/common/icons/weatherIcons/WeatherIcons";
+import { weathersArray } from "@/common/languageCases/arrays";
 import TEXTS from "@/languages/Languages";
 import { useTheme } from "next-themes";
 import React from "react";
@@ -15,7 +17,12 @@ const DetailedDayForecast = ({ tommorowData }: any) => {
     <>
       <article
         data-tooltip-id="tomorrowWeather"
-        data-tooltip-content={tommorowData?.weather}
+        data-tooltip-content={translateToLanguage(
+          tommorowData?.weather,
+          weathersArray,
+          language,
+          "georgian"
+        )}
         className="w-full md:h-[30%] xxl:h-[25%] flex items-center justify-between cursor-pointer"
         style={{
           background:
@@ -38,7 +45,12 @@ const DetailedDayForecast = ({ tommorowData }: any) => {
             </h2>
 
             <p className="dark:text-[#FFFFFF99] w-[100px]  overflow-hidden whitespace-nowrap overflow-ellipsis ">
-              {tommorowData?.weather}
+              {translateToLanguage(
+                tommorowData?.weather,
+                weathersArray,
+                language,
+                "georgian"
+              )}
             </p>
           </div>
         </div>

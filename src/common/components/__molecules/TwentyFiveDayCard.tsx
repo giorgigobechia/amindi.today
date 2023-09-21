@@ -1,10 +1,15 @@
+import { translateToLanguage } from "@/common/generalFunctions/functions";
 import { WeatherIcons } from "@/common/icons/weatherIcons/WeatherIcons";
-import { DayCases } from "@/common/languageCases/DayCases";
-import { MonthCases } from "@/common/languageCases/MonthCases";
 import { title } from "process";
 import React from "react";
 import { Tooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
+import {
+  monthsArray,
+  weathersArray,
+  weekDaysArray,
+} from "@/common/languageCases/arrays";
+import { useGlobalContext } from "@/common/context/store";
 
 interface TwentyFiveDayCardProps {
   date: string;
@@ -22,19 +27,35 @@ const TwentyFiveDayCard = ({
   tempMin,
   weather,
 }: TwentyFiveDayCardProps) => {
+  const { language } = useGlobalContext();
   return (
     <>
       <div
         data-tooltip-id="my-tooltip"
-        data-tooltip-content={weather}
+        data-tooltip-content={translateToLanguage(
+          weather,
+          weathersArray,
+          language,
+          "georgian"
+        )}
         className="cursor-pointer justify-between flex flex-col items-center dark:bg-[#0000004D] bg-[#FFFFFF4D] rounded-[18px] w-[164px] h-[154px] md:h-[144px] md:w-[135px] px-[20px] py-[20px] xxl:px-[20px] xxl:py-[13px] xxl:w-[174px] xxl:h-[158px] md:px-2 md:py-3 "
       >
         <p className="dark:text-[#FFFFFFB2] text-[#000000B2] text-xs flex flex-col  text-center">
           {date.split("\n")[0].split(" ")[0]} {"   "}
-          <MonthCases monthResponse={date.split("\n")[0].split(" ")[1]} />
+          {translateToLanguage(
+            date.split("\n")[0].split(" ")[1],
+            monthsArray,
+            language,
+            "georgian"
+          )}
           <span>
             {" "}
-            <DayCases dayResponse={date.split("\n")[1]} />
+            {translateToLanguage(
+              date.split("\n")[1],
+              weekDaysArray,
+              language,
+              "georgian"
+            )}
           </span>
         </p>
         <WeatherIcons iconName={weather} IconSize={50} />

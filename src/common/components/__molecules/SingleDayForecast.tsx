@@ -3,6 +3,11 @@ import { WeatherIcons } from "@/common/icons/weatherIcons/WeatherIcons";
 import React, { ReactNode } from "react";
 import { Tooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
+import { translateToLanguage } from "@/common/generalFunctions/functions";
+import { weathersArray, weekDaysArray } from "@/common/languageCases/arrays";
+import { useGlobalContext } from "@/common/context/store";
+import TEXTS from "@/languages/Languages";
+
 interface SingleDayForecastProps {
   temp?: string;
   time: string;
@@ -20,11 +25,16 @@ const SingleDayForecast = ({
   weather,
   type,
 }: SingleDayForecastProps) => {
+  const { language } = useGlobalContext();
   return (
     <>
       <article
         data-tooltip-id="hourlyWeather"
-        data-tooltip-content={weather.length > 18 ? weather : ""}
+        data-tooltip-content={
+          weather.length > 18
+            ? translateToLanguage(weather, weathersArray, language, "georgian")
+            : ""
+        }
         className="w-full flex gap-4 xl:gap-12 items-center justify-between"
       >
         {type !== "weekDays" ? (
@@ -48,11 +58,19 @@ const SingleDayForecast = ({
           id="weatherContent"
           className="text-[#00000066] md:text-sm xxl:text-[14px] dark:text-[#FFFFFF99] w-[40%] overflow-hidden whitespace-nowrap overflow-ellipsis max-[385px]:text-[12px]"
         >
-          {weather}
+          {translateToLanguage(weather, weathersArray, language, "georgian")}
         </p>
-        {/* <p className="text-[#00000066] md:text-sm xxl:text-[14px] dark:text-[#FFFFFF99] max-[385px]:text-[12px]">
-          {day}
-        </p> */}
+
+        <p className="text-[#00000066] md:text-sm xxl:text-[14px] dark:text-[#FFFFFF99]">
+          {type !== "weekDays"
+            ? time.split(" ")[0] + " " + TEXTS[language].hours
+            : translateToLanguage(
+                time.split("\n")[1],
+                weekDaysArray,
+                language,
+                "georgian"
+              )}
+        </p>
       </article>
       <Tooltip id="hourlyWeather" />
     </>
