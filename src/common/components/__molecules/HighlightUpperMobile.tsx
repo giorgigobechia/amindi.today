@@ -40,7 +40,7 @@ const HighlightUpperMobile = ({
       {type === "moonPhase" ? (
         <>
           <div className="flex justify-center relative">
-            <div className="absolute w-[100px] h-[100px] top-[-10px] radial-gradient -z-10 rounded-full"></div>
+            <div className="absolute w-[30px] h-[30px] top-[-10px] radial-gradient -z-10 rounded-full"></div>
             <MoonWrapper width={90} height={90} className="absolute bottom-6" />
             <MoonPhasesImg iconName={moonPhase} IconSize={80} />
           </div>

@@ -18,8 +18,8 @@ const DaysForecast = () => {
   const { globalTwentyFiveDays } = useGlobalContext();
 
   return (
-    <section className="flex flex-col gap-3 xxl:rounded-[34px] md:rounded-[26px] max-w-[378px] w-full h-full relative">
-      <div className="w-full bg-[#FFFFFF4D] dark:bg-[#0000004D] rounded-[34px]  px-[25px] py-[20px] relative flex flex-col justify-between gap-[20px]">
+    <section className="flex flex-col gap-2 xxl:rounded-[34px] md:rounded-[26px] max-w-[378px] w-full h-full relative">
+      <div className="w-full bg-[#FFFFFF4D] dark:bg-[#0000004D] rounded-[34px]  px-[25px] py-[10px] relative flex flex-col justify-between gap-[20px]">
         <div className="w-full flex justify-between items-center h-[31px]">
           <h2 className="xxl:text-[20px] md:text-lg text-[14px] text-center w-full">
             {TEXTS[language]?.sevenDayForecast}

@@ -17,19 +17,19 @@ const TodaysHiglightsMobile = ({
 }: any) => {
   const { language } = useGlobalContext();
   return (
-    <section className="md:max-w-[378px] w-full relative overflow-hidden flex flex-col gap-2 h-full">
-      <div className="grid grid-cols-2 h-full gap-3 max-w-[378px] m-auto">
-        <div>
+    <section className="md:max-w-[378px] w-full relative overflow-hidden flex flex-col gap-2 ">
+      <div className="grid grid-cols-2 gap-3 max-w-[378px] m-auto">
+        <div className="h-[164px]">
           <CalculateMoonPhase />
         </div>
-        <div>
+        <div className="h-[164px]">
           <HighlightUpperMobile
             type="uvIndex"
             className="col-start-3 col-end-5 row-start-1 row-end-3 h-full gap-1 justify-between"
             dataType={TEXTS[language]?.uvIndex}
           />
         </div>
-        <div>
+        <div className="h-[164px]">
           <HighlightUpperMobile
             sunRise={sunRise}
             sunSet={sunSet}
@@ -39,7 +39,7 @@ const TodaysHiglightsMobile = ({
           />
         </div>
 
-        <div>
+        <div className="h-[164px]">
           <HighLightLowerMobile
             number={humidity}
             title="The dew point is 17 right now"
@@ -48,7 +48,7 @@ const TodaysHiglightsMobile = ({
             dataType={TEXTS[language]?.humidity}
           />
         </div>
-        <div>
+        <div className="h-[164px]">
           <HighLightLowerMobile
             title="Haze is affecting visibility"
             number={visibility}
@@ -57,7 +57,7 @@ const TodaysHiglightsMobile = ({
             dataType={TEXTS[language]?.visibility}
           />
         </div>
-        <div>
+        <div className="h-[164px]">
           <HighLightLowerMobile
             title="Humidity is making it feel hotter."
             number={feelsLike}
