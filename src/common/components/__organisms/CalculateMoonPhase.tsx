@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import HighlightUpper from "../__molecules/HighlightUpper";
 import TEXTS from "@/languages/Languages";
 import { useGlobalContext } from "@/common/context/store";
+import HighlightUpperMobile from "../__molecules/HighlightUpperMobile";
 
 function getMoonPhaseName(phase: number) {
   switch (true) {
@@ -22,6 +23,21 @@ function getMoonPhaseName(phase: number) {
 function CalculateMoonPhase() {
   const [moonPhase, setMoonPhase] = useState<string>("");
   const { language } = useGlobalContext();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 1024);
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     let now = new Date();
@@ -36,12 +52,23 @@ function CalculateMoonPhase() {
   }, []);
 
   return (
-    <HighlightUpper
-      type="moonPhase"
-      className="col-start-1 col-end-3 row-start-1 row-end-3"
-      moonPhase={moonPhase}
-      dataType={TEXTS[language].moonPhase}
-    />
+    <>
+      {!isMobile ? (
+        <HighlightUpper
+          type="moonPhase"
+          className="col-start-1 col-end-3 row-start-1 row-end-3"
+          moonPhase={moonPhase}
+          dataType={TEXTS[language].moonPhase}
+        />
+      ) : (
+        <HighlightUpperMobile
+          type="moonPhase"
+          className="col-start-1 col-end-3 row-start-1 row-end-3 h-full justify-between"
+          moonPhase={moonPhase}
+          dataType={TEXTS[language].moonPhase}
+        />
+      )}
+    </>
   );
 }
 

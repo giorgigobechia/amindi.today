@@ -63,11 +63,11 @@ const TwentyFiveDayCard = ({
         <div className="xxl:text-[22px] md:text-[18px] flex gap-[15px] text-[22px]">
           <p>
             {tempMax}
-            <sup>o</sup>
+            <sup>°</sup>
           </p>
           <p className="dark:text-[#FFFFFFB2] text-[#000000B2]">
             {tempMin}
-            <sup>o</sup>
+            <sup>°</sup>
           </p>
         </div>
       </div>

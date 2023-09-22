@@ -7,10 +7,6 @@ import WindChartIcon from "@/common/icons/windChartIcon";
 import TEXTS from "@/languages/Languages";
 import React from "react";
 
-interface HighlightUpperProps {
-  dataType: string;
-}
-
 interface Props {
   type: string;
   dataType?: string;
@@ -45,12 +41,14 @@ const HighlightUpper = ({
         <>
           <div className="flex justify-center relative">
             <div className="absolute w-[100px] h-[100px] top-[-10px] radial-gradient -z-10 rounded-full"></div>
-            <MoonWrapper
-              width={165}
-              height={165}
-              className="absolute bottom-6"
-            />
-            <MoonPhasesImg iconName={moonPhase} className="" />
+            <div className="flex-1 relative flex justify-center w-">
+              <MoonWrapper
+                width={165}
+                height={165}
+                className="absolute bottom-6 "
+              />
+              <MoonPhasesImg iconName={moonPhase} IconSize={140} />
+            </div>
           </div>
           <div className="w-full flex justify-center items-end ">
             <h3

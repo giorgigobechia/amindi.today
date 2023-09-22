@@ -12,27 +12,10 @@ import OptSelect from "../__atoms/OptSelect";
 import BlueIcon from "@/common/icons/24HourBlueIcon";
 import WhiteIcon from "@/common/icons/24HourWhiteIcon";
 
-const DaysForecast = () => {
+const DaysForecast = ({ activeData, setActiveData }: any) => {
   const { language } = useGlobalContext();
-  const [activeData, setActiveData] = useState<string>(
-    TEXTS[language].twentyfourHours
-  );
-  const {
-    activeCity,
-    globalTwentyFiveDays,
-    setGlobalTwentyFourHours,
-    globalTwentyFourHours,
-  } = useGlobalContext();
-  const getHourlyWeather = async () => {
-    await weatherServices.getHourlyWeather(
-      setGlobalTwentyFourHours,
-      activeCity
-    );
-  };
-  useEffect(() => {
-    getHourlyWeather();
-    setActiveData(TEXTS[language].twentyfourHours);
-  }, [activeCity, language]);
+  const { globalTwentyFiveDays, globalTwentyFourHours } = useGlobalContext();
+
   return (
     <section className="flex flex-col gap-3 xxl:rounded-[34px] md:rounded-[26px] w-[30%] h-full relative">
       <WhiteIcon

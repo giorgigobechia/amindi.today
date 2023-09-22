@@ -1,43 +1,23 @@
+import { useGlobalContext } from "@/common/context/store";
 import SingleHourForecastMobile from "../__molecules/SingleHourForecastMobile";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
 import "@splidejs/splide/dist/css/splide.min.css";
+import TEXTS from "@/languages/Languages";
 
 interface HourData {
   time: string;
   temperature: string;
 }
 function HoursForecastMobile() {
-  const hoursData: HourData[] = [
-    { time: "Now", temperature: "+19" },
-    { time: "12", temperature: "+13" },
-    { time: "13", temperature: "-28" },
-    { time: "14", temperature: "+38" },
-    { time: "15", temperature: "+28" },
-    { time: "16", temperature: "+18" },
-    { time: "17", temperature: "+18" },
-    { time: "18", temperature: "+18" },
-    { time: "19", temperature: "+18" },
-    { time: "20", temperature: "+18" },
-    { time: "21", temperature: "+18" },
-    { time: "22", temperature: "+18" },
-    { time: "23", temperature: "+18" },
-    { time: "00", temperature: "+18" },
-    { time: "01", temperature: "+18" },
-    { time: "02", temperature: "+18" },
-    { time: "03", temperature: "+18" },
-    { time: "04", temperature: "+18" },
-    { time: "05", temperature: "+18" },
-    { time: "06", temperature: "+18" },
-    { time: "07", temperature: "+18" },
-    { time: "08", temperature: "+18" },
-    { time: "09", temperature: "+18" },
-    { time: "10", temperature: "+18" },
-  ];
+  const { globalTwentyFourHours, language } = useGlobalContext();
   return (
-    <>
+    <div className="bg-[#FFFFFF4D] dark:bg-[#0000004d] h-[121px] rounded-[18px] flex flex-col justify-center items-center max-w-[378px] w-full overflow-hidden">
+      <h2 className="xxl:text-[20px] md:text-lg text-[14px] w-full text-center bg-[#FFFFFF4D] dark:bg-[#0000004d] pt-3">
+        {TEXTS[language]?.twentyfourDayForecast}
+      </h2>
       <Splide
-        className="bg-[#FFFFFF4D] dark:bg-[#0000004d] h-[121px] rounded-[18px] flex justify-center items-center max-w-[378px] w-full"
+        className="bg-[#FFFFFF4D] dark:bg-[#0000004d] h-[121px]  flex justify-center items-center max-w-[378px] w-full"
         options={{
           type: "loop",
           gap: "30px",
@@ -54,13 +34,17 @@ function HoursForecastMobile() {
         }}
         extensions={{ AutoScroll }}
       >
-        {hoursData.map((hour, index) => (
+        {globalTwentyFourHours?.map((weather: any, index: number) => (
           <SplideSlide key={index}>
-            <SingleHourForecastMobile {...hour} />
+            <SingleHourForecastMobile
+              time={weather?.time}
+              temperature={weather?.temperature}
+              weather={weather?.weather}
+            />
           </SplideSlide>
         ))}
       </Splide>
-    </>
+    </div>
   );
 }
 

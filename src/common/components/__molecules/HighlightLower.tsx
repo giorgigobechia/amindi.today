@@ -19,8 +19,8 @@ const HighlightLower = ({
   type,
   className,
   dataType,
-  number,
   title,
+  number,
 }: Props) => {
   const { resolvedTheme } = useTheme();
   const { language } = useGlobalContext();
@@ -61,7 +61,7 @@ const HighlightLower = ({
                 {TEXTS[language]?.km}
               </span>
             ) : (
-              <span className="md:text-sm dark:text-[#FFFFFF99]">o</span>
+              <span className="md:text-sm dark:text-[#FFFFFF99]">°</span>
             )}
           </p>
         </div>

@@ -7,18 +7,7 @@ import { useGlobalContext } from "@/common/context/store";
 import TEXTS from "@/languages/Languages";
 import CalculateMoonPhase from "@/common/components/__organisms/CalculateMoonPhase";
 
-const windStatus = {
-  dataType: "Wind Status",
-};
-const uvIndex = {
-  dataType: "UV Index",
-};
-const Sunrise = {
-  dataType: "Sunrise & Sunset",
-};
-
 const TodaysHiglights = ({
-  windSpeed,
   visibility,
   humidity,
   feelsLike,

@@ -22,8 +22,8 @@ export function MoonPhasesImg({
     case "Waxing Crescent":
       IconComponent = (
         <Image
-          width={140}
-          height={140}
+          width={IconSize}
+          height={IconSize}
           src={"/images/waxing-crescent.png"}
           alt=""
         />
@@ -32,8 +32,8 @@ export function MoonPhasesImg({
     case "First Quarter Waxing Crescent":
       IconComponent = (
         <Image
-          width={140}
-          height={140}
+          width={IconSize}
+          height={IconSize}
           src={"/images/first-quarter.png"}
           alt=""
         />
@@ -42,8 +42,8 @@ export function MoonPhasesImg({
     case "First Quarter Half Moon":
       IconComponent = (
         <Image
-          width={140}
-          height={140}
+          width={IconSize}
+          height={IconSize}
           src={"/images/waxing-crescent.png"}
           alt=""
         />
@@ -52,8 +52,8 @@ export function MoonPhasesImg({
     case "Waxing Gibbous":
       IconComponent = (
         <Image
-          width={140}
-          height={140}
+          width={IconSize}
+          height={IconSize}
           src={"/images/waxing-crescent.png"}
           alt=""
         />
@@ -62,8 +62,8 @@ export function MoonPhasesImg({
     case "Last Quarter Waxing Gibbous":
       IconComponent = (
         <Image
-          width={140}
-          height={140}
+          width={IconSize}
+          height={IconSize}
           src={"/images/waxing-crescent.png"}
           alt=""
         />
@@ -72,8 +72,8 @@ export function MoonPhasesImg({
     case "Last Quarter Half Moon":
       IconComponent = (
         <Image
-          width={140}
-          height={140}
+          width={IconSize}
+          height={IconSize}
           src={"/images/waxing-crescent.png"}
           alt=""
         />
@@ -81,7 +81,12 @@ export function MoonPhasesImg({
       break;
     case "Full Moon":
       IconComponent = (
-        <Image width={140} height={140} src={"/images/full-moon.png"} alt="" />
+        <Image
+          width={IconSize}
+          height={IconSize}
+          src={"/images/full-moon.png"}
+          alt=""
+        />
       );
       break;
 

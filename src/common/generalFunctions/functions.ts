@@ -8,6 +8,8 @@ export function translateToLanguage(word : string, languageArray : any, targetLa
                     return entry.Ge
                 case  "en" :
                     return entry.En 
+                case  "ru" :
+                    return entry.Ru
             }
           }
       } else if(dataLang === "georgian") {
@@ -17,6 +19,8 @@ export function translateToLanguage(word : string, languageArray : any, targetLa
                     return entry.Ge
                 case  "en" :
                     return entry.En 
+                case  "ru" :
+                    return entry.Ru
             }
           }
       }

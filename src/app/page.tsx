@@ -15,6 +15,7 @@ import TodaysHiglightsMobile from "@/common/components/__organisms/TodaysHighlig
 import WeatherTodayMobile from "@/common/components/__organisms/WeatherTodayMobile";
 import PinkGradient from "@/common/icons/pinkGradient";
 import BgStars from "@/common/components/__molecules/bgStars";
+import TEXTS from "@/languages/Languages";
 
 const WeatherToday = dynamic(
   () => import("@/common/components/__organisms/WeatherToday"),
@@ -23,21 +24,30 @@ const WeatherToday = dynamic(
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
+  const { language } = useGlobalContext();
   const {
     setGlobalTwentyFiveDays,
     setGlobalTodaysWeather,
     globalTodaysWeather,
   } = useGlobalContext();
-  const { activeCity } = useGlobalContext();
+  const { activeCity, setGlobalTwentyFourHours } = useGlobalContext();
+  const [activeData, setActiveData] = useState<string>(
+    TEXTS[language].twentyfourHours
+  );
 
   const getTodayWeather = async () => {
     weatherServices.getTodayWeather(setGlobalTodaysWeather, activeCity);
     weatherServices.getTwentyFiveDays(setGlobalTwentyFiveDays, activeCity);
+    weatherServices.getHourlyWeather(setGlobalTwentyFourHours, activeCity);
   };
 
   useEffect(() => {
     getTodayWeather();
   }, [activeCity]);
+
+  useEffect(() => {
+    setActiveData(TEXTS[language].twentyfourHours);
+  }, [activeCity, language]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -56,14 +66,24 @@ export default function Home() {
   if (isMobile) {
     return (
       <>
-        <main className="w-full bg-[#355a716b] px-[25px] pb-[25px] relative">
+        <main className="w-full bg-[#a7aec727] dark:bg-[#355a716b] px-[25px] pb-[25px] relative">
           <BgStars />
           <article className="">
             <div className="flex flex-col justify-center items-center gap-[10px]">
-              <WeatherTodayMobile />
+              <WeatherTodayMobile
+                currentTemp={globalTodaysWeather?.currentTemp}
+                currentWeatherDesc={globalTodaysWeather?.currentWeatherDesc}
+              />
               <HoursForecastMobile />
               <DaysForeCastMobile />
-              <TodaysHiglightsMobile />
+              <TodaysHiglightsMobile
+                windSpeed={globalTodaysWeather?.windSpeed}
+                visibility={globalTodaysWeather?.visibility}
+                humidity={globalTodaysWeather?.humidity}
+                feelsLike={globalTodaysWeather?.feelsLike}
+                sunRise={globalTodaysWeather?.sunRise}
+                sunSet={globalTodaysWeather?.sunSet}
+              />
             </div>
           </article>
         </main>
@@ -72,33 +92,38 @@ export default function Home() {
   }
 
   return (
-    <main className="w-full">
-      <Analytics />
-      <article className="flex flex-col gap-3 w-full h-full">
-        <div className="flex gap-3 h-[55%]">
-          <WeatherToday
-            currentTemp={globalTodaysWeather?.currentTemp}
-            currentWeatherDesc={globalTodaysWeather?.currentWeatherDesc}
-            month={globalTodaysWeather?.month}
-            day={globalTodaysWeather?.day}
-            min={globalTodaysWeather?.minTemp}
-            max={globalTodaysWeather?.maxTemp}
-            windSpeed={globalTodaysWeather?.windSpeed}
-          />
-          <TodaysHiglights
-            windSpeed={globalTodaysWeather?.windSpeed}
-            visibility={globalTodaysWeather?.visibility}
-            humidity={globalTodaysWeather?.humidity}
-            feelsLike={globalTodaysWeather?.feelsLike}
-            sunRise={globalTodaysWeather?.sunRise}
-            sunSet={globalTodaysWeather?.sunSet}
-          />
-        </div>
-        <div className="flex gap-3 xxl:h-[45%] md:h-[43%]">
-          <DaysForecast />
-          <Advertising />
-        </div>
-      </article>
-    </main>
+    <>
+      <main className="w-full">
+        <Analytics />
+        <article className="flex flex-col gap-3 w-full h-full">
+          <div className="flex gap-3 h-[55%]">
+            <WeatherToday
+              currentTemp={globalTodaysWeather?.currentTemp}
+              currentWeatherDesc={globalTodaysWeather?.currentWeatherDesc}
+              month={globalTodaysWeather?.month}
+              day={globalTodaysWeather?.day}
+              min={globalTodaysWeather?.minTemp}
+              max={globalTodaysWeather?.maxTemp}
+              windSpeed={globalTodaysWeather?.windSpeed}
+            />
+            <TodaysHiglights
+              windSpeed={globalTodaysWeather?.windSpeed}
+              visibility={globalTodaysWeather?.visibility}
+              humidity={globalTodaysWeather?.humidity}
+              feelsLike={globalTodaysWeather?.feelsLike}
+              sunRise={globalTodaysWeather?.sunRise}
+              sunSet={globalTodaysWeather?.sunSet}
+            />
+          </div>
+          <div className="flex gap-3 xxl:h-[45%] md:h-[43%]">
+            <DaysForecast
+              activeData={activeData}
+              setActiveData={setActiveData}
+            />
+            <Advertising />
+          </div>
+        </article>
+      </main>
+    </>
   );
 }
