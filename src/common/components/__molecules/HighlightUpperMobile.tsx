@@ -22,7 +22,7 @@ const HighlightUpperMobile = ({ props, type, className, dataType }: Props) => {
   return (
     <article
       className={
-        "rounded-[18px] gap-3 px-[20px] py-[25px] min-h-[200px] h-full w-full bg-[#ffffff4d] dark:bg-[#0000004D] flex-1 flex flex-col justify-between" +
+        "rounded-[18px] gap-3 px-[20px] py-[13px] w-full bg-[#ffffff4d] dark:bg-[#0000004D] flex-1 flex flex-col justify-between" +
         className
       }
     >
@@ -34,7 +34,7 @@ const HighlightUpperMobile = ({ props, type, className, dataType }: Props) => {
           <WindChartIcon
             width={0}
             height={105}
-            className="w-full align-middle"
+            className="w-full align-middle max-h-[82px]"
           />
           <div className="w-full flex justify-center items-end">
             <h3
@@ -49,7 +49,11 @@ const HighlightUpperMobile = ({ props, type, className, dataType }: Props) => {
         </div>
       ) : type === "uvIndex" ? (
         <div className="flex flex-col gap-3">
-          <UvIndexIcon width={0} height={115} className="w-full flex-1" />
+          <UvIndexIcon
+            width={0}
+            height={115}
+            className="w-full flex-1 max-h-[82px]"
+          />
           <div className="w-full flex items-end justify-center">
             <h3 className={`text-[24px] font-medium flex items-end gap-1`}>
               4.3
@@ -61,7 +65,11 @@ const HighlightUpperMobile = ({ props, type, className, dataType }: Props) => {
         </div>
       ) : (
         <>
-          <SunriseIcon width={0} height={0} className="w-full flex-1" />
+          <SunriseIcon
+            width={0}
+            height={0}
+            className="w-full flex-1 max-h-[82px]"
+          />
           <div className="w-full flex items-center justify-between">
             <div className="flex flex-col justify-center">
               <p className="text-[#FAC32D] text-xs sm:text-[12px] xxl:text-lg ">

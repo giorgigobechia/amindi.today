@@ -3,6 +3,11 @@ import { WeatherIcons } from "@/common/icons/weatherIcons/WeatherIcons";
 import React, { ReactNode } from "react";
 import { Tooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
+import { translateToLanguage } from "@/common/generalFuncrtions/functions";
+import { weathersArray, weekDaysArray } from "@/common/languageCases/arrays";
+import { useGlobalContext } from "@/common/context/store";
+import TEXTS from "@/languages/Languages";
+
 interface SingleDayForecastProps {
   temp?: string;
   time: string;
@@ -20,11 +25,16 @@ const SingleDayForecast = ({
   weather,
   type,
 }: SingleDayForecastProps) => {
+  const { language } = useGlobalContext();
   return (
     <>
       <article
         data-tooltip-id="hourlyWeather"
-        data-tooltip-content={weather.length > 18 ? weather : ""}
+        data-tooltip-content={
+          weather.length > 18
+            ? translateToLanguage(weather, weathersArray, language, "georgian")
+            : ""
+        }
         className="w-full flex gap-4 xl:gap-12 items-center justify-between"
       >
         {type !== "weekDays" ? (
@@ -36,9 +46,11 @@ const SingleDayForecast = ({
           <div className="flex gap-2 items-center ">
             <WeatherIcons iconName={weather} IconSize={25} />
             <div className="flex items-center">
-              <h1 className="text-[20px] xxl:text-[24px] ">{tempMax}&deg;</h1>
+              <h1 className="text-[10px] md:text-[16px] xxl:text-[24px] ">
+                {tempMax}&deg;
+              </h1>
               <span className="text-[#00000066] dark:text-[#FFFFFF66]">/</span>
-              <h1 className="text-[16px] xxl:text-[20px] text-[#00000066] dark:text-[#FFFFFF66]">
+              <h1 className="text-[10px] md:text-[16px] xxl:text-[20px] text-[#00000066] dark:text-[#FFFFFF66]">
                 {tempMin}&deg;
               </h1>
             </div>
@@ -46,13 +58,21 @@ const SingleDayForecast = ({
         )}
         <p
           id="weatherContent"
-          className="text-[#00000066] md:text-sm xxl:text-[14px] dark:text-[#FFFFFF99] w-[40%] overflow-hidden whitespace-nowrap overflow-ellipsis max-[385px]:text-[12px]"
+          className="text-[#00000066] text-[8px] md:text-sm xxl:text-[14px] dark:text-[#FFFFFF99] w-[40%] overflow-hidden whitespace-nowrap overflow-ellipsis max-[385px]:text-[12px]"
         >
-          {weather}
+          {translateToLanguage(weather, weathersArray, language, "georgian")}
         </p>
-        {/* <p className="text-[#00000066] md:text-sm xxl:text-[14px] dark:text-[#FFFFFF99] max-[385px]:text-[12px]">
-          {day}
-        </p> */}
+
+        <p className="text-[#00000066] text-[8px] md:text-sm xxl:text-[14px] dark:text-[#FFFFFF99]">
+          {type !== "weekDays"
+            ? time.split(" ")[0] + " " + TEXTS[language].hours
+            : translateToLanguage(
+                time.split("\n")[1],
+                weekDaysArray,
+                language,
+                "georgian"
+              )}
+        </p>
       </article>
       <Tooltip id="hourlyWeather" />
     </>

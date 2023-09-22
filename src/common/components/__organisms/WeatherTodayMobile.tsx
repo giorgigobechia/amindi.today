@@ -26,6 +26,9 @@ const WeatherTodayMobile = () => {
       <h3 className="text-[80px] font-[300] leading-normal">
         +18<sup>o</sup>
       </h3>
+      <Link className="underline pt-[10px] pb-[15px]" href={"/twentyfive-days"}>
+        25 {TEXTS[language].days}
+      </Link>
       <div className="max-w-[168px] w-full">
         <p className="text-[#FFFFFFB2] text-[14px] font-[400] leading-normal text-center">
           Sunny, clear skies, swirling winds

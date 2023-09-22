@@ -27,7 +27,7 @@ const HighLightLowerMobile = ({ props, type, className, dataType }: Props) => {
   return (
     <article
       className={
-        "rounded-[18px] min-h-[200px] bg-[#ffffff4d] dark:bg-[#0000004D] h-full flex justify-between" +
+        "rounded-[18px] bg-[#ffffff4d] dark:bg-[#0000004D] flex justify-between" +
         className
       }
     >

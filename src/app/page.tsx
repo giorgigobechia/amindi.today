@@ -56,7 +56,7 @@ export default function Home() {
   if (isMobile) {
     return (
       <>
-        <main className="w-full bg-[#355a716b] px-[25px] pb-[25px] relative">
+        <main className="w-full bg-[#a7aec727] dark:bg-[#355a716b] px-[25px] pb-[25px] relative">
           <BgStars />
           <article className="">
             <div className="flex flex-col justify-center items-center gap-[10px]">
