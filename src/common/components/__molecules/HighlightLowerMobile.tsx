@@ -32,7 +32,7 @@ const HighLightLowerMobile = ({
         className
       }
     >
-      <div className="flex flex-col gap-[20px]">
+      <div className="flex flex-col gap-[20px] w-full">
         <h6 className="text-[#000000CC]  text-sm dark:text-[#FFFFFF99] text-center">
           {dataType}
         </h6>
@@ -42,19 +42,45 @@ const HighLightLowerMobile = ({
           } flex flex-col gap-[20px] h-full justify-center`}
         >
           <p
-            className={`font-medium flex ${
+            className={`font-medium flex justify-around ${
               type === "feelsLike" ? "" : "items-end"
-            } leading-10 text-[50px]`}
+            } leading-10 text-[40px]`}
           >
-            {number}
-            {type === "humidity" ? (
-              <span className="text-sm dark:text-[#FFFFFF99]">%</span>
-            ) : type === "visibility" ? (
-              <span className="text-sm dark:text-[#FFFFFF99]">
-                {TEXTS[language]?.km}
-              </span>
+            <span>
+              {number}
+              {type === "humidity" ? (
+                <span className="text-sm dark:text-[#FFFFFF99]">%</span>
+              ) : type === "visibility" ? (
+                <span className="text-sm dark:text-[#FFFFFF99]">
+                  {TEXTS[language]?.km}
+                </span>
+              ) : (
+                <span className="md:text-sm dark:text-[#FFFFFF99]">°</span>
+              )}
+            </span>
+            {type === "feelsLike" ? (
+              <TempIcon
+                width={15}
+                height={29}
+                stroke={resolvedTheme === "light" ? "black" : "white"}
+              />
             ) : (
-              <span className="md:text-sm dark:text-[#FFFFFF99]">°</span>
+              ""
+            )}
+            {type === "humidity" ? (
+              <DropIcon
+                width={27}
+                height={27}
+                stroke={resolvedTheme === "light" ? "black" : "white"}
+              />
+            ) : type === "visibility" ? (
+              <EyeIcon
+                width={27}
+                height={27}
+                stroke={resolvedTheme === "light" ? "black" : "white"}
+              />
+            ) : (
+              ""
             )}
           </p>
           <p className="text-xs text-[#00000099] dark:text-[#FFFFFF99]">
@@ -62,32 +88,7 @@ const HighLightLowerMobile = ({
           </p>
         </div>
       </div>
-      <div className="flex flex-col justify-center">
-        {type === "feelsLike" ? (
-          <TempIcon
-            width={15}
-            height={29}
-            stroke={resolvedTheme === "light" ? "black" : "white"}
-          />
-        ) : (
-          ""
-        )}
-        {type === "humidity" ? (
-          <DropIcon
-            width={27}
-            height={27}
-            stroke={resolvedTheme === "light" ? "black" : "white"}
-          />
-        ) : type === "visibility" ? (
-          <EyeIcon
-            width={27}
-            height={27}
-            stroke={resolvedTheme === "light" ? "black" : "white"}
-          />
-        ) : (
-          <div></div>
-        )}
-      </div>
+      <div className="flex flex-col justify-center"></div>
     </article>
   );
 };

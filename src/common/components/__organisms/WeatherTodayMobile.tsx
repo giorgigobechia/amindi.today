@@ -30,7 +30,7 @@ const WeatherTodayMobile = ({
   const { activeCity } = useGlobalContext();
 
   return (
-    <section className="md:p-4 pt-[70px] pb-[32px] flex flex-col justify-between mx-auto items-center">
+    <section className="md:p-4 pt-[20px] pb-[32px] flex flex-col justify-between mx-auto items-center">
       <div className="flex w-full items-center justify-center  gap-[5px]">
         <WeatherIcons iconName={currentWeatherDesc} IconSize={48} />
         <p className="text-[40px] leading-normal text-white">
@@ -40,11 +40,9 @@ const WeatherTodayMobile = ({
       </div>
       <h3 className="text-[80px] font-[300] leading-normal">
         {currentTemp}
-        <sup>°</sup>
+        <sup>°</sup>C
       </h3>
-      <Link className="underline pt-[10px] pb-[15px]" href={"/twentyfive-days"}>
-        25 {TEXTS[language].days}
-      </Link>
+
       <div className="max-w-[168px] w-full">
         <p className="text-[#FFFFFFB2] text-[14px] font-[400] leading-normal text-center">
           {translateToLanguage(
@@ -55,6 +53,12 @@ const WeatherTodayMobile = ({
           )}
         </p>
       </div>
+      <Link
+        className="underline pt-[10px] pb-[15px] text-center"
+        href={"/twentyfive-days"}
+      >
+        25 {TEXTS[language].days}
+      </Link>
     </section>
   );
 };

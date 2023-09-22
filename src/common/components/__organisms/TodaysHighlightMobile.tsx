@@ -18,14 +18,14 @@ const TodaysHiglightsMobile = ({
   const { language } = useGlobalContext();
   return (
     <section className="md:max-w-[378px] w-full relative overflow-hidden flex flex-col gap-2 h-full">
-      <div className="grid grid-cols-2 h-full gap-3 max-w-[378px] mx-auto w-full">
+      <div className="grid grid-cols-2 h-full gap-3 max-w-[378px] m-auto">
         <div>
           <CalculateMoonPhase />
         </div>
         <div>
           <HighlightUpperMobile
             type="uvIndex"
-            className="col-start-3 col-end-5 row-start-1 row-end-3 h-full gap-1"
+            className="col-start-3 col-end-5 row-start-1 row-end-3 h-full gap-1 justify-between"
             dataType={TEXTS[language]?.uvIndex}
           />
         </div>
