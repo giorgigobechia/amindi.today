@@ -1,23 +1,24 @@
 // "use client";
 import { useGlobalContext } from "@/common/context/store";
-import CalendarIcon from "@/common/icons/calendarIcon";
 import EmptyCalendarIcon from "@/common/icons/emptyCalendarIcon";
 import GrayGradient from "@/common/icons/grayGradient";
 import GreenGradient from "@/common/icons/greenGradient";
-import LocationIcon from "@/common/icons/locationIcon";
 import PinkGradient from "@/common/icons/pinkGradient";
 import SearchIcon from "@/common/icons/searchIcon";
-import SunIcon from "@/common/icons/sunIcon";
 import { WeatherIcons } from "@/common/icons/weatherIcons/WeatherIcons";
-import { DayCases } from "@/common/languageCases/DayCases";
-import { MonthCases } from "@/common/languageCases/MonthCases";
-import { todaysWeatherProps } from "@/common/types/weatherTypes";
 import TEXTS from "@/languages/Languages";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import SearchBar from "../__molecules/SearchBar";
 import WindIcon from "@/common/icons/windIcon";
+import { translateToLanguage } from "@/common/generalFunctions/functions";
+import {
+  citiesArray,
+  monthsArray,
+  weathersArray,
+  weekDaysArray,
+} from "@/common/languageCases/arrays";
 
 interface PropsTypes {
   currentTemp: number;
@@ -90,7 +91,10 @@ const WeatherToday = ({
         />
       </div>
       <div className="flex w-full justify-between mt-4 ">
-        <h1 className="xxl:text-[40px] md:text-[30px]"> {activeCity}</h1>
+        <h1 className="xxl:text-[40px] md:text-[30px]">
+          {" "}
+          {translateToLanguage(activeCity, citiesArray, language, "english")}
+        </h1>
         <button
           className={`rounded-full xxl:py-2 xxl:px-3 md:p-2 bg-[#ffffff4d] dark:bg-[#0000004D] cursor-pointer ${
             searchActive && "hidden"
@@ -114,11 +118,17 @@ const WeatherToday = ({
             <sup>&deg;</sup>C
           </h3>
           <p className="text-sm">
-            მინ:{min}° მაქს:{max}°
+            {TEXTS[language].min}:{min}° {TEXTS[language].max}:{max}°
           </p>
           <br />
           <p className="xxl:text-base md:text-sm tracking-tight text-justify">
-            {currentWeatherDesc}
+            {/* {currentWeatherDesc} */}
+            {translateToLanguage(
+              currentWeatherDesc,
+              weathersArray,
+              language,
+              "georgian"
+            )}
           </p>
         </div>
       </div>
@@ -129,12 +139,7 @@ const WeatherToday = ({
             height={21}
             stroke={resolvedTheme === "light" ? "#000000B2" : "#FFFFFFB2"}
           />
-          {/* <LocationIcon
-            width={21}
-            height={21}
-            stroke={resolvedTheme === "light" ? "black" : "white"}
-          />{" "} */}
-          ქარის სიჩქარე : {windSpeed} {TEXTS[language].kmh}
+          {TEXTS[language].windStatus}: {windSpeed} {TEXTS[language].kmh}
         </p>
         <p className="flex items-center gap-1 xxl:text-base md:text-sm justify-between ">
           <div className="flex">
@@ -143,8 +148,8 @@ const WeatherToday = ({
               height={21}
               stroke={resolvedTheme === "light" ? "black" : "white"}
             />{" "}
-            <DayCases dayResponse={day} />
-            , <MonthCases monthResponse={month} />
+            {translateToLanguage(day, weekDaysArray, language, "georgian")},{" "}
+            {translateToLanguage(month, monthsArray, language, "georgian")}
             <span className="pl-2">{dayNum}</span>
             <span className="pl-2">
               {" "}
@@ -152,7 +157,7 @@ const WeatherToday = ({
             </span>
           </div>
           <Link className="underline" href={"/twentyfive-days"}>
-            25 დღის
+            25 {TEXTS[language].days}
           </Link>
         </p>
       </div>

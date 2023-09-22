@@ -1,14 +1,18 @@
 import { useGlobalContext } from "@/common/context/store";
 import ArrowDown from "@/common/icons/arrowDown";
+import TEXTS from "@/languages/Languages";
 import { useTheme } from "next-themes";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const OptSelect = ({ activeData, setActiveData }: any) => {
+  const { language } = useGlobalContext();
   const [openOptions, setOpenOptions] = useState(false);
-  const [notActiveData, setNotActiveData] = useState("7 დღე");
+  const [notActiveData, setNotActiveData] = useState(TEXTS[language].sevenDays);
   const { resolvedTheme } = useTheme();
 
-  const { language } = useGlobalContext();
+  useEffect(() => {
+    setNotActiveData(TEXTS[language].sevenDays);
+  }, [language]);
   return (
     <div
       className={`relative bg-[#70707033] dark:bg-[#70707033] py-[2px] xxl:py-2 ${

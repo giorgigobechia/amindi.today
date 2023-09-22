@@ -2,9 +2,10 @@ import React, { ReactNode, useEffect, useRef, useState } from "react";
 import TextModal from "../__molecules/showMoreTextModal";
 import { useGlobalContext } from "@/common/context/store";
 import TEXTS from "@/languages/Languages";
-import { MonthCases } from "@/common/languageCases/MonthCases";
 import GrayStarIcon from "@/common/icons/grayStarIcon";
 import BgStars from "../__molecules/bgStars";
+import { monthsArray } from "@/common/languageCases/arrays";
+import { translateToLanguage } from "@/common/generalFunctions/functions";
 
 interface ZoidacDetailProps {
     logo: ReactNode;
@@ -33,6 +34,7 @@ const ZodiacDetails = ({
     const [textToShow, setTextToShow] = useState<string>("");
     const outsideClickRef = useRef<null | HTMLDivElement>(null);
     const [isOverlayVisible, setOverlayVisible] = useState<boolean>(false);
+    const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
     const { language } = useGlobalContext();
     const [startDate, startMonth, , endDate, endMonth] = date.split(" ");
 
@@ -55,10 +57,20 @@ const ZodiacDetails = ({
         }
     };
 
+    const updateScreenWidth = () => {
+        setScreenWidth(window.innerWidth);
+    };
+
     useEffect(() => {
         document.addEventListener("click", handleOutsideClick);
+        window.addEventListener("resize", updateScreenWidth);
         setOverlayVisible(false);
-    }, []);
+
+        return () => {
+            document.removeEventListener("click", handleOutsideClick);
+            window.removeEventListener("resize", updateScreenWidth);
+        };
+    }, [screenWidth]);
 
     return (
         <section className="md:p-[2%] xxl:px-7 xxl:py-5 xxl:rounded-[34px] md:rounded-[26px] bg-[#a7aec727] dark:bg-[#355a716b] w-full relative overflow-hidden flex flex-col xxl:gap-24 md:gap-16">
@@ -76,11 +88,23 @@ const ZodiacDetails = ({
                 <div className="flex flex-col gap-6 h-full md:items-start md:text-left items-center text-center md:pt-[50px] xxl:pt-[100px]">
                     <h1 className="text-[34px]">
                         {title} ({startDate}{" "}
-                        <MonthCases monthResponse={startMonth} />
+                        {translateToLanguage(
+                            startMonth,
+                            monthsArray,
+                            language,
+                            "english"
+                        )}
                         {" - "}
-                        {endDate} <MonthCases monthResponse={endMonth} />)
+                        {endDate}{" "}
+                        {translateToLanguage(
+                            endMonth,
+                            monthsArray,
+                            language,
+                            "english"
+                        )}
+                        )
                     </h1>
-                    <p className="overflow-scroll">
+                    <p className="overflow-y-scroll customScrollbar">
                         <span className="font-medium">
                             {TEXTS[language].overview}
                         </span>
@@ -100,15 +124,27 @@ const ZodiacDetails = ({
                                 <p className="text-[16px] font-medium">
                                     {TEXTS[language].matchingZodiac}:
                                 </p>
-                                <p className={"textEndThreeDot"}>{matching}</p>
-                                <span
-                                    onClick={() => showFullText("matching")}
-                                    className="cursor-pointer underline dark:hover:text-[#ffffffcd] hover:text-[#000000b5] duration-200 "
+                                <p
+                                    className={
+                                        screenWidth > 1024
+                                            ? "textEndThreeDot"
+                                            : ""
+                                    }
                                 >
-                                    {TEXTS[language].seeMore}
-                                </span>
+                                    {matching}
+                                </p>
+                                {screenWidth > 1024 && (
+                                    <span
+                                        onClick={() => showFullText("matching")}
+                                        className="cursor-pointer underline dark:hover:text-[#ffffffcd] hover:text-[#000000b5] duration-200 "
+                                    >
+                                        {TEXTS[language].seeMore}
+                                    </span>
+                                )}
+
                                 {isShowingMoreText &&
-                                    textToShow === "matching" && (
+                                    textToShow === "matching" &&
+                                    screenWidth > 1024 && (
                                         <TextModal
                                             title={
                                                 TEXTS[language].matchingZodiac
@@ -122,15 +158,27 @@ const ZodiacDetails = ({
                                 <p className="text-[16px] font-medium">
                                     {TEXTS[language].career}:
                                 </p>
-                                <p className={"textEndThreeDot"}>{career}</p>
-                                <span
-                                    onClick={() => showFullText("career")}
-                                    className="cursor-pointer underline dark:hover:text-[#ffffffcd] hover:text-[#000000b5] duration-200 "
+                                <p
+                                    className={
+                                        screenWidth > 1024
+                                            ? "textEndThreeDot"
+                                            : ""
+                                    }
                                 >
-                                    {TEXTS[language].seeMore}
-                                </span>
+                                    {career}
+                                </p>
+                                {screenWidth > 1024 && (
+                                    <span
+                                        onClick={() => showFullText("career")}
+                                        className="cursor-pointer underline dark:hover:text-[#ffffffcd] hover:text-[#000000b5] duration-200 "
+                                    >
+                                        {TEXTS[language].seeMore}
+                                    </span>
+                                )}
+
                                 {isShowingMoreText &&
-                                    textToShow === "career" && (
+                                    textToShow === "career" &&
+                                    screenWidth > 1024 && (
                                         <TextModal
                                             title={TEXTS[language].career}
                                             text={career}
@@ -143,15 +191,27 @@ const ZodiacDetails = ({
                                 <p className="text-[16px] font-medium">
                                     {TEXTS[language].health}:
                                 </p>
-                                <p className={"textEndThreeDot"}>{health}</p>
-                                <span
-                                    onClick={() => showFullText("health")}
-                                    className="cursor-pointer underline dark:hover:text-[#ffffffcd] hover:text-[#000000b5] duration-200 "
+                                <p
+                                    className={
+                                        screenWidth > 1024
+                                            ? "textEndThreeDot"
+                                            : ""
+                                    }
                                 >
-                                    {TEXTS[language].seeMore}
-                                </span>
+                                    {health}
+                                </p>
+                                {screenWidth > 1024 && (
+                                    <span
+                                        onClick={() => showFullText("health")}
+                                        className="cursor-pointer underline dark:hover:text-[#ffffffcd] hover:text-[#000000b5] duration-200 "
+                                    >
+                                        {TEXTS[language].seeMore}
+                                    </span>
+                                )}
+
                                 {isShowingMoreText &&
-                                    textToShow === "health" && (
+                                    textToShow === "health" &&
+                                    screenWidth > 1024 && (
                                         <TextModal
                                             title={TEXTS[language].health}
                                             text={health}
@@ -163,20 +223,32 @@ const ZodiacDetails = ({
                                 <p className="text-[16px] overflow-ellipsis font-medium">
                                     {TEXTS[language].love}:
                                 </p>
-                                <p className={"textEndThreeDot"}>{love}</p>
-                                <span
-                                    onClick={() => showFullText("love")}
-                                    className="cursor-pointer underline dark:hover:text-[#ffffffcd] hover:text-[#000000b5] duration-200"
+                                <p
+                                    className={
+                                        screenWidth > 1024
+                                            ? "textEndThreeDot"
+                                            : ""
+                                    }
                                 >
-                                    {TEXTS[language].seeMore}
-                                </span>
-                                {isShowingMoreText && textToShow === "love" && (
-                                    <TextModal
-                                        title={TEXTS[language].love}
-                                        text={love}
-                                        hideFullText={hideFullText}
-                                    />
+                                    {love}
+                                </p>
+                                {screenWidth > 1024 && (
+                                    <span
+                                        onClick={() => showFullText("love")}
+                                        className="cursor-pointer underline dark:hover:text-[#ffffffcd] hover:text-[#000000b5] duration-200"
+                                    >
+                                        {TEXTS[language].seeMore}
+                                    </span>
                                 )}
+                                {isShowingMoreText &&
+                                    textToShow === "love" &&
+                                    screenWidth > 1024 && (
+                                        <TextModal
+                                            title={TEXTS[language].love}
+                                            text={love}
+                                            hideFullText={hideFullText}
+                                        />
+                                    )}
                             </div>
                         </div>
                         <div className="max-w-[400px] w-full h-[225px]">

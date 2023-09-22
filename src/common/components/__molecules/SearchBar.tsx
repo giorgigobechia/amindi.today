@@ -2,68 +2,13 @@ import SearchIcon from "@/common/icons/searchIcon";
 import { useTheme } from "next-themes";
 import { useGlobalContext } from "@/common/context/store";
 import { useState } from "react";
+import { citiesArray } from "@/common/languageCases/arrays";
 
 interface SearchProps {
   handleSearchClose: () => void;
 }
 
 const SearchBar = ({ handleSearchClose }: SearchProps) => {
-  let citiesArray = [
-    { cityEn: "tbilisi", cityGe: "თბილისი" },
-    { cityEn: "abastumani", cityGe: "აბასთუმანი" },
-    { cityEn: "kutaisi", cityGe: "ქუთაისი" },
-    { cityEn: "batumi", cityGe: "ბათუმი" },
-    { cityEn: "bakuriani", cityGe: "ბაკურიანი" },
-    { cityEn: "zestafoni", cityGe: "ზესტაფონი" },
-    { cityEn: "zugdidi", cityGe: "ზუგდიდი" },
-    { cityEn: "chiatura", cityGe: "ჭიათურა" },
-    { cityEn: "ozurgeti", cityGe: "ოზურგეთი" },
-    { cityEn: "kobuleti", cityGe: "ქობულეთი" },
-    { cityEn: "gori", cityGe: "გორი" },
-    { cityEn: "gudauri", cityGe: "გუდაური" },
-    { cityEn: "sachkhere", cityGe: "საჩხერე" },
-    { cityEn: "signagi", cityGe: "სიღნაღი" },
-    { cityEn: "senaki", cityGe: "სენაკი" },
-    { cityEn: "samtredia", cityGe: "სამტრედია" },
-    { cityEn: "akhaltsikhe", cityGe: "ახალციხე" },
-    { cityEn: "mestia", cityGe: "მესტია" },
-    { cityEn: "gurjaani", cityGe: "გურჯაანი" },
-    { cityEn: "khashuri", cityGe: "ხაშური" },
-    { cityEn: "chokhatauri", cityGe: "ჩოხატაური" },
-    { cityEn: "borjomi", cityGe: "ბორჯომი" },
-    { cityEn: "sagarejo", cityGe: "საგარეჯო" },
-    { cityEn: "lagodekhi", cityGe: "ლაგოდეხი" },
-    { cityEn: "tianeti", cityGe: "თიანეთი" },
-    { cityEn: "kharagauli", cityGe: "ხარაგაული" },
-    { cityEn: "cxinvali", cityGe: "ცხინვალი" },
-    { cityEn: "rustavi", cityGe: "რუსთავი" },
-    { cityEn: "ureki", cityGe: "ურეკი" },
-    { cityEn: "lanchkhuti", cityGe: "ლანჩხუთი" },
-    { cityEn: "surami", cityGe: "სურამი" },
-    { cityEn: "poti", cityGe: "ფოთი" },
-    { cityEn: "oni", cityGe: "ონი" },
-    { cityEn: "shekvetili", cityGe: "შეკვეთილი" },
-    { cityEn: "marneuli", cityGe: "მარნეული" },
-    { cityEn: "bolnisi", cityGe: "ბოლნისი" },
-    { cityEn: "manglisi", cityGe: "მანგლისი" },
-    { cityEn: "mcxeta", cityGe: "მცხეთა" },
-    { cityEn: "gonio", cityGe: "გონიო" },
-    { cityEn: "shatili", cityGe: "შატილი" },
-    { cityEn: "shovi", cityGe: "შოვი" },
-    { cityEn: "tsinandali", cityGe: "წინანდალი" },
-    { cityEn: "khobi", cityGe: "ხობი" },
-    { cityEn: "tskneti", cityGe: "წყნეთი" },
-    { cityEn: "sioni", cityGe: "სიონი" },
-    { cityEn: "sokhumi", cityGe: "სოხუმი" },
-    { cityEn: "ushguli", cityGe: "უშგული" },
-    { cityEn: "davit-gareji", cityGe: "დავით-გარეჯი" },
-    { cityEn: "omalo", cityGe: "ომალო" },
-    { cityEn: "axalkalaki", cityGe: "ახალქალაქი" },
-    { cityEn: "martvili", cityGe: "მარტვილი" },
-    { cityEn: "khoni", cityGe: "ხონი" },
-    { cityEn: "anaklia", cityGe: "ანაკლია" },
-    { cityEn: "adigeni", cityGe: "ადიგენი" },
-  ];
   const { resolvedTheme } = useTheme();
   const { language } = useGlobalContext();
   const [search, setSearch] = useState("");
@@ -108,18 +53,18 @@ const SearchBar = ({ handleSearchClose }: SearchProps) => {
                 return search.toLowerCase() === ""
                   ? city
                   : language === "ka"
-                  ? city.cityGe.toLowerCase().includes(search)
-                  : city.cityEn.toLowerCase().includes(search);
+                  ? city.Ge.toLowerCase().includes(search)
+                  : city.En.toLowerCase().includes(search);
               })
               .map((city, index) => {
                 return (
                   <li
                     key={index}
                     className="flex items-center h-[53px] dark:hover:bg-[#ffffff59] hover:bg-[#d7d5d5]"
-                    onClick={() => handleOptionClick(city.cityEn)}
+                    onClick={() => handleOptionClick(city.En)}
                   >
                     <span className="ml-[37px] xxl:ml-[77px]">
-                      {language === "ka" ? city.cityGe : city.cityEn}
+                      {language === "ka" ? city.Ge : city.En}
                     </span>
                   </li>
                 );

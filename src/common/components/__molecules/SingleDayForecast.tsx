@@ -63,7 +63,7 @@ const SingleDayForecast = ({
           {translateToLanguage(weather, weathersArray, language, "georgian")}
         </p>
 
-        <p className="text-[#00000066] text-[8px] md:text-sm xxl:text-[14px] dark:text-[#FFFFFF99]">
+        <p className="text-[#00000066] md:text-sm xxl:text-[14px] dark:text-[#FFFFFF99]">
           {type !== "weekDays"
             ? time.split(" ")[0] + " " + TEXTS[language].hours
             : translateToLanguage(
