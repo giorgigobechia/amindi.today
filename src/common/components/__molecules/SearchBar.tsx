@@ -22,8 +22,8 @@ const SearchBar = ({ handleSearchClose }: SearchProps) => {
     return (
         <div>
             <div
-                className="fixed top-0 left-0 w-[100%] h-full z-30 bg-[#00000066]"
-                style={{ backdropFilter: "blur(2px)" }}
+                className="fixed top-0 left-0 w-[100%] h-full z-30 bg-[#00000044]"
+                style={{ backdropFilter: "blur(3px)" }}
                 onClick={handleSearchClose}
             />
             <div className="flex flex-col gap-[18px] fixed top-[10vh] md:left-[30%] md:translate-x-0 md:translate-y-0 md:w-[39.8%] w-[80%] left-[50%] translate-x-[-50%] min-h-[200px] z-50 overflow-hidden">
@@ -39,12 +39,12 @@ const SearchBar = ({ handleSearchClose }: SearchProps) => {
                         />
                     </button>
                     <input
-                        className="w-[80%] h-[100%] bg-white dark:bg-black border-[0px] absolute left-[60px] outline-none"
+                        className="w-[72%] h-[100%] bg-white dark:bg-black rounded-[34.5px] border-[0px] absolute left-[60px] outline-none"
                         onChange={(e) => setSearch(e.target.value)}
                     />
                 </div>
                 <div
-                    className={`w-full h-[70vh] bg-white dark:bg-black rounded-[34.5px]  ${
+                    className={`w-full md:h-[70vh] h-[63vh] bg-white dark:bg-black rounded-[34.5px]  ${
                         resolvedTheme === "light"
                             ? "search-scroll-dark"
                             : "search-scroll"
