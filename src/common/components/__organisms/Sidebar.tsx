@@ -15,11 +15,18 @@ import LanguageSwitcher from "../__atoms/LanguageSwitcher";
 import SearchIcon from "@/common/icons/searchIcon";
 import HamburgerMenuButton from "../__atoms/HamburgerMenuButton";
 import BlueIcon from "@/common/icons/24HourBlueIcon";
+import SearchBar from "../__molecules/SearchBar";
+import { useGlobalContext } from "@/common/context/store";
 
 const Sidebar = () => {
     const [activePage, setActivePage] = useState<string>("main");
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
     const { resolvedTheme } = useTheme();
+    const { setSearchActive, searchActive } = useGlobalContext();
+
+    const handleSearchClose = () => {
+        setSearchActive(false);
+    };
 
     // hides body scroll if menu is opened
     useEffect(() => {
@@ -55,6 +62,9 @@ const Sidebar = () => {
                 height={700}
                 className="absolute top-[-250px] right-[-200px] z-[-5] inline-block md:hidden "
             />
+            {searchActive && (
+                <SearchBar handleSearchClose={handleSearchClose} />
+            )}
             <div className="w-full md:flex flex-col xxl:gap-[25px] md:gap-[20px] h-full">
                 <div className="md:absolute dark:bg-[#121212] md:w-[200px] md:h-[200px] md:blur-[20px] md:left-[-170px] md:top-[-120px]"></div>
                 <p className="w-full border-b border-b-[#0000004D] text-center pb-[10px] md:text-sm md:inline-block hidden">
@@ -148,7 +158,10 @@ const Sidebar = () => {
             <div className="flex justify-between px-[25px] md:px-0 md:flex-col md:justify-center flex-row-reverse gap-3 items-center ">
                 <div className="flex items-center gap-[10px]">
                     <LanguageSwitcher />
-                    <button className="rounded-full xxl:py-2 xxl:px-3 p-3 cursor-pointer md:hidden block">
+                    <button
+                        className="rounded-full xxl:py-2 xxl:px-3 p-3 cursor-pointer md:hidden block"
+                        onClick={() => setSearchActive(true)}
+                    >
                         <SearchIcon
                             width={0}
                             height={0}

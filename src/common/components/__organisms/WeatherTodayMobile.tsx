@@ -17,50 +17,55 @@ import Link from "next/link";
 import React from "react";
 
 interface PropsTypes {
-  currentTemp: number;
-  currentWeatherDesc: string;
+    currentTemp: number;
+    currentWeatherDesc: string;
 }
 
 const WeatherTodayMobile = ({
-  currentTemp,
-  currentWeatherDesc,
+    currentTemp,
+    currentWeatherDesc,
 }: PropsTypes) => {
-  const { resolvedTheme } = useTheme();
-  const { language } = useGlobalContext();
-  const { activeCity } = useGlobalContext();
+    const { resolvedTheme } = useTheme();
+    const { language } = useGlobalContext();
+    const { activeCity } = useGlobalContext();
 
-  return (
-    <section className="md:p-4 pt-[20px] pb-[32px] flex flex-col justify-between mx-auto items-center">
-      <div className="flex w-full items-center justify-center  gap-[5px]">
-        <WeatherIcons iconName={currentWeatherDesc} IconSize={48} />
-        <p className="text-[40px] leading-normal text-white">
-          {" "}
-          {translateToLanguage(activeCity, citiesArray, language, "english")}
-        </p>
-      </div>
-      <h3 className="text-[80px] font-[300] leading-normal">
-        {currentTemp}
-        <sup>°</sup>C
-      </h3>
+    return (
+        <section className="md:p-4 pt-[20px] pb-[32px] flex flex-col justify-between mx-auto items-center">
+            <div className="flex w-full items-center justify-center  gap-[5px]">
+                <WeatherIcons iconName={currentWeatherDesc} IconSize={48} />
+                <p className="text-[40px] leading-normal dark:text-white text-black">
+                    {" "}
+                    {translateToLanguage(
+                        activeCity,
+                        citiesArray,
+                        language,
+                        "english"
+                    )}
+                </p>
+            </div>
+            <h3 className="text-[80px] font-[300] leading-normal">
+                {currentTemp}
+                <sup>°</sup>C
+            </h3>
 
-      <div className="max-w-[168px] w-full">
-        <p className="text-[#FFFFFFB2] text-[14px] font-[400] leading-normal text-center">
-          {translateToLanguage(
-            currentWeatherDesc,
-            weathersArray,
-            language,
-            "georgian"
-          )}
-        </p>
-      </div>
-      <Link
-        className="underline pt-[10px] pb-[15px] text-center"
-        href={"/twentyfive-days"}
-      >
-        25 {TEXTS[language].days}
-      </Link>
-    </section>
-  );
+            <div className="max-w-[168px] w-full">
+                <p className="dark:text-[#FFFFFFB2] text-[#1e1e1e] text-[14px] font-[400] leading-normal text-center">
+                    {translateToLanguage(
+                        currentWeatherDesc,
+                        weathersArray,
+                        language,
+                        "georgian"
+                    )}
+                </p>
+            </div>
+            <Link
+                className="underline pt-[10px] pb-[15px] text-center"
+                href={"/twentyfive-days"}
+            >
+                25 {TEXTS[language].days}
+            </Link>
+        </section>
+    );
 };
 
 export default WeatherTodayMobile;
