@@ -16,7 +16,7 @@ const SearchBar = ({ handleSearchClose }: SearchProps) => {
   const handleOptionClick = (cityEnValue: string) => {
     setSearch(cityEnValue);
     handleSearchClose();
-    window.history.pushState({}, "", encodeURIComponent(cityEnValue));
+    window.history.pushState({}, "", `/prognozi/${cityEnValue}`);
     setActiveCity(cityEnValue);
   };
 
