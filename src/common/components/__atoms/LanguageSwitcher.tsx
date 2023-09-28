@@ -35,13 +35,13 @@ const LanguageSwitcher = () => {
             </div>
             {modalOpen && (
                 <div
-                    className={`md:h-[100px] md:w-[300px] w-[200px] h-[90px] overflow-hidden flex flex-col absolute z-30 ${
+                    className={`md:h-[100px] md:w-[300px] w-[170px] h-[90px] overflow-hidden flex flex-col absolute z-30 ${
                         language === "ka"
-                            ? "md:left-[3.22vw] right-[3.22vw]"
+                            ? "md:left-[3.22vw] md:right-[3.22vw] right-[-75px]"
                             : language === "en"
-                            ? "md:left-[3.22vw] right-[3.22vw]"
-                            : "md:left-[3.22vw] right-[3.22vw]"
-                    } bottom-[-42px] md:py-5 py-4 pr-[2vw] justify-between bg-[#ece3e3] dark:bg-[#223743] md:rounded-r-[22px] md:rounded-l-[0px] rounded-l-[22px] md:bg-custom-gradient-opposite bg-custom-gradient`}
+                            ? "md:left-[3.22vw] md:right-[3.22vw] right-[-75px]"
+                            : "md:left-[3.22vw] md:right-[3.22vw] right-[-75px]"
+                    } md:bottom-[-42px] bottom-[-100px]  md:py-5 py-4 pr-[2vw] justify-between bg-[#ece3e3] dark:bg-[#223743] md:rounded-r-[22px] md:rounded-l-[0px] rounded-[22px] md:bg-custom-gradient-opposite bg-custom-gradient`}
                     onMouseOver={() => setModalOpen(true)}
                     onMouseOut={() => {
                         setModalOpen(false);
