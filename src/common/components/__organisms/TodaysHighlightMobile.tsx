@@ -42,7 +42,7 @@ const TodaysHiglightsMobile = ({
         <div className="h-[164px]">
           <HighLightLowerMobile
             number={humidity}
-            title="The dew point is 17 right now"
+            title={TEXTS[language]?.humidity}
             type="humidity"
             className="col-start-1 col-end-3 h-full p-4 "
             dataType={TEXTS[language]?.humidity}
@@ -50,7 +50,7 @@ const TodaysHiglightsMobile = ({
         </div>
         <div className="h-[164px]">
           <HighLightLowerMobile
-            title="Haze is affecting visibility"
+            title={TEXTS[language]?.visibility}
             number={visibility}
             type="visibility"
             className="col-start-3 col-end-5 h-full p-4 "
@@ -59,7 +59,7 @@ const TodaysHiglightsMobile = ({
         </div>
         <div className="h-[164px]">
           <HighLightLowerMobile
-            title="Humidity is making it feel hotter."
+            title={TEXTS[language]?.feelsLike}
             number={feelsLike}
             type="feelsLike"
             className="col-start-5 col-end-7 h-full p-4"
