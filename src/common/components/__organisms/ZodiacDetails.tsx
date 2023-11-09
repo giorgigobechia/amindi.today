@@ -82,7 +82,7 @@ const ZodiacDetails = ({
             {isOverlayVisible && <div className="overlay" id="overlay"></div>}
             <div className="w-full h-full md:flex md:flex-row flex flex-col lg:gap-[120px] md:gap-[80px] gap-[40px] items-center md:p-[35px_10px_35px_10%] p-[35px_25px_35px_25px] relative">
                 <div className="md:scale-[1.8] lg:scale-[2.2] scale-[1.1]">
-                    {logo}
+                    {logo} 
                 </div>
                 <BgStars />
                 <div className="flex flex-col gap-6 h-full md:items-start md:text-left items-center text-center md:pt-[50px] xxl:pt-[100px]">
